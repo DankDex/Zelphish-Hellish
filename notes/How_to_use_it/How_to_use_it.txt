@@ -1,0 +1,9 @@
+Hello and Welcome!
+
+With this Easy and Fast Menu, you can setup a nice and very functional menu in just a few minutes.
+
+All you need to do is add the "oMenuControl" to your menu room and then configure it in the "Create" event.
+
+It's highly customizable and easy to do so. 
+
+IMPORTANT: in the step event, in the "cases" of "switch(selected)", you must enter the code of what the menu will do.
