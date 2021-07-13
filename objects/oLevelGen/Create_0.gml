@@ -44,9 +44,12 @@ for (var i = 0; i < room_width div TILE_SIZE; i++)
 {
 	for (var j = 0; j < room_height div TILE_SIZE; j++)
 	{
-		var _enemy = enemies_to_spawn[irandom_range(0,1)];
-		if(chance(5) && !place_meeting(i * TILE_SIZE, j * TILE_SIZE, oWall) && !collision_circle(i * TILE_SIZE, j * TILE_SIZE, _enemy.object_index.detection_range, oPlayer, 0, 0))
+		var indexx = irandom_range(0,1);
+		show_debug_message(string(indexx));
+		var _enemy = enemies_to_spawn[indexx];
+		if(chance(5) && !place_meeting(i * TILE_SIZE, j * TILE_SIZE, oWall) && !collision_circle(i * TILE_SIZE, j * TILE_SIZE, _enemy.detection_range, oPlayer, 0, 0))
 		{
+			show_debug_message("Enemy spotted");
 			instance_create_layer(i * TILE_SIZE + 32, j * TILE_SIZE + 32,"Enemies",_enemy);
 		}
 	}
