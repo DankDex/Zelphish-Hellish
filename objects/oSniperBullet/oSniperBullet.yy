@@ -1,0 +1,42 @@
+{
+  "spriteId": {
+    "name": "sBullet",
+    "path": "sprites/sBullet/sBullet.yy",
+  },
+  "solid": false,
+  "visible": true,
+  "spriteMaskId": null,
+  "persistent": false,
+  "parentObjectId": {
+    "name": "oBullet_Parent",
+    "path": "objects/oBullet_Parent/oBullet_Parent.yy",
+  },
+  "physicsObject": false,
+  "physicsSensor": false,
+  "physicsShape": 1,
+  "physicsGroup": 1,
+  "physicsDensity": 0.5,
+  "physicsRestitution": 0.1,
+  "physicsLinearDamping": 0.1,
+  "physicsAngularDamping": 0.1,
+  "physicsFriction": 0.2,
+  "physicsStartAwake": true,
+  "physicsKinematic": false,
+  "physicsShapePoints": [],
+  "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"oWall","path":"objects/oWall/oWall.yy",},"parent":{"name":"oSniperBullet","path":"objects/oSniperBullet/oSniperBullet.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
+  "properties": [],
+  "overriddenProperties": [
+    {"propertyId":{"name":"destroy_effect","path":"objects/oBullet_Parent/oBullet_Parent.yy",},"objectId":{"name":"oBullet_Parent","path":"objects/oBullet_Parent/oBullet_Parent.yy",},"value":"global.ptGunShot","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"goes_through_enemies","path":"objects/oBullet_Parent/oBullet_Parent.yy",},"objectId":{"name":"oBullet_Parent","path":"objects/oBullet_Parent/oBullet_Parent.yy",},"value":"True","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+  ],
+  "parent": {
+    "name": "Bullets",
+    "path": "folders/Objects/Guns/Bullets.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "oSniperBullet",
+  "tags": [],
+  "resourceType": "GMObject",
+}

@@ -1,0 +1,1 @@
+//oCamera.shake_frames = 10;

@@ -1,0 +1,1 @@
+//part_particles_create(global.partSystem, mouse_x, mouse_y, global.ptBlood, 1);
