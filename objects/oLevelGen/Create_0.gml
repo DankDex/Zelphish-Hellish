@@ -45,12 +45,19 @@ for (var i = 0; i < room_width div TILE_SIZE; i++)
 	for (var j = 0; j < room_height div TILE_SIZE; j++)
 	{
 		var indexx = irandom_range(0,1);
-		show_debug_message(string(indexx));
-		var _enemy = enemies_to_spawn[indexx];
+		
+		// Vai buscar um inimigo á sorte da lista de inimigos
+		var _enemy_index = enemies_to_spawn[indexx];
+		
+		// Spawna o inimigo escolhido
+		var _enemy = instance_create_layer(i * TILE_SIZE + 32, j * TILE_SIZE + 32,"Enemies",_enemy_index);
+		
+		// Caso as condições estejam certas o inimigo mantêm-se, senão ele é destruido
 		if(chance(5) && !place_meeting(i * TILE_SIZE, j * TILE_SIZE, oWall) && !collision_circle(i * TILE_SIZE, j * TILE_SIZE, _enemy.detection_range, oPlayer, 0, 0))
 		{
 			show_debug_message("Enemy spotted");
-			instance_create_layer(i * TILE_SIZE + 32, j * TILE_SIZE + 32,"Enemies",_enemy);
+		}else{
+			instance_destroy(_enemy);	
 		}
 	}
 }
