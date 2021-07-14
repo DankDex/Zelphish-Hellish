@@ -7,7 +7,8 @@ if(room != Test && room != rMenu){
 	instance_create_layer(x+32,y+32,"Player",oPlayer);
 	instance_create_layer(x,y,"Instances",oLevelGen);
 	instance_create_layer(x,y,"Instances",oCamera);
-	instance_create_layer(x,y,"Instances",oLantern);
-	instance_create_layer(x,y,"Instances",oShadows);
+	//instance_create_layer(x,y,"Instances",oLantern);
+	//instance_create_layer(x,y,"Instances",oShadows);
 	instance_create_layer(x,y,"Instances",oMap);
+	instance_create_layer(x,y,"Instances",oDinamicLight);
 }
