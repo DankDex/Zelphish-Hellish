@@ -159,6 +159,7 @@
     {"id":{"name":"init","path":"scripts/init/init.yy",},"order":4,},
     {"id":{"name":"spr_light_area","path":"sprites/spr_light_area/spr_light_area.yy",},"order":3,},
     {"id":{"name":"screenShake","path":"scripts/screenShake/screenShake.yy",},"order":0,},
+    {"id":{"name":"Sprite38","path":"sprites/Sprite38/Sprite38.yy",},"order":20,},
     {"id":{"name":"light_add_extension","path":"scripts/light_add_extension/light_add_extension.yy",},"order":1,},
     {"id":{"name":"sBullet_black","path":"sprites/sBullet_black/sBullet_black.yy",},"order":1,},
     {"id":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"order":0,},
