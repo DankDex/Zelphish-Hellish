@@ -19,7 +19,7 @@ if(pause == false) {
 	#region // damage number pop up
 
 		numberDamage = instance_create_layer(x, y, "Player", oDamageNumber);
-		numberDamage.damage = damage_taken;
+		numberDamage.damage = string(damage_taken);
 		numberDamage.crit = crit;
 
 	#endregion

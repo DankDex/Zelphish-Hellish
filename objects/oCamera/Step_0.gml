@@ -20,8 +20,8 @@ if(pause == false) {
 
 	//Set a random shake each frame; It lasts for a a number of set frames
 	if(shake_frames>0){
-		x_shake = irandom_range(-1.5,1.5);
-		y_shake = random_range(-1.5, 1.5);
+		x_shake = irandom_range(-4,4);
+		y_shake = random_range(-4, 4);
 		shake_frames--;
 	}else{
 		x_shake = 0;
