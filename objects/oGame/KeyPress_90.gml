@@ -1,1 +1,1 @@
-//oCamera.shake_frames = 10;
+oCamera.shake_frames = 10;

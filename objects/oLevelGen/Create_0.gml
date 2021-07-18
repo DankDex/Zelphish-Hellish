@@ -78,9 +78,9 @@ for (var i = 0; i < room_width div TILE_SIZE; i++)
 			with(object){
 				instance_destroy();
 			}
+			instance_create_layer(i * TILE_SIZE, j * TILE_SIZE, "Instances", oVoidWall);
 		}
 	}
 }
-
 
 instance_destroy(oPlayable);
