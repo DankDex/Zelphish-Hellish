@@ -1,5 +1,7 @@
 /// @description Start Variables
 
+window_set_cursor(cr_none);
+
 // create the list for the menu
 menu = ds_list_create();	// list of menu items
 ds_list_add(menu, "Start Game", "Config", "Credits", "Exit Game");	// the menu items, add or remove items to customize

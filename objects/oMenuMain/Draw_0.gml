@@ -1,7 +1,7 @@
 /// @description Draw menu items
 
 // draw title
-shadowed_text(title_text, room_width / 2, 20, title_font, fa_center, fa_top, title_shadow_offset, title_color, title_shadow_color, 1, title_shadow_alpha);
+text_with_shaking_shadow(title_text, room_width / 2, 20, title_font, fa_center, fa_top, title_shadow_offset, title_color, title_shadow_color, 1, title_shadow_alpha, 2, 2);
 
 // draw menu
 var _number = ds_list_size(menu);

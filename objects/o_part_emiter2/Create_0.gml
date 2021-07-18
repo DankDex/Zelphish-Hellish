@@ -1,5 +1,5 @@
 ps = new advanced_part_system();
-ps.particle_system_debug_mode = global.particles_debug_mode;
+ps.particle_system_debug_mode = false;
 
 part_emitter1 = new advanced_part_emitter(ps, x-20, x+20, y, y, aps_shape.rectangle, aps_distr.linear);
 
