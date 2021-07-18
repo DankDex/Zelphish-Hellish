@@ -1,2 +1,4 @@
+
+//Zoom in
 if(scale<4)
-	scale+=0.2;
+	scale+=0.1;

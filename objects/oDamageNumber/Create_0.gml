@@ -1,3 +1,5 @@
+
+
 color = c_white;
 damage = 1;
 duration = -90;

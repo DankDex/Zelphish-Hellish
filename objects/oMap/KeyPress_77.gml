@@ -1,14 +1,14 @@
 
-if(big == false){
+if(big == false){ //Zoom in
 	big = true;
 	
-	x = view_wport[0] - 500;
+	x = view_wport[0] - 400;
 	scale_mult_big = 3;
 	
-}else{
+}else{ //Zoom out
 	big = false;	
 	
-	x = view_wport[0] - 200;
+	x = view_wport[0] - 133;
 	scale_mult_big = 1;
 	
 }
