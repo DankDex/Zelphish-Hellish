@@ -10,6 +10,10 @@ draw_set_font(fBullets);
 //draw_text_outlined(x, y, outline_color, color, text, xscale, yscale, text_angle, offset)
 draw_text_transformed_outlined(20, 55, c_black, c_white, string(oPlayer.weapon.magazine_check) + "/" + string(oPlayer.weapon.bullets), 1, 0, 2);
 
+//draw fps
+draw_set_font(fArial_16);
+draw_text_transformed_outlined(20, 100, c_black, c_white, "FPS: "+string(fps), 1, 0, 2);
+draw_set_font(fBullets);
 
 // Weapon name
 draw_set_font(fBullets);

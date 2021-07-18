@@ -1,6 +1,6 @@
 
 if(instance_exists(oPlayer)) {
-	draw_sprite_ext(sFog_big, 0, oPlayer.x, oPlayer.y, 0.5, 0.5, 0, 0, 1);
+	//draw_sprite_ext(sFog_big, 0, oPlayer.x, oPlayer.y, 0.5, 0.5, 0, 0, 1);
 
 	// Draw reloading bar
 	if(oPlayer.weapon.state==2 && oPlayer.weapon.bullets>0){

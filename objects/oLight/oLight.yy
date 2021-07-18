@@ -27,8 +27,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "camera and visual",
-    "path": "folders/Objects/camera and visual.yy",
+    "name": "Lighting",
+    "path": "folders/Objects/camera and visual/Lighting.yy",
   },
   "resourceVersion": "1.0",
   "name": "oLight",

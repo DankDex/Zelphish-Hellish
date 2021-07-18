@@ -10,13 +10,13 @@ for (var i = 0; i < room_width div TILE_SIZE; i++)
 {
 	for (var j = 0; j < room_height div TILE_SIZE; j++)
 	{
-		instance_create_layer(i * TILE_SIZE, j * TILE_SIZE, "Instances", oWall);
+		instance_create_layer(i * TILE_SIZE, j * TILE_SIZE, "Walls_physical", oWall);
 	}
 }
 
 var dir = 0;
 
-repeat (3000)
+repeat (1500)
 {
 	if (chance(90))
 	{
@@ -27,7 +27,7 @@ repeat (3000)
 	
 	instance_destroy(object);
 	
-	instance_create_layer(x, y, "Instances", oPlayable);
+	instance_create_layer(x, y, "Walls_physical", oPlayable);
 	
 	x += lengthdir_x(TILE_SIZE, dir);
 	y += lengthdir_y(TILE_SIZE, dir);
