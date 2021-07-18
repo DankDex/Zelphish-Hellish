@@ -1,6 +1,8 @@
 
 #region Particle Types
 
+
+//Empty Default Particle =============================================
 var _p = part_type_create();
 
 part_type_life(_p, 0,0);
@@ -8,6 +10,7 @@ part_type_life(_p, 0,0);
 global.ptEmpty = _p;
 
 
+//Blood Particles =============================================
 var _p = part_type_create();
 
 part_type_life(_p, 20,40);
@@ -22,6 +25,8 @@ part_type_orientation(_p, 0, 90, 90, 90, 90);
 
 global.ptBlood = _p;
 
+
+//Blood Pool Particles =============================================
 var _p = part_type_create();
 
 part_type_life(_p, 120, 360);
@@ -34,6 +39,7 @@ part_type_alpha2(_p, 1, 0);
 global.ptBloodPool = _p;
 
 
+//GunShot Particles =============================================
 var _p = part_type_create();
 
 part_type_life(_p, 20,40);
