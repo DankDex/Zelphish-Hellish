@@ -21,6 +21,7 @@ if(h_spd!=0 && v_spd!=0){
 h_spd += h_push;
 v_spd += v_push;
 
+//Reset push forces
 if(h_push != 0)
 	h_push = 0;
 if(v_push != 0)
@@ -28,6 +29,7 @@ if(v_push != 0)
 
 // Collisions ==========================================================================================
 
+//Horizontal Collision
 if(place_meeting(x+h_spd,y,oWall)){
 	while(!place_meeting(x+sign(h_spd), y, oWall)){
 		x += sign(h_spd);	
@@ -36,6 +38,7 @@ if(place_meeting(x+h_spd,y,oWall)){
 }
 x += h_spd;
 
+//Vertical Collision
 if(place_meeting(x,y+v_spd,oWall)){
 	while(!place_meeting(x, y+sign(v_spd), oWall)){
 		y += sign(v_spd);	
@@ -47,25 +50,26 @@ y += v_spd;
 
 // State ===============================================================================================
 
-if(invinsibility_frames<30){
+if(invinsibility_frames<30){ //Updates invinsibility frames until player isn't invicible anymore
 	invinsibility_frames++;
 }
 
 if(state = 2){ // Hurt
 	
+	//Checks if all hurt frames have passe, updates it and the player state
 	if(hurt_frames>0){
 		hurt_frames--;
 	}else{
-		state = 1;
+		state = 1; //Normal state
 		hurt_frames = 5;
 	}	
 	
 }
 
 // Switch Weapons ===========================================================================================
-weapon_slot = keyboard_get_number()-1;
+weapon_slot = keyboard_get_number()-1; //Choose weapon slot using keyboard numbers
 
-if(weapon_slot>-1 && weapon_slot<array_length_1d(weapons))
+if(weapon_slot>-1 && weapon_slot<array_length_1d(weapons)) //Checks if weapon is in inventory and equips it
 	weapon = weapons[weapon_slot];
 
 

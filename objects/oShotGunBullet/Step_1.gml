@@ -1,30 +1,37 @@
 if(pause == false){
 
-// Check id it's in the room
-if(x<0 || x>room_width) instance_destroy();
-if(y<0 || y>room_height) instance_destroy();
+	// Check id it's in the room
+	if(x<0 || x>room_width) instance_destroy();
+	if(y<0 || y>room_height) instance_destroy();
 
-var _rr = randomRange;
+	//Set range where pellets can go
+	var _rr = randomRange;
 
-for(var i=0; i<numberPellets; i++){
+	//Iterates through each pellet
+	for(var i=0; i<numberPellets; i++){
 	
-	bullet = instance_create_layer(oPlayer.x,oPlayer.y,"Player",oShotGunBulletPellet);
+		//Spawns pellet
+		bullet = instance_create_layer(oPlayer.x,oPlayer.y,"Player",oShotGunBulletPellet);
 
-	var bullet_damage = damage/numberPellets;
+		//Shotgun damage is divided between each pellet
+		var bullet_damage = damage/numberPellets;
 
-	with(bullet){
+		//With pellet
+		with(bullet){
 	
-		randomize();
+			randomize();
 	
-		angle = point_direction(x,y,mouse_x,mouse_y)+ random_range(-_rr, _rr);	
-		spd = 30;
-		image_angle = angle - 90;
-		damage = bullet_damage;
+			//Set it's angle, speed, image angle and damage
+			angle = point_direction(x,y,mouse_x,mouse_y) + random_range(-_rr, _rr);	//The angle varies within the choosen range
+			spd = 30;
+			image_angle = angle - 90;
+			damage = bullet_damage;
+	
+		}
 	
 	}
-	
-}
 
-instance_destroy();
+	//Main shotgun bullet destroys itself after spawning all its pellets
+	instance_destroy();
 
 }

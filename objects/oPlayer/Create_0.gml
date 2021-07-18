@@ -1,21 +1,22 @@
 
 h_spd = 0; // horizontal speed
 v_spd = 0; // vertical speed
-walk_speed = 6;
+walk_speed = 6; //Walking speed
 diag_spd = round( walk_speed * (10 / sqrt(200)) ); // diagonal speed
-invinsibility_frames = 30;
-h_push = 0;
-v_push = 0;
-hurt_frames = 5;
-state = 1;
+invinsibility_frames = 30; //invisibility frames when hit
+h_push = 0; //Horizontal push when hit
+v_push = 0; //Vertical push when hit
+hurt_frames = 5; //Frames where hurt sprite is displayed
+state = 1; //1-Normal; 2-Hurt
 hp = 100;
 
 
 // Instances of weapons
-weapon = oHandGun;
-weapons = [oHandGun, oMachineGun, oSniperGun, oShotGun];
-weapon_slot = 1;
+weapon = oHandGun; //Default weapon
+weapons = [oHandGun, oMachineGun, oSniperGun, oShotGun]; //Weapons available
+weapon_slot = 1; //Weapon slot selected
 
+//Create all weapons in players inventory
 for(var i=0; i<array_length_1d(weapons); i++){
 	
 	instance_create_layer(x,y,"Player", weapons[i]);
