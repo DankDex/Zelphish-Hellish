@@ -14,7 +14,7 @@
   "duration": 0.495408,
   "parent": {
     "name": "Sounds",
-    "path": "folders/Demonstration/Sounds.yy",
+    "path": "folders/Menus/Sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "sndConfirmation",

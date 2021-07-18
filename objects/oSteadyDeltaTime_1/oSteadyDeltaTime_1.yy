@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Main",
-    "path": "folders/Main.yy",
+    "name": "AdvancedParticles",
+    "path": "folders/AdvancedParticles.yy",
   },
   "resourceVersion": "1.0",
   "name": "oSteadyDeltaTime_1",

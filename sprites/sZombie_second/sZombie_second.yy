@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"2bac4dbd-fe51-4c66-ad77-7765a761e462","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "zombie",
+    "path": "folders/Sprites/Enemies/zombie.yy",
   },
   "resourceVersion": "1.0",
   "name": "sZombie_second",

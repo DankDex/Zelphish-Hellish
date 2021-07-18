@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"30e80358-d5f7-498e-8fe4-39196d8f329b","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Easy menu",
-    "path": "folders/Easy menu.yy",
+    "name": "Menus",
+    "path": "folders/Sprites/Menus.yy",
   },
   "resourceVersion": "1.0",
   "name": "sArrow",

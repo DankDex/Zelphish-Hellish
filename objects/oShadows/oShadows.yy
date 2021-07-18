@@ -25,8 +25,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "camera and visual",
-    "path": "folders/Objects/camera and visual.yy",
+    "name": "OldLighting",
+    "path": "folders/Objects/camera and visual/OldLighting.yy",
   },
   "resourceVersion": "1.0",
   "name": "oShadows",

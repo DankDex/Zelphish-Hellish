@@ -55,7 +55,7 @@
   },
   "parent": {
     "name": "Rooms",
-    "path": "folders/DEMO/Rooms.yy",
+    "path": "folders/ParticlePrefabs/Rooms.yy",
   },
   "resourceVersion": "1.0",
   "name": "Room1",

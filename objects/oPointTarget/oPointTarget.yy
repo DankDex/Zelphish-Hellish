@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "s_heart",
-    "path": "sprites/s_heart/s_heart.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -26,8 +23,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "DEMO",
-    "path": "folders/DEMO.yy",
+    "name": "ParticlePrefabs",
+    "path": "folders/ParticlePrefabs.yy",
   },
   "resourceVersion": "1.0",
   "name": "oPointTarget",

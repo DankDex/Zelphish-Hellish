@@ -128,7 +128,7 @@
   "maintainGms1Font": false,
   "parent": {
     "name": "Fonts",
-    "path": "folders/Demonstration/Fonts.yy",
+    "path": "folders/Menus/Fonts.yy",
   },
   "resourceVersion": "1.0",
   "name": "fn30",

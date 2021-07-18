@@ -96,8 +96,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"5409e2b9-ceca-4b8a-a328-c410a154592f","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Particles",
+    "path": "folders/Sprites/Particles.yy",
   },
   "resourceVersion": "1.0",
   "name": "sFireParticles",

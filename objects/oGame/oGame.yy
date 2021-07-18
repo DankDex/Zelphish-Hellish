@@ -35,8 +35,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Game Initialization and Generation",
+    "path": "folders/Objects/Game Initialization and Generation.yy",
   },
   "resourceVersion": "1.0",
   "name": "oGame",

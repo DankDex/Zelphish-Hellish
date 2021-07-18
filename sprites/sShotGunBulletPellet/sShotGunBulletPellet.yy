@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ede81cba-fa20-4abc-9fd0-c08f88d901f6","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Bullets",
+    "path": "folders/Sprites/Bullets.yy",
   },
   "resourceVersion": "1.0",
   "name": "sShotGunBulletPellet",

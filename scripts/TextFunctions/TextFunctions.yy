@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Text Functions",
-    "path": "folders/Demonstration/Text Functions.yy",
+    "path": "folders/Menus/Text Functions.yy",
   },
   "resourceVersion": "1.0",
   "name": "TextFunctions",

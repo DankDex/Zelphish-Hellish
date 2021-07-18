@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Main",
-    "path": "folders/Main.yy",
+    "name": "AdvancedParticles",
+    "path": "folders/AdvancedParticles.yy",
   },
   "resourceVersion": "1.0",
   "name": "AdvancedParticleSystem_1",

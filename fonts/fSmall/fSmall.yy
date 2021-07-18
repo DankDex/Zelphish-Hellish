@@ -127,8 +127,8 @@
   "canGenerateBitmap": true,
   "maintainGms1Font": false,
   "parent": {
-    "name": "DEMO",
-    "path": "folders/DEMO.yy",
+    "name": "ParticlePrefabs",
+    "path": "folders/ParticlePrefabs.yy",
   },
   "resourceVersion": "1.0",
   "name": "fSmall",
