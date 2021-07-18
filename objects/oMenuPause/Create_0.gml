@@ -3,6 +3,8 @@
 vWidth = view_wport[0];
 vHeight = view_yport[0];
 
+particles = instance_create_layer(x,y,"Menus", o_part_emitter_wiggle);
+
 // create the list for the menu
 menu = ds_list_create();	// list of menu items
 ds_list_add(menu, "Continue", "Config", "Restart", "Go to Main Menu", "Exit Game");	// the menu items, add or remove items to customize

@@ -1,4 +1,7 @@
-ps = new advanced_part_system(); ps.particle_system_debug_mode = global.particles_debug_mode;
+ps = new advanced_part_system(); 
+//ps.particle_system_debug_mode = global.particles_debug_mode;
+ps.particle_system_debug_mode = false;
+//pe = new advanced_part_emitter(ps, x-20 - 96, x+20 -96 + 40, y-20, y+20, aps_shape.ellipse, aps_distr.linear);
 pe = new advanced_part_emitter(ps, x-20 - 96, x+20 -96 + 40, y-20, y+20, aps_shape.ellipse, aps_distr.linear);
 
 part_type1 = new advanced_part_type();
@@ -7,7 +10,7 @@ with(part_type1) {
 	part_size(0.5, 1, 0.01, 1);
 	part_orientation(0, 359, 0, 0, false);
 	part_image(s_pixel_big, 0, c_white, false, false, false);
-	part_speed(0.1, 0.2, -0.001, 0);
+	part_speed(0.3, 2, -0.001, 0.02);
 	part_direction(0, 359, 0, 0);
 }
 

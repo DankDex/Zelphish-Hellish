@@ -17,6 +17,7 @@
     {"id":{"name":"sZombie_hurt","path":"sprites/sZombie_hurt/sZombie_hurt.yy",},"order":1,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
     {"id":{"name":"sBullet","path":"sprites/sBullet/sBullet.yy",},"order":0,},
+    {"id":{"name":"s_pixel_big","path":"sprites/s_pixel_big/s_pixel_big.yy",},"order":5,},
     {"id":{"name":"sFog","path":"sprites/sFog/sFog.yy",},"order":27,},
     {"id":{"name":"light_create_spot","path":"scripts/light_create_spot/light_create_spot.yy",},"order":8,},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},"order":0,},

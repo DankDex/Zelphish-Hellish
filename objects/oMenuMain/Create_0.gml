@@ -18,7 +18,7 @@ arrow_scale = 1;	// scale of the arrow sprite
 
 // text variables
 // title
-title_text = "Zombie Survival";	// the title of the menu
+title_text = "Zelphish Hellish";	// the title of the menu
 title_color = c_red;	// the title color
 title_font = fn60;	// the title font
 title_shadow_offset = 5;	// the title shadow offset

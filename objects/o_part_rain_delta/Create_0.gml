@@ -2,7 +2,7 @@ ps = new advanced_part_system();
 //ps.particle_system_debug_mode = global.particles_debug_mode;
 ps.particle_system_debug_mode = false;
 ps.enabledelta();
-pe = new advanced_part_emitter(ps, 0, room_width, -16, -64, aps_shape.rectangle, aps_distr.linear);
+pe = new advanced_part_emitter(ps, 0, room_width, -16, -24, aps_shape.rectangle, aps_distr.linear);
 
 water_drops = new advanced_part_type();
 with(water_drops) {
@@ -11,14 +11,14 @@ with(water_drops) {
 	part_direction(90+30, 90-30, 0, 0);
 	part_life(1, 1);
 	part_image(s_pixel, 0, c_aqua, false, false, false);
-	part_scale(0.5, 0.25);
+	part_scale(2, 1);
 	part_size(2, 2, 0, 0);
 	part_orientation(0, 360, 0, 0, true);
 	part_scale(1, 2);
 	part_alpha3(0.5, 0.5, 0);
 	part_step_function(
 		function() {
-			if y > room_height-64 && life < life_max/1.1 {
+			if y > room_height-24 && life < life_max/1.1 {
 				life = 0;
 			}
 		}
@@ -35,8 +35,8 @@ with(water) {
 	part_death(5, other.water_drops);
 	part_step_function(
 		function() {
-			if y > room_height-70 {
-				y = room_height-64;
+			if y > room_height-30 {
+				y = room_height-24;
 				life = 0;
 			}
 		}
