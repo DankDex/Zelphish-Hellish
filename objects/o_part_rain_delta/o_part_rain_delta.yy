@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "ParticlePrefabs",
-    "path": "folders/ParticlePrefabs.yy",
+    "name": "Particles",
+    "path": "folders/Objects/Particles.yy",
   },
   "resourceVersion": "1.0",
   "name": "o_part_rain_delta",
