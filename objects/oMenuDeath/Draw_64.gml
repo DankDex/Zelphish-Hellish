@@ -1,7 +1,7 @@
 /// @description Draw menu items
 
 // draw title
-shadowed_text(title_text, view_wport / 2, 20, title_font, fa_center, fa_top, title_shadow_offset, title_color, title_shadow_color, 1, title_shadow_alpha);
+text_with_shaking_shadow(title_text, view_wport / 2, 20, title_font, fa_center, fa_top, title_shadow_offset, title_color, title_shadow_color, outline_color, 1, title_shadow_alpha, 1, 1);
 
 // draw menu
 var _number = ds_list_size(menu);
@@ -12,7 +12,7 @@ for (var i = 0; i < _number; i ++) {
 	if selected == i {
 		_color = menu_selected_color;	
 	}
-	text_with_shaking_shadow(_text, view_wport / 2, menu_start_position + i * menu_separation, menu_font, fa_center, fa_middle, menu_shadow_offset, _color, menu_shadow_color, 1, menu_shadow_alpha, 1, 1);	
+	text_with_shaking_shadow(_text, view_wport / 2, menu_start_position + i * menu_separation, menu_font, fa_center, fa_middle, menu_shadow_offset, _color, menu_shadow_color, outline_color, 1, menu_shadow_alpha, 1, 1);	
 }
 
 

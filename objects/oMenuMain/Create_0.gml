@@ -17,11 +17,12 @@ delta_x = 10;	// maximum x movement for the arrow animation
 arrow_width = 500; // amount of pixels of distance between arrows
 arrow_sprite = sArrow;	// sprite of the arrow
 arrow_scale = 1;	// scale of the arrow sprite
+outline_color = c_black;
 
 // text variables
 // title
 title_text = "Zelphish Hellish";	// the title of the menu
-title_color = c_red;	// the title color
+title_color = c_white;	// the title color
 title_font = fMenu60;	// the title font
 title_shadow_offset = 5;	// the title shadow offset
 title_shadow_color = c_dkgray;	// the title shadow color
@@ -31,7 +32,7 @@ title_shadow_alpha = 1;	// the title shadow alpha
 menu_font = fDecrepit30;	// the menu items font
 menu_selected_color = c_white;	// the menu selected item color and this affects the color blend of the arrow
 menu_not_selected_color = c_gray;	// the menu not selected items color
-menu_shadow_offset = 2;	// the menu items and arrow shadow offset
+menu_shadow_offset = 6;	// the menu items and arrow shadow offset
 menu_shadow_alpha = 1;	// the menu items shadow alpha
 menu_shadow_color = c_dkgray;	// the menu items shadow color
 

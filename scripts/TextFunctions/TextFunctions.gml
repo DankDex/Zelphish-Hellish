@@ -110,7 +110,7 @@ function shadowed_typewriter_text(_text, _x, _y, _font, _halign, _valign, _text_
 	draw_set_color(c_white);
 }
 
-function text_with_shaking_shadow(_text, _x, _y, _font, _halign, _valign, _shadow_offset, _text_color, _shadow_color, _text_alpha, _shadow_alpha, _delta_x, _delta_y) {
+function text_with_shaking_shadow(_text, _x, _y, _font, _halign, _valign, _shadow_offset, _text_color, _shadow_color, _outline_color, _text_alpha, _shadow_alpha, _delta_x, _delta_y) {
 	draw_set_font(_font);
 	draw_set_halign(_halign);
 	draw_set_valign(_valign);
@@ -121,7 +121,8 @@ function text_with_shaking_shadow(_text, _x, _y, _font, _halign, _valign, _shado
 	draw_text(_x + _shadow_offset + _dx, _y + _shadow_offset + _dy, _text);
 	draw_set_alpha(_text_alpha);
 	draw_set_color(_text_color);
-	draw_text(_x, _y, _text);
+	//draw_text(_x, _y, _text);
+	draw_text_transformed_outlined(_x, _y, _outline_color, _text_color, _text, 1, 0, 2);
 	draw_set_alpha(1);
 	draw_set_color(c_white);
 }
