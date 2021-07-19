@@ -1,6 +1,10 @@
 
 //Destroy if it enter main menu
-if(room == rMenu) instance_destroy();
+if(room == rMenu){ 
+	cursor_sprite = noone;
+	window_set_cursor(cr_default);
+	instance_destroy();
+}
 
 //Set grip according to room size [room must be a multiple of 64]
 grid = mp_grid_create(0,0,room_width/64,room_height/64,64,64);

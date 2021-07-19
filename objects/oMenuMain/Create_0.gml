@@ -1,5 +1,5 @@
 /// @description Start Variables
-
+cursor_sprite = noone;
 window_set_cursor(cr_none);
 
 // create the list for the menu

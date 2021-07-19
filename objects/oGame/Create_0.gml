@@ -11,5 +11,6 @@ global.partSystem = part_system_create_layer("Particles", false);
 script_execute(init);
 
 //Set cursor sprite
-cursor_sprite = sCursor;
+if(room != rMenu)
+	cursor_sprite = sCursor;
 window_set_cursor(cr_none);

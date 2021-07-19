@@ -1,6 +1,6 @@
 ///@description Draw GUI Event of obj_map
 
-if(pause == false){
+if(!pause && instance_exists(oPlayer)){
 
 	scale = 0.05*scale_mult_big;
 
