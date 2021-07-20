@@ -1,4 +1,4 @@
-if(pause == false) {
+if(pause == false && other.bullet_from_enemy == false) {
 
 	#region // calculate damage taken
 

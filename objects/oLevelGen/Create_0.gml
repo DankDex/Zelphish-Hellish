@@ -2,7 +2,8 @@ randomize();
 
 #macro TILE_SIZE 64
 
-enemies_to_spawn = [oZombie, oZombieSecond];
+//enemies_to_spawn = [oZombie, oZombieSecond];
+enemies_to_spawn = [oEnemyParentRanged];
 
 //======================================================================================================
 // Wall generation
@@ -44,7 +45,7 @@ for (var i = 0; i < room_width div TILE_SIZE; i++)
 {
 	for (var j = 0; j < room_height div TILE_SIZE; j++)
 	{
-		var indexx = irandom_range(0,1);
+		var indexx = irandom_range(0, array_length_1d(enemies_to_spawn)-1);
 		
 		// Vai buscar um inimigo á sorte da lista de inimigos
 		var _enemy_index = enemies_to_spawn[indexx];

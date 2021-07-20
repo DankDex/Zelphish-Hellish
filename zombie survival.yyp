@@ -113,6 +113,7 @@
     {"id":{"name":"spr_light_renderer","path":"sprites/spr_light_renderer/spr_light_renderer.yy",},"order":1,},
     {"id":{"name":"polygon_from_instance","path":"scripts/polygon_from_instance/polygon_from_instance.yy",},"order":5,},
     {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},"order":1,},
+    {"id":{"name":"shoot_bullet","path":"scripts/shoot_bullet/shoot_bullet.yy",},"order":7,},
     {"id":{"name":"sCursor","path":"sprites/sCursor/sCursor.yy",},"order":25,},
     {"id":{"name":"polygon_get_area","path":"scripts/polygon_get_area/polygon_get_area.yy",},"order":7,},
     {"id":{"name":"lighting_post_composite","path":"scripts/lighting_post_composite/lighting_post_composite.yy",},"order":3,},
