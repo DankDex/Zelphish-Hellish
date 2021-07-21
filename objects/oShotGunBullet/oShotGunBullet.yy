@@ -32,8 +32,8 @@
     {"propertyId":{"name":"destroy_effect","path":"objects/oBullet_Parent/oBullet_Parent.yy",},"objectId":{"name":"oBullet_Parent","path":"objects/oBullet_Parent/oBullet_Parent.yy",},"value":"global.ptEmpty","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
-    "name": "Bullets",
-    "path": "folders/Objects/Guns/Bullets.yy",
+    "name": "Player Bullets",
+    "path": "folders/Objects/Guns & Bullets/Bullets/Player Bullets.yy",
   },
   "resourceVersion": "1.0",
   "name": "oShotGunBullet",

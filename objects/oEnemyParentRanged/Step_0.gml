@@ -7,7 +7,7 @@ if(pause == false && instance_exists(oPlayer)){
 
 		if(chasing == false){
 			var _in_range = collision_circle(x,y,detection_range,oPlayer,0,0);
-			if(_in_range && _sees_player && !run_away && !stay_still){
+			if(_in_range && _sees_player && !stay_still){
 				chasing = true;
 			}
 		}
@@ -45,16 +45,18 @@ if(pause == false && instance_exists(oPlayer)){
 	} else { //If in range stop chasing and start shooting
 		path_end();
 		
-		if(_sees_player && firerate <= 0){
-			firerate = 60;
+		if(_sees_player && firerate_check <= 0){
+			firerate_check = firerate;
 			
-			shoot_bullet(x, y, 1, 10, point_direction(x,y,oPlayer.x,oPlayer.y), oHandGunBullet, true, global.ptGunShot);
+			shoot_bullet(x, y, bullet_damage, bullet_speed, point_direction(x,y,oPlayer.x,oPlayer.y), bullet_type, true, global.ptGunShot);
 			
 		}else{
-			firerate--;
+			firerate_check--;
 		}
 		
 	}
 	
 
+}else{
+	path_end();
 }

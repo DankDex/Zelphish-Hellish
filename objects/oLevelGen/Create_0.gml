@@ -3,7 +3,7 @@ randomize();
 #macro TILE_SIZE 64
 
 //enemies_to_spawn = [oZombie, oZombieSecond];
-enemies_to_spawn = [oEnemyParentRanged];
+enemies_to_spawn = [oEnemyParentRanged, oZombie, oZombieSecond];
 
 //======================================================================================================
 // Wall generation

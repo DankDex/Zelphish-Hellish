@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sZombie",
-    "path": "sprites/sZombie/sZombie.yy",
+    "name": "sZombie_ranged",
+    "path": "sprites/sZombie_ranged/sZombie_ranged.yy",
   },
   "solid": false,
   "visible": true,
@@ -29,13 +29,18 @@
   ],
   "properties": [
     {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"chasing","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":0,"value":"300","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"distance_from_player","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"run_away","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":0,"value":"100","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"offset_from_player","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":0,"value":"200","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"distance_from_player","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"stay_still","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":0,"value":"120","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"firerate","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":5,"value":"oEnemyNormalBullet","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[
+        "GMObject",
+      ],"resourceVersion":"1.0","name":"bullet_type","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":0,"value":"10","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"bullet_damage","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":0,"value":"5","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"bullet_speed","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [
     {"propertyId":{"name":"detection_range","path":"objects/oEnemyParent/oEnemyParent.yy",},"objectId":{"name":"oEnemyParent","path":"objects/oEnemyParent/oEnemyParent.yy",},"value":"1000","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"sprite_normal","path":"objects/oEnemyParent/oEnemyParent.yy",},"objectId":{"name":"oEnemyParent","path":"objects/oEnemyParent/oEnemyParent.yy",},"value":"sZombie_ranged","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
     "name": "Ranged",

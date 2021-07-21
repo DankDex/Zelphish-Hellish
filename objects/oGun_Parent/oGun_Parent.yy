@@ -35,7 +35,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Guns",
-    "path": "folders/Objects/Guns.yy",
+    "path": "folders/Objects/Guns & Bullets/Guns.yy",
   },
   "resourceVersion": "1.0",
   "name": "oGun_Parent",

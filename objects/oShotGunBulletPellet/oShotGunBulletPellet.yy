@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Bullets",
-    "path": "folders/Objects/Guns/Bullets.yy",
+    "name": "Player Bullets",
+    "path": "folders/Objects/Guns & Bullets/Bullets/Player Bullets.yy",
   },
   "resourceVersion": "1.0",
   "name": "oShotGunBulletPellet",
