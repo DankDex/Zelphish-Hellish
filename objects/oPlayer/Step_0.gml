@@ -56,12 +56,22 @@ if(invinsibility_frames<30){ //Updates invinsibility frames until player isn't i
 
 if(state = 2){ // Hurt
 	
-	//Checks if all hurt frames have passe, updates it and the player state
+	//Checks if all hurt frames have passed, updates it and the player state
 	if(hurt_frames>0){
 		hurt_frames--;
 	}else{
 		state = 1; //Normal state
 		hurt_frames = 5;
+	}	
+	
+}else if(state = 3){ //Shooting
+	
+	//Checks if all shooting frames have passed, updates it and the player state
+	if(shooting_frames>0){
+		shooting_frames--;
+	}else{
+		state = 1; //Normal state
+		shooting_frames = 5;
 	}	
 	
 }

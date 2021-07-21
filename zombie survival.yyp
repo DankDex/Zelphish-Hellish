@@ -87,6 +87,7 @@
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},"order":0,},
     {"id":{"name":"sBrickWall","path":"sprites/sBrickWall/sBrickWall.yy",},"order":2,},
     {"id":{"name":"o_part_emiter_delta","path":"objects/o_part_emiter_delta/o_part_emiter_delta.yy",},"order":7,},
+    {"id":{"name":"sPlayer_shooting","path":"sprites/sPlayer_shooting/sPlayer_shooting.yy",},"order":2,},
     {"id":{"name":"oZombieSecond","path":"objects/oZombieSecond/oZombieSecond.yy",},"order":1,},
     {"id":{"name":"sFirework","path":"sprites/sFirework/sFirework.yy",},"order":1,},
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},"order":5,},

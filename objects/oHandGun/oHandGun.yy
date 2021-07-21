@@ -22,7 +22,9 @@
   "physicsShapePoints": [],
   "eventList": [],
   "properties": [],
-  "overriddenProperties": [],
+  "overriddenProperties": [
+    {"propertyId":{"name":"knockback","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"7","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+  ],
   "parent": {
     "name": "Guns",
     "path": "folders/Objects/Guns & Bullets/Guns.yy",

@@ -29,6 +29,7 @@
     {"propertyId":{"name":"magazine","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"30","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"reloading_frames","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"60","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"bullet_type","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"oSniperBullet","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"knockback","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"20","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
     "name": "Guns",

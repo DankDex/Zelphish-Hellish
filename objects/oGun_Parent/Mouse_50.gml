@@ -14,4 +14,11 @@ if(firerate_check>=firerate && instance_exists(oPlayer) && magazine_check>0 && p
 	if(magazine_check>0)
 		magazine_check--;
 		
+	var _knockback = knockback;
+	with(oPlayer){
+		oPlayer.state = 3;
+		h_push = -lengthdir_x(_knockback,point_direction(x,y,mouse_x,mouse_y));
+		v_push = -lengthdir_y(_knockback,point_direction(x,y,mouse_x,mouse_y));
+	}
+		
 }

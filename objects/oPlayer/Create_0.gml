@@ -7,7 +7,8 @@ invinsibility_frames = 30; //invisibility frames when hit
 h_push = 0; //Horizontal push when hit
 v_push = 0; //Vertical push when hit
 hurt_frames = 5; //Frames where hurt sprite is displayed
-state = 1; //1-Normal; 2-Hurt
+shooting_frames = 2; //Frames where shooting sprite is displayed
+state = 1; //1-Normal; 2-Hurt; 3-Shooting
 hp = 100;
 
 
