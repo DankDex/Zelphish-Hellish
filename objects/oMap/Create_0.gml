@@ -19,7 +19,8 @@ objects_to_draw = [
 	oWall, c_dkgray,
 	oPlayer, c_maroon,
 	oEnemyParent, c_yellow,
-	oBullet_Parent, c_white
+	oBullet_Parent, c_white,
+	oAmmoBox, c_blue
 ]
 
 

@@ -5,6 +5,8 @@ randomize();
 //enemies_to_spawn = [oZombie, oZombieSecond];
 enemies_to_spawn = [oEnemyParentRanged, oZombie, oZombieSecond];
 
+items_to_spawn = [oAmmoBox];
+
 //======================================================================================================
 // Wall generation
 for (var i = 0; i < room_width div TILE_SIZE; i++)
@@ -63,6 +65,30 @@ for (var i = 0; i < room_width div TILE_SIZE; i++)
 	}
 }
 
+
+//======================================================================================================
+// Pickables spawn
+for (var i = 0; i < room_width div TILE_SIZE; i++)
+{
+	for (var j = 0; j < room_height div TILE_SIZE; j++)
+	{
+		var indexx = irandom_range(0, array_length_1d(items_to_spawn)-1);
+		
+		// Vai buscar um item á sorte da lista de itens
+		var _items_index = items_to_spawn[indexx];
+		
+		// Spawna o item escolhido
+		var _item = instance_create_layer(i * TILE_SIZE + 32, j * TILE_SIZE + 32,"Instances",_items_index);
+		
+		// Caso as condições estejam certas o item mantêm-se, senão ele é destruido
+		if(chance(1) && !place_meeting(i * TILE_SIZE, j * TILE_SIZE, oWall))
+		{
+			show_debug_message("Item spawned");
+		}else{
+			instance_destroy(_item);	
+		}
+	}
+}
 
 
 //======================================================================================================
