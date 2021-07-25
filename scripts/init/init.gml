@@ -67,4 +67,30 @@ part_type_direction(_p, 90,90,0,0);
 global.ptItemAura = _p;
 
 
+//Charge Particles =============================================
+var _p = part_type_create();
+
+part_type_life(_p, 5,10);
+part_type_speed(_p, 0.2, 0.5, 0, 0);
+part_type_size(_p, 0.2, 0.4,0,0.05);
+part_type_shape(_p, pt_shape_flare);
+part_type_color3(_p, c_yellow, c_gray, c_white);
+part_type_alpha2(_p, 1, 0);
+
+global.ptCharge = _p;
+
+
+//Flamethower Particles =============================================
+var _p = part_type_create();
+
+part_type_life(_p, 20,40);
+part_type_speed(_p, 2, 4, 0, 0);
+part_type_size(_p, 0.02, 0.04,0,0.05);
+part_type_shape(_p, pt_shape_square);
+part_type_color3(_p, c_yellow, c_orange, c_red);
+part_type_alpha2(_p, 1, 0);
+
+global.ptFlamethrower = _p;
+
+
 #endregion

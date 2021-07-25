@@ -40,12 +40,28 @@ if(pause == false && instance_exists(oPlayer)){
 			}
 
 		#endregion
+		
+		
+		//Preventivly start shooting
+		if(_sees_player && collision_circle(x,y,500,oPlayer,0,0) && firerate_check <= 0){
+			firerate_check = firerate;
+			
+			var _angle = angle+40;
+	
+			var xx = x + lengthdir_x(15, _angle);
+			var yy = y + lengthdir_y(15, _angle);
+			
+			shoot_bullet(xx, yy, bullet_damage, bullet_speed, point_direction(x,y,oPlayer.x,oPlayer.y), bullet_type, true, shoot_effect);
+			
+		}else if(_sees_player){
+			firerate_check--;
+		}
 
 		
 	} else { //If in range stop chasing and start shooting
 		path_end();
 		
-		if(stay_still && firerate_check <= 0){
+		if(_sees_player && collision_circle(x,y,500,oPlayer,0,0) && firerate_check <= 0){
 			firerate_check = firerate;
 			
 			var _angle = angle+40;

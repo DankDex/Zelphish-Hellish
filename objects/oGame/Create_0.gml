@@ -6,6 +6,8 @@ debug = false;
 pause = false;
 
 global.partSystem = part_system_create_layer("Particles", false);
+global.partSystem_top = part_system_create_layer("Particles", false);
+part_system_depth(global.partSystem_top, layer_get_depth("Enemies")-1);
 
 //execute initialization script
 script_execute(init);

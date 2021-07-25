@@ -6,7 +6,7 @@ if(firerate_check>=firerate && instance_exists(oPlayer) && magazine_check>0 && p
 	var _angle = point_direction(oPlayer.x, oPlayer.y,mouse_x,mouse_y);
 	var xx = oPlayer.x + lengthdir_x(15, _angle);
 	var yy = oPlayer.y + lengthdir_y(15, _angle);
-	shoot_bullet(xx, yy, damage, 30, _angle, bullet_type, false, shooting_effect);
+	shoot_bullet(xx, yy, damage, bullet_speed, _angle, bullet_type, false, shooting_effect);
 
 	firerate_check = 0; //Starts timers until next shot in frames
 	

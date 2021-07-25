@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"71f4379e-e9bf-4ca9-b89f-d46435e352da","path":"sprites/sZombie_ranged/sZombie_ranged.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"71f4379e-e9bf-4ca9-b89f-d46435e352da","path":"sprites/sZombie_ranged/sZombie_ranged.yy",},"LayerId":{"name":"2bac4dbd-fe51-4c66-ad77-7765a761e462","path":"sprites/sZombie_ranged/sZombie_ranged.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sZombie_ranged","path":"sprites/sZombie_ranged/sZombie_ranged.yy",},"resourceVersion":"1.0","name":"71f4379e-e9bf-4ca9-b89f-d46435e352da","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"71f4379e-e9bf-4ca9-b89f-d46435e352da","path":"sprites/sZombie/sZombie.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"71f4379e-e9bf-4ca9-b89f-d46435e352da","path":"sprites/sZombie/sZombie.yy",},"LayerId":{"name":"2bac4dbd-fe51-4c66-ad77-7765a761e462","path":"sprites/sZombie/sZombie.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sZombie","path":"sprites/sZombie/sZombie.yy",},"resourceVersion":"1.0","name":"71f4379e-e9bf-4ca9-b89f-d46435e352da","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sZombie_ranged","path":"sprites/sZombie_ranged/sZombie_ranged.yy",},
+    "spriteId": {"name":"sZombie","path":"sprites/sZombie/sZombie.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"bbd449fe-bb87-49e1-a77c-c41565c725d4","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"71f4379e-e9bf-4ca9-b89f-d46435e352da","path":"sprites/sZombie_ranged/sZombie_ranged.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"e92eb86f-285a-44f1-97ff-b108cd675ef3","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"71f4379e-e9bf-4ca9-b89f-d46435e352da","path":"sprites/sZombie/sZombie.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 16,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sZombie_ranged","path":"sprites/sZombie_ranged/sZombie_ranged.yy",},
+    "parent": {"name":"sZombie","path":"sprites/sZombie/sZombie.yy",},
     "resourceVersion": "1.3",
-    "name": "sZombie_ranged",
+    "name": "sZombie",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -72,7 +72,7 @@
     "path": "folders/Sprites/Enemies/zombie.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sZombie_ranged",
+  "name": "sZombie",
   "tags": [],
   "resourceType": "GMSprite",
 }

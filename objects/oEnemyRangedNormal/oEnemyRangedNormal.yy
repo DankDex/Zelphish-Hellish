@@ -1,18 +1,15 @@
 {
   "spriteId": {
-    "name": "sBrickWall",
-    "path": "sprites/sBrickWall/sBrickWall.yy",
+    "name": "sEnemy_Ranged_Normal",
+    "path": "sprites/sEnemy_Ranged_Normal/sEnemy_Ranged_Normal.yy",
   },
   "solid": false,
   "visible": true,
-  "spriteMaskId": {
-    "name": "sWall",
-    "path": "sprites/sWall/sWall.yy",
-  },
+  "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_shadow_caster",
-    "path": "objects/obj_shadow_caster/obj_shadow_caster.yy",
+    "name": "oEnemyParentRanged",
+    "path": "objects/oEnemyParentRanged/oEnemyParentRanged.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -26,17 +23,15 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"oWall","path":"objects/oWall/oWall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Walls",
-    "path": "folders/Objects/Walls.yy",
+    "name": "Ranged",
+    "path": "folders/Objects/Enemies/Ranged.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oWall",
+  "name": "oEnemyRangedNormal",
   "tags": [],
   "resourceType": "GMObject",
 }

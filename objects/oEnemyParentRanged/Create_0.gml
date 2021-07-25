@@ -6,6 +6,8 @@ angle = 0;
 
 firerate_check = firerate;
 
+firerate_check_for_charging_animation_counter = firerate/2;
+
 hp_total = hp;
 
 damage_taken = 0;

@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"71f4379e-e9bf-4ca9-b89f-d46435e352da","path":"sprites/sZombie/sZombie.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"71f4379e-e9bf-4ca9-b89f-d46435e352da","path":"sprites/sZombie/sZombie.yy",},"LayerId":{"name":"2bac4dbd-fe51-4c66-ad77-7765a761e462","path":"sprites/sZombie/sZombie.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sZombie","path":"sprites/sZombie/sZombie.yy",},"resourceVersion":"1.0","name":"71f4379e-e9bf-4ca9-b89f-d46435e352da","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"eaf5b5f9-aa36-4fe0-8ebb-cb4e57222ec3","path":"sprites/sZombie/sZombie.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"eaf5b5f9-aa36-4fe0-8ebb-cb4e57222ec3","path":"sprites/sZombie/sZombie.yy",},"LayerId":{"name":"654774fc-939b-4d11-9052-5d17edc17a0e","path":"sprites/sZombie/sZombie.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sZombie","path":"sprites/sZombie/sZombie.yy",},"resourceVersion":"1.0","name":"eaf5b5f9-aa36-4fe0-8ebb-cb4e57222ec3","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"sZombie","path":"sprites/sZombie/sZombie.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"e92eb86f-285a-44f1-97ff-b108cd675ef3","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"71f4379e-e9bf-4ca9-b89f-d46435e352da","path":"sprites/sZombie/sZombie.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"5f113806-9d6a-4b87-8ab2-3f3c52a9b289","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"eaf5b5f9-aa36-4fe0-8ebb-cb4e57222ec3","path":"sprites/sZombie/sZombie.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -65,11 +65,11 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"2bac4dbd-fe51-4c66-ad77-7765a761e462","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"654774fc-939b-4d11-9052-5d17edc17a0e","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "zombie",
-    "path": "folders/Sprites/Enemies/zombie.yy",
+    "name": "Melee",
+    "path": "folders/Sprites/Enemies/zombie/Melee.yy",
   },
   "resourceVersion": "1.0",
   "name": "sZombie",

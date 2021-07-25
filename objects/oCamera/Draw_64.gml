@@ -13,7 +13,7 @@ if(instance_exists(oPlayer) && pause == false){
 
 	//Draw fps
 	draw_set_font(fArial_16);
-	draw_text_transformed_outlined(20, 150, c_black, c_white, "FPS: "+string(fps), 1, 0, 2);
+	draw_text_transformed_outlined(20, 150, c_black, c_white, "FPS: "+string(fps) + "Number of enemies: " + string(instance_number(oEnemyParent)), 1, 0, 2);
 	draw_set_font(fPlasmDrip36);
 
 	// Weapon name
