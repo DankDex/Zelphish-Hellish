@@ -20,16 +20,19 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"isDnD":false,"eventNum":50,"eventType":6,"collisionObjectId":null,"parent":{"name":"oFlameThrower","path":"objects/oFlameThrower/oFlameThrower.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":56,"eventType":6,"collisionObjectId":null,"parent":{"name":"oFlameThrower","path":"objects/oFlameThrower/oFlameThrower.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
   "properties": [],
   "overriddenProperties": [
-    {"propertyId":{"name":"firerate","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"5","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"firerate","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"60","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"damage","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"0.30","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"bullets","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"300","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"magazine","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"100","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"bullet_type","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"oFlameThrowerAmmo","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"shooting_effect","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"global.ptEmpty","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
-    {"propertyId":{"name":"knockback","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"1","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"knockback","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"0","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"bullet_speed","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"0","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {

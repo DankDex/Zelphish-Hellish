@@ -83,7 +83,7 @@ global.ptCharge = _p;
 //Flamethower Particles =============================================
 var _p = part_type_create();
 
-part_type_life(_p, 20,40);
+part_type_life(_p, 30,40);
 part_type_speed(_p, 2, 4, 0, 0);
 part_type_size(_p, 0.02, 0.04,0,0.05);
 part_type_shape(_p, pt_shape_square);

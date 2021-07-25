@@ -46,12 +46,26 @@ if(pause == false && instance_exists(oPlayer)){
 		if(_sees_player && collision_circle(x,y,500,oPlayer,0,0) && firerate_check <= 0){
 			firerate_check = firerate;
 			
-			var _angle = angle+40;
 	
-			var xx = x + lengthdir_x(15, _angle);
-			var yy = y + lengthdir_y(15, _angle);
+			var _angle = point_direction(x, y, oPlayer.x, oPlayer.y)-180+40;
+			var xx = x + lengthdir_x(-7, _angle);
+			var yy = y + lengthdir_y(13, _angle);
+			//shoot_bullet(xx, yy, damage, bullet_speed, _angle, bullet_type, false, shooting_effect);
+	
+			bullet = instance_create_layer(xx,yy, "Instances", oFlameThrowerAmmoEnemy);
+	
+			var _damage = bullet_damage;
+			var _id = id;
+	
+			with(bullet){
+				angle = _angle;	
+				spd = 0;
+				image_angle = _angle;
+				damage = _damage;
+				bullet_from_enemy = true;
+				emmiter = _id;
+			}
 			
-			shoot_bullet(xx, yy, bullet_damage, bullet_speed, point_direction(x,y,oPlayer.x,oPlayer.y), bullet_type, true, shoot_effect);
 			
 		}else if(_sees_player){
 			firerate_check--;
@@ -64,12 +78,25 @@ if(pause == false && instance_exists(oPlayer)){
 		if(_sees_player && collision_circle(x,y,500,oPlayer,0,0) && firerate_check <= 0){
 			firerate_check = firerate;
 			
-			var _angle = angle+40;
 	
-			var xx = x + lengthdir_x(15, _angle);
-			var yy = y + lengthdir_y(15, _angle);
-			
-			shoot_bullet(xx, yy, bullet_damage, bullet_speed, point_direction(x,y,oPlayer.x,oPlayer.y), bullet_type, true, shoot_effect);
+			var _angle = point_direction(x, y, oPlayer.x, oPlayer.y)-180+40;
+			var xx = x + lengthdir_x(-7, _angle);
+			var yy = y + lengthdir_y(13, _angle);
+			//shoot_bullet(xx, yy, damage, bullet_speed, _angle, bullet_type, false, shooting_effect);
+	
+			bullet = instance_create_layer(xx,yy, "Instances", oFlameThrowerAmmoEnemy);
+	
+			var _damage = bullet_damage;
+			var _id = id;
+	
+			with(bullet){
+				angle = _angle;	
+				spd = 0;
+				image_angle = _angle;
+				damage = _damage;
+				bullet_from_enemy = true;
+				emmiter = _id;
+			}
 			
 		}else if(_sees_player){
 			firerate_check--;

@@ -1,1 +1,1 @@
-frames_until_it_disapears = 5;
+frames_until_it_disapears = 61;

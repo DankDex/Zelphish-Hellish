@@ -2,8 +2,8 @@ randomize();
 
 #macro TILE_SIZE 64
 
-//enemies_to_spawn = [oEnemyParentRanged, oZombie, oZombieSecond];
-enemies_to_spawn = [oEnemyRangedFlamethrower];
+enemies_to_spawn = [oEnemyParentRanged, oZombie, oZombieSecond];
+//enemies_to_spawn = [oEnemyRangedFlamethrower];
 
 items_to_spawn = [oAmmoBox];
 
