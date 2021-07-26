@@ -93,4 +93,18 @@ part_type_alpha2(_p, 1, 0);
 global.ptFlamethrower = _p;
 
 
+//Explosion Particles =============================================
+var _p = part_type_create();
+
+part_type_life(_p, 20,50);
+part_type_speed(_p, 4, 6, 0, 0);
+part_type_size(_p, 0.1, 0.3,0,0.05);
+part_type_shape(_p, pt_shape_smoke);
+part_type_color2(_p, c_orange, c_red);
+part_type_alpha2(_p, 1, 0.7);
+part_type_direction(_p, 0, 360, 0, 0);
+
+global.ptExplosion = _p;
+
+
 #endregion
