@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Ranged",
-    "path": "folders/Objects/Enemies/Ranged.yy",
+    "name": "Demons",
+    "path": "folders/Objects/Enemies/Ranged/Demons.yy",
   },
   "resourceVersion": "1.0",
   "name": "oEnemyRangedNormal",

@@ -38,8 +38,8 @@
     {"propertyId":{"name":"sprite_normal","path":"objects/oEnemyParent/oEnemyParent.yy",},"objectId":{"name":"oEnemyParent","path":"objects/oEnemyParent/oEnemyParent.yy",},"value":"sEnemy_Ranged_Flamethrower","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
-    "name": "Ranged",
-    "path": "folders/Objects/Enemies/Ranged.yy",
+    "name": "Demons",
+    "path": "folders/Objects/Enemies/Ranged/Demons.yy",
   },
   "resourceVersion": "1.0",
   "name": "oEnemyRangedFlamethrower",

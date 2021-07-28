@@ -30,8 +30,8 @@
     {"propertyId":{"name":"bullet_type","path":"objects/oEnemyParentRanged/oEnemyParentRanged.yy",},"objectId":{"name":"oEnemyParentRanged","path":"objects/oEnemyParentRanged/oEnemyParentRanged.yy",},"value":"oRocket","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
-    "name": "Ranged",
-    "path": "folders/Objects/Enemies/Ranged.yy",
+    "name": "Demons",
+    "path": "folders/Objects/Enemies/Ranged/Demons.yy",
   },
   "resourceVersion": "1.0",
   "name": "oEnemyRangedRocketLauncher",
