@@ -28,6 +28,8 @@
     {"propertyId":{"name":"bullets","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"100","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"magazine","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"50","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"knockback","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"5","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"gun_sprite","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"sMachinegun","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"gun_name","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"Machinegun","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
     "name": "Guns",

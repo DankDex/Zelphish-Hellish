@@ -30,6 +30,8 @@
     {"propertyId":{"name":"reloading_frames","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"60","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"bullet_type","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"oRocket","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"bullet_speed","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"20","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"gun_sprite","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"sRocketLauncher","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"gun_name","path":"objects/oGun_Parent/oGun_Parent.yy",},"objectId":{"name":"oGun_Parent","path":"objects/oGun_Parent/oGun_Parent.yy",},"value":"Rocket Launcher","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
     "name": "Guns",
