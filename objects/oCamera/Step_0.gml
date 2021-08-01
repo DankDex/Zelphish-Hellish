@@ -2,6 +2,10 @@
 // Doesn't move if game is paused
 if(pause == false) {
 
+	//Width and height of gui
+	_gw = display_get_gui_width();
+	_gh = display_get_gui_height();
+
 	//If player exists it will smoothly follow it
 	if(instance_exists(follow)){
 		xTo = follow.x;
@@ -37,5 +41,22 @@ if(pause == false) {
 
 	//Assigns it to the viewport 0
 	view_camera[0] = camera;
+	
+	
+	
+	//Weapon scroll wheel
+	var slot_weapon_seperation = 60;
+	//var begin_wheel = _gh/2 + (array_length_1d(oPlayer.weapons)/2) * -slot_weapon_seperation;
+	var scrollWheel_begin = _gh/2 + (array_length_1d(oPlayer.weapons)/2) * -slot_weapon_seperation;
+	var scrollWheel_end = _gh/2 + (array_length_1d(oPlayer.weapons)/2) * slot_weapon_seperation;
+	//size_of_scroll_wheel = scrollWheel_end - scrollWheel_begin;
+	var scrollSmoothness = 0.1; //or whatever you want to lerp by
+	var scrollSpeed = 16; // or whatever you want to increment scrolling by
+
+	if(mouse_wheel_up()){  scrollToLocation -= scrollSpeed;}
+	if(mouse_wheel_down()){  scrollToLocation += scrollSpeed;}
+	scrollToLocation = clamp(scrollToLocation, scrollWheel_begin, scrollWheel_end);// or whatever to clamp the view to the room height
+
+	currentScrollLocation = lerp(currentScrollLocation, scrollToLocation, scrollSmoothness);
 
 }

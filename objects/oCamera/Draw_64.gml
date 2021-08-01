@@ -1,10 +1,6 @@
 
 if(instance_exists(oPlayer) && pause == false){
 	
-	var _gw = display_get_gui_width();
-	var _gh = display_get_gui_height();
-	
-	
 	//Allign draw
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_center);
@@ -36,16 +32,29 @@ if(instance_exists(oPlayer) && pause == false){
 
 	
 	//Weapon scroll wheel
-	 var scrollSmoothness = 0.5; //or whatever you want to lerp by
-	 var scrollSpeed = 32; // or whatever you want to increment scrolling by
-
-	if(mouse_wheel_up()){  scrollToLocation -= scrollSpeed;}
-	if(mouse_wheel_down()){  scrollToLocation += scrollSpeed;}
-	scrollToLocation = clamp(scrollToLocation, 200, _gh - 300);// or whatever to clamp the view to the room height
-
-	currentScrollLocation = lerp(currentScrollLocation, scrollToLocation, scrollSmoothness);
- 
-	 draw_sprite_ext(fock, 0, 20, currentScrollLocation, 0.5, 0.5, 0, c_white, 1);
+	var slot_weapon_seperation = 60;
+	var begin_wheel = currentScrollLocation + (array_length_1d(oPlayer.weapons)/2) * -slot_weapon_seperation+32;
+	
+	for(i=0; i<array_length_1d(oPlayer.weapons); i++){
+		
+		var _alpha = 1 / ( abs( abs(begin_wheel) - abs((_gh/2)) ) / 20 );
+		
+		if(begin_wheel>(_gh/2-32) && begin_wheel<(_gh/2+32)){ 
+			oPlayer.weapon = oPlayer.weapons[i];
+			draw_sprite_ext(sWeaponBox_selected, 0, 50, begin_wheel, 1, 1, 0, c_white, _alpha );
+		}else{
+			draw_sprite_ext(sWeaponBox_unselected, 0, 50, begin_wheel, 1, 1, 0, c_white, _alpha );
+		}
+		
+		draw_sprite_ext(oPlayer.weapons[i].gun_sprite, 0, 50, begin_wheel, 1, 1, 0, c_white, _alpha );
+		
+		begin_wheel += slot_weapon_seperation;
+		
+	}
+	
+	//draw_sprite_ext(sWall, 0, 20, currentScrollLocation, 0.5, 0.5, 0, c_white, 1);	
+	//draw_sprite_ext(fock, 0, 50, _gh/2, 0.5, 0.5, 0, c_white, 1);	
+	//draw_text(50, _gh/2, string(array_length_1d(oPlayer.weapons)/2));
 	
 
 

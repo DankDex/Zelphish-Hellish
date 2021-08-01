@@ -77,10 +77,11 @@ if(state = 2){ // Hurt
 }
 
 // Switch Weapons ===========================================================================================
-weapon_slot = keyboard_get_number()-1; //Choose weapon slot using keyboard numbers
+//Now done in oCamera DrawGUI when drawing the weapons on the sidebar
+//weapon_slot = keyboard_get_number()-1; //Choose weapon slot using keyboard numbers
 
-if(weapon_slot>-1 && weapon_slot<array_length_1d(weapons)) //Checks if weapon is in inventory and equips it
-	weapon = weapons[weapon_slot];
+//if(weapon_slot>-1 && weapon_slot<array_length_1d(weapons)) //Checks if weapon is in inventory and equips it
+//	weapon = weapons[weapon_slot];
 
 
 

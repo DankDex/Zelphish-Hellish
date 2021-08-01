@@ -15,6 +15,7 @@ hp = 100;
 // Instances of weapons
 weapon = oHandGun; //Default weapon
 weapons = [oHandGun, oMachineGun, oSniperGun, oShotGun, oRocketLauncher]; //Weapons available
+//weapons = [oHandGun, oMachineGun, oSniperGun];
 weapon_slot = 1; //Weapon slot selected
 
 //Create all weapons in players inventory
