@@ -23,3 +23,7 @@ smoothness = 5;
 
 //Amount of frames it will shake; 60 = 1 second
 shake_frames = 0;
+
+//Weapon scroll wheel
+currentScrollLocation = 0;
+scrollToLocation = 0;

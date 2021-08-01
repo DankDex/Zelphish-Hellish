@@ -34,6 +34,20 @@ if(instance_exists(oPlayer) && pause == false){
 	draw_sprite_ext(sLifebar,0,30,35,1,1,0,c_white,1);
 	draw_text_transformed_outlined(30, 17, c_black, c_white, "Health", 0.4, 0, 1);
 
+	
+	//Weapon scroll wheel
+	 var scrollSmoothness = 0.5; //or whatever you want to lerp by
+	 var scrollSpeed = 32; // or whatever you want to increment scrolling by
+
+	if(mouse_wheel_up()){  scrollToLocation -= scrollSpeed;}
+	if(mouse_wheel_down()){  scrollToLocation += scrollSpeed;}
+	scrollToLocation = clamp(scrollToLocation, 200, _gh - 300);// or whatever to clamp the view to the room height
+
+	currentScrollLocation = lerp(currentScrollLocation, scrollToLocation, scrollSmoothness);
+ 
+	 draw_sprite_ext(fock, 0, 20, currentScrollLocation, 0.5, 0.5, 0, c_white, 1);
+	
+
 
 	draw_set_halign(fa_center);
 	draw_set_font(fNormal);
