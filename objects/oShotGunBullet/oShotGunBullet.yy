@@ -26,7 +26,7 @@
   ],
   "properties": [
     {"varType":1,"value":"5","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"numberPellets","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":1,"value":"30","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"randomRange","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":1,"value":"5","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"randomRange","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [
     {"propertyId":{"name":"destroy_effect","path":"objects/oBullet_Parent/oBullet_Parent.yy",},"objectId":{"name":"oBullet_Parent","path":"objects/oBullet_Parent/oBullet_Parent.yy",},"value":"global.ptEmpty","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},

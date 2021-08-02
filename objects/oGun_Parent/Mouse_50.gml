@@ -1,6 +1,6 @@
 
 // Checks if it has passed enough frames since last shot, if the player exists, if it has bullets in magazine and if the player has the respective weapon equipped
-if(firerate_check>=firerate && instance_exists(oPlayer) && magazine_check>0 && pause == false && oPlayer.weapon==object_index){
+if(firerate_check>=firerate && instance_exists(oPlayer) && magazine_check>0 && pause == false && oPlayer.weapon==object_index && state==1){
 
 
 	var _angle = point_direction(oPlayer.x, oPlayer.y,mouse_x,mouse_y);
