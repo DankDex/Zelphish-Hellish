@@ -30,6 +30,8 @@ if(pause == false && other.bullet_from_enemy == false) {
 			part_particles_create(global.partSystem, x, y, particle_when_dead, 1);
 			part_particles_create(global.partSystem, x, y, particle_when_hit, 15);
 	
+			money += money_given; //Increase money
+	
 			instance_destroy();
 			oCamera.shake_frames = 5;
 		}
