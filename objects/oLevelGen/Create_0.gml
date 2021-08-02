@@ -91,6 +91,26 @@ for (var i = 0; i < room_width div TILE_SIZE; i++)
 }
 
 
+
+//======================================================================================================
+// Exit spawn
+while(instance_number(oPassWay) <= 0){
+	for (var i = 0; i < room_width div TILE_SIZE; i++)
+	{
+		for (var j = 0; j < room_height div TILE_SIZE; j++)
+		{
+			if(chance(5) && !place_meeting(i * TILE_SIZE, j * TILE_SIZE, oWall) && instance_number(oPassWay)!=1)
+			{
+				show_debug_message("Exit spawned");
+				instance_create_layer(i * TILE_SIZE + 32, j * TILE_SIZE + 32,"Instances",oPassWay);
+				break;
+			}
+		}
+	}
+}
+
+
+
 //======================================================================================================
 // Erasing unnecessary walls
 

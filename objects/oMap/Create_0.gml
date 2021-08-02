@@ -20,7 +20,8 @@ objects_to_draw = [
 	oPlayer, c_maroon,
 	oEnemyParent, c_yellow,
 	oBullet_Parent, c_white,
-	oAmmoBox, c_blue
+	oAmmoBox, c_blue,
+	oPassWay, c_green
 ]
 
 
