@@ -2,8 +2,10 @@
 globalvar grid;
 globalvar debug;
 globalvar pause;
+globalvar money;
 debug = false;
 pause = false;
+money = 0;
 
 global.partSystem = part_system_create_layer("Particles", false);
 global.partSystem_top = part_system_create_layer("Particles", false);

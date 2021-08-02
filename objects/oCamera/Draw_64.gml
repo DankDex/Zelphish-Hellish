@@ -29,6 +29,9 @@ if(instance_exists(oPlayer) && pause == false){
 	draw_healthbar(30, 35, 130, 55, oPlayer.hp, c_dkgray, c_red, c_green, 0, 0, 0);
 	draw_sprite_ext(sLifebar,0,30,35,1,1,0,c_white,1);
 	draw_text_transformed_outlined(30, 17, c_black, c_white, "Health", 0.4, 0, 1);
+	
+	//Draw Money
+	draw_text_transformed_outlined(30, 65, c_black, c_white, "Money: " + string(money) + " $", 0.4, 0, 1);
 
 	
 	//Weapon scroll wheel
