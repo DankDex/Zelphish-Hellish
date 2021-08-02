@@ -42,7 +42,7 @@ if(instance_exists(oPlayer) && pause == false){
 		
 		var _alpha = 1 / ( abs( abs(begin_wheel) - abs((_gh/2)) ) / 20 );
 		
-		if(begin_wheel>(_gh/2-32) && begin_wheel<(_gh/2+32)){ 
+		if(begin_wheel>(_gh/2-33) && begin_wheel<(_gh/2+33)){ 
 			oPlayer.weapon = oPlayer.weapons[i];
 			draw_sprite_ext(sWeaponBox_selected, 0, 50, begin_wheel, 1, 1, 0, c_white, _alpha );
 		}else{

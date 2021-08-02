@@ -113,6 +113,7 @@
     {"id":{"name":"oEnemyParentRanged","path":"objects/oEnemyParentRanged/oEnemyParentRanged.yy",},"order":0,},
     {"id":{"name":"oEnemyParentMelee","path":"objects/oEnemyParentMelee/oEnemyParentMelee.yy",},"order":0,},
     {"id":{"name":"spr_light_point","path":"sprites/spr_light_point/spr_light_point.yy",},"order":0,},
+    {"id":{"name":"sGateWay","path":"sprites/sGateWay/sGateWay.yy",},"order":50,},
     {"id":{"name":"light_create_directional","path":"scripts/light_create_directional/light_create_directional.yy",},"order":5,},
     {"id":{"name":"sFlameThower","path":"sprites/sFlameThower/sFlameThower.yy",},"order":4,},
     {"id":{"name":"lighting_free","path":"scripts/lighting_free/lighting_free.yy",},"order":5,},

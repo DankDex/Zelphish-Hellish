@@ -25,5 +25,5 @@ smoothness = 5;
 shake_frames = 0;
 
 //Weapon scroll wheel
-currentScrollLocation = display_get_gui_height()/2;
-scrollToLocation = 0;
+currentScrollLocation = display_get_gui_height();
+scrollToLocation = display_get_gui_height();
