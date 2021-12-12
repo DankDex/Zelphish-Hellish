@@ -55,9 +55,6 @@ if(instance_exists(oPlayer) && pause == false){
 		
 	}
 	
-	//draw_sprite_ext(sWall, 0, 20, currentScrollLocation, 0.5, 0.5, 0, c_white, 1);	
-	//draw_sprite_ext(fock, 0, 50, _gh/2, 0.5, 0.5, 0, c_white, 1);	
-	//draw_text(50, _gh/2, string(array_length_1d(oPlayer.weapons)/2));
 	
 
 

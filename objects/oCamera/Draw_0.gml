@@ -11,6 +11,7 @@ if(instance_exists(oPlayer)){
 	
 		show_debug_overlay(true);
 	}
+	
 
 }
 

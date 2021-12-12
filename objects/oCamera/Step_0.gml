@@ -16,6 +16,7 @@ if(pause == false) {
 		y_offset = clamp(-200, lengthdir_y(point_distance(xTo, yTo, mouse_x, mouse_y), point_direction(xTo, yTo, mouse_x, mouse_y))/5, 200);
 		xTo += x_offset;
 		yTo += y_offset;
+		
 	}
 
 	//Moves closer to the position of the player according to the smoothness variable

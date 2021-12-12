@@ -107,4 +107,17 @@ part_type_direction(_p, 0, 360, 0, 0);
 global.ptExplosion = _p;
 
 
+//Arrow Particles =============================================
+var _p = part_type_create();
+
+part_type_life(_p, 30,60);
+part_type_speed(_p, 0.2, 0.5, 0, 0);
+part_type_size(_p, 0.01, 0.02,0,0.05);
+part_type_shape(_p, pt_shape_square);
+part_type_color2(_p, c_red, c_white);
+part_type_alpha2(_p, 1, 0);
+part_type_direction(_p, 0, 360, 0, 0);
+
+global.ptArrow = _p;
+
 #endregion
