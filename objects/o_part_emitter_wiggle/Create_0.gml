@@ -12,6 +12,7 @@ with(part_type1) {
 	part_image(s_pixel_big, 0, c_white, false, false, false);
 	part_speed(0.3, 2, -0.001, 0.02);
 	part_direction(0, 359, 0, 0);
+	part_alpha3(1,0.5,0);
 }
 
 ////OLD for compare

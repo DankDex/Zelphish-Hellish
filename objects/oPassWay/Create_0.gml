@@ -1,1 +1,2 @@
 activate = false;
+light = noone;

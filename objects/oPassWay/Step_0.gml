@@ -11,6 +11,9 @@ if(activate == true) {
 	
 	if(!instance_exists(oTriangle) && instance_exists(oPlayer))
 		instance_create_layer(oPlayer.x, oPlayer.y - 30, "Player", oTriangle);
+		
+	if(light == noone)
+		light = instance_create_layer(x,y,"Instances",oLight_Passway_Area);
 	
 }else{
 	sprite_index = noone;	
