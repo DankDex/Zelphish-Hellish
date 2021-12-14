@@ -9,6 +9,24 @@ if(!pause && instance_exists(oPlayer)){
 	//Drawing the Background
 	draw_set_color(background_color);
 	draw_rectangle(x, y, x + width*scale_mult_big, y + height*scale_mult_big, false);
+	
+	
+	//Draw walls
+	draw_set_color(c_dkgray);
+	for(var i = 0; i < (room_width/64); i++){	
+		for(var j = 0; j < (room_height/64); j++){		
+			if(wall_draw[i][j]==1){
+				current_left = (i*64 + 0) * scale;
+				current_top = (j*64 + 0) * scale;
+				current_right = (i*64 + 64) * scale;
+				current_bottom = (j*64 + 64) * scale;
+
+				draw_rectangle(x + current_left, y + current_top, x + current_right, y + current_bottom, false);
+			}
+		}
+	}
+	draw_set_color(background_color);
+	
 
 	//Drawing Instances
 	for(var i = 0; i < array_length_1d(objects_to_draw); i += 2) {
