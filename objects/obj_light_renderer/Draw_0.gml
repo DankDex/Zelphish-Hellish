@@ -6,7 +6,7 @@ var exists;
 if(dirty || tick >= global.lightUpdateFrameDelay || global.worldShadowMap == undefined || !surface_exists(global.worldShadowMap)) {
 	// Composite shadow map
 	exists = composite_shadow_map(global.worldLights);
-	dirty = false;
+	dirty = true;
 	tick = 0;
 }
 else exists = surface_exists(global.worldShadowMap);

@@ -17,8 +17,8 @@
   "width": 16,
   "height": 64,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "Game",
+    "path": "texturegroups/Game",
   },
   "swatchColours": null,
   "gridX": 4,

@@ -17,8 +17,8 @@
   "width": 16,
   "height": 16,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "Game",
+    "path": "texturegroups/Game",
   },
   "swatchColours": null,
   "gridX": 4,
@@ -26,7 +26,7 @@
   "frames": [
     {"compositeImage":{"FrameId":{"name":"67a558cc-ebea-4188-9953-eb0f8bfca2a7","path":"sprites/sAmmoPack/sAmmoPack.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"67a558cc-ebea-4188-9953-eb0f8bfca2a7","path":"sprites/sAmmoPack/sAmmoPack.yy",},"LayerId":{"name":"791eadc8-f050-4268-8230-ecc658046116","path":"sprites/sAmmoPack/sAmmoPack.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"67a558cc-ebea-4188-9953-eb0f8bfca2a7","path":"sprites/sAmmoPack/sAmmoPack.yy",},"LayerId":{"name":"186c3ff5-cb6b-44f2-ac46-ebb0b56601a2","path":"sprites/sAmmoPack/sAmmoPack.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"67a558cc-ebea-4188-9953-eb0f8bfca2a7","path":"sprites/sAmmoPack/sAmmoPack.yy",},"LayerId":{"name":"sAmmoPack","path":"sprites/sAmmoPack/sAmmoPack.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"sAmmoPack","path":"sprites/sAmmoPack/sAmmoPack.yy",},"resourceVersion":"1.0","name":"67a558cc-ebea-4188-9953-eb0f8bfca2a7","tags":[],"resourceType":"GMSpriteFrame",},
     {"compositeImage":{"FrameId":{"name":"6d6f9bdc-8a4f-4ca0-8325-ded3932ae7ee","path":"sprites/sAmmoPack/sAmmoPack.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"6d6f9bdc-8a4f-4ca0-8325-ded3932ae7ee","path":"sprites/sAmmoPack/sAmmoPack.yy",},"LayerId":{"name":"791eadc8-f050-4268-8230-ecc658046116","path":"sprites/sAmmoPack/sAmmoPack.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},

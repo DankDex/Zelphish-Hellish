@@ -23,3 +23,7 @@ if(room != Test && room != rMenu){
 global.partSystem = part_system_create_layer("Particles", false);
 global.partSystem_top = part_system_create_layer("Particles", false);
 part_system_depth(global.partSystem_top, layer_get_depth("Enemies")-1);
+
+gpu_set_alphatestref(true);
+gpu_set_blendenable(true);
+draw_texture_flush();

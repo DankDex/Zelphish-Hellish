@@ -21,7 +21,7 @@
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_shadow_caster","path":"objects/obj_shadow_caster/obj_shadow_caster.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
-    {"varType":1,"value":"1000","rangeEnabled":true,"rangeMin":0.0,"rangeMax":65536.0,"listItems":null,"multiselect":false,"filters":[
+    {"varType":1,"value":"500","rangeEnabled":true,"rangeMin":0.0,"rangeMax":65536.0,"listItems":null,"multiselect":false,"filters":[
         "GMTileSet",
         "GMSprite",
         "GMSound",

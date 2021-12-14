@@ -61,4 +61,6 @@ if(pause == false) {
 		currentScrollLocation = lerp(currentScrollLocation, scrollToLocation, scrollSmoothness);
 	}
 
+	instance_activate_region(x-(cam_width)/2, y-(cam_height)/2, cam_width, cam_height, true);
+
 }
