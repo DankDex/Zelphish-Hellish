@@ -2,7 +2,7 @@
 
 if(!pause && instance_exists(oPlayer)){
 
-	scale = 0.05*scale_mult_big;
+	scale = 0.04*scale_mult_big;
 
 	draw_set_alpha(map_alpha);
 

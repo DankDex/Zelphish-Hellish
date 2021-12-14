@@ -27,3 +27,7 @@ shake_frames = 0;
 //Weapon scroll wheel
 currentScrollLocation = display_get_gui_height();
 scrollToLocation = display_get_gui_height();
+
+//Width and height of gui
+//_gw = display_get_gui_width();
+_gh = display_get_gui_height();

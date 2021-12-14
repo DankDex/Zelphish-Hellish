@@ -12,7 +12,7 @@ if(instance_exists(oPlayer) && pause == false){
 
 	//Draw fps
 	draw_set_font(fArial_16);
-	draw_text_transformed_outlined(20, _gh-150, c_black, c_white, "FPS (capped): "+ string(fps) +"\nCPU steps: "+string(fps_real) + " \nNumber of enemies: " + string(instance_number(oEnemyParent)), 1, 0, 2);
+	draw_text_transformed_outlined(20, _gh-150, c_black, c_white, "FPS (capped): "+ string(fps) +"\nCPU steps: "+string(fps_real) + " \nNumber of enemies: " + string(num_enemies), 1, 0, 2);
 
 	// Weapon name
 	draw_set_font(fDecrepit30);
@@ -64,7 +64,7 @@ if(instance_exists(oPlayer) && pause == false){
 	
 	//draw instructions
 	draw_set_font(fNormal);
-	instructions = "Movement : [WASD]\nShooting : left click\nBig Map : [M]\nPause: [ESC]\nGenerate New Map : [V]\nDebug Mode : [Q]";
+	var instructions = "Movement : [WASD]\nShooting : left click\nBig Map : [M]\nPause: [ESC]\nGenerate New Map : [V]\nDebug Mode : [Q]";
 	draw_text_transformed_outlined(view_wport[0]-160, view_hport[0]-96, c_black, c_white, instructions, 1, 0, 1);
 
 }

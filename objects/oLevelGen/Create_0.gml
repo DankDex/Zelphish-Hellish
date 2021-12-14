@@ -19,7 +19,7 @@ for (var i = 0; i < room_width div TILE_SIZE; i++)
 
 var dir = 0;
 
-repeat (1500)
+repeat (3000)
 {
 	if (chance(wall_chance))
 	{
@@ -131,3 +131,6 @@ for (var i = 0; i < room_width div TILE_SIZE; i++)
 }
 
 instance_destroy(oPlayable);
+
+
+num_enemies = instance_number(oEnemyParent);

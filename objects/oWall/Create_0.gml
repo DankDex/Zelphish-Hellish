@@ -7,3 +7,5 @@ b_bottom = bbox_bottom;
 event_inherited();
 
 polygon = polygon_from_instance(id);
+
+alarm[0] = 5;

@@ -2,9 +2,7 @@
 // Doesn't move if game is paused
 if(pause == false) {
 
-	//Width and height of gui
-	_gw = display_get_gui_width();
-	_gh = display_get_gui_height();
+	var x_offset, y_offset, x_shake, y_shake;
 
 	//If player exists it will smoothly follow it
 	if(instance_exists(follow)){
@@ -12,8 +10,10 @@ if(pause == false) {
 		yTo = follow.y;
 		
 		//Camera slightly moves to the direction of the mouse
-		x_offset = clamp(-200, lengthdir_x(point_distance(xTo, yTo, mouse_x, mouse_y), point_direction(xTo, yTo, mouse_x, mouse_y))/5, 200);
-		y_offset = clamp(-200, lengthdir_y(point_distance(xTo, yTo, mouse_x, mouse_y), point_direction(xTo, yTo, mouse_x, mouse_y))/5, 200);
+		var dist = point_distance(xTo, yTo, mouse_x, mouse_y);
+		var dir = point_direction(xTo, yTo, mouse_x, mouse_y);
+		x_offset = clamp(-200, lengthdir_x(dist, dir)/5, 200);
+		y_offset = clamp(-200, lengthdir_y(dist, dir)/5, 200);
 		xTo += x_offset;
 		yTo += y_offset;
 		
