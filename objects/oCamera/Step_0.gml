@@ -61,6 +61,6 @@ if(pause == false) {
 		currentScrollLocation = lerp(currentScrollLocation, scrollToLocation, scrollSmoothness);
 	}
 
-	instance_activate_region(x-(cam_width)/2, y-(cam_height)/2, cam_width, cam_height, true);
+	instance_activate_region(oPlayer.x-800, oPlayer.y-800, 1600, 1600, true);
 
 }

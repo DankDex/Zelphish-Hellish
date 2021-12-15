@@ -35,12 +35,13 @@ with(water) {
 	part_death(5, other.water_drops);
 	part_step_function(
 		function() {
-			if y > oPlayer.y-200 {
-				if(irandom_range(0,10) == 5){
-					y = irandom_range(-200,200)+oPlayer.y;
-					life = 0;
+			if(instance_exists(oPlayer))
+				if y > oPlayer.y-200 {
+					if(irandom_range(0,10) == 5){
+						y = irandom_range(-200,200)+oPlayer.y;
+						life = 0;
+					}
 				}
-			}
 		}
 	);
 }
