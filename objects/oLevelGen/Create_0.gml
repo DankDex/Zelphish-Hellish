@@ -5,7 +5,7 @@ randomize();
 enemies_to_spawn = [oZombie, oZombieSecond, oEnemyRangedNormal, oEnemyRangedRocketLauncher];
 //enemies_to_spawn = [oEnemyRangedRocketLauncher];
 
-items_to_spawn = [oAmmoBox];
+items_to_spawn = [oAmmoBox, oExplosiveBarril];
 
 //======================================================================================================
 // Wall generation

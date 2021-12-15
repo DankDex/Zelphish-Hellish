@@ -59,8 +59,9 @@ if(pause == false) {
 		scrollToLocation = clamp(scrollToLocation, scrollWheel_begin, scrollWheel_end);// or whatever to clamp the view to the room height
 
 		currentScrollLocation = lerp(currentScrollLocation, scrollToLocation, scrollSmoothness);
+		
+		instance_activate_region(oPlayer.x-800, oPlayer.y-800, 1600, 1600, true);
 	}
 
-	instance_activate_region(oPlayer.x-800, oPlayer.y-800, 1600, 1600, true);
 
 }
