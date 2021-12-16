@@ -25,7 +25,6 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"oEnemyParentMelee","path":"objects/oEnemyParentMelee/oEnemyParentMelee.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"oEnemyParentMelee","path":"objects/oEnemyParentMelee/oEnemyParentMelee.yy",},"parent":{"name":"oEnemyParentMelee","path":"objects/oEnemyParentMelee/oEnemyParentMelee.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
     {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"chasing","tags":[],"resourceType":"GMObjectProperty",},
