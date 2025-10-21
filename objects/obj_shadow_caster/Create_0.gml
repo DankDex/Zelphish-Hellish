@@ -23,6 +23,7 @@ cached_polygon_area = true;
 
 // Is the shadow caster outside the active camera?
 outside_active_camera = true;
+
 // The last camera this shadow caster was compared against,
 // as the view array
 last_camera = undefined;

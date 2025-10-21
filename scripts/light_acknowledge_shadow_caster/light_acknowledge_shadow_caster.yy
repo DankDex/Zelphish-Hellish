@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Misc",
-    "path": "folders/Scripts/Lighting/Lights/Misc.yy",
+  "$GMScript":"v1",
+  "%Name":"light_acknowledge_shadow_caster",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"light_acknowledge_shadow_caster",
+  "parent":{
+    "name":"Misc",
+    "path":"folders/Scripts/Lighting/Lights/Misc.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "light_acknowledge_shadow_caster",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

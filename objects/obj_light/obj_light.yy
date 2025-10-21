@@ -1,38 +1,52 @@
 {
-  "spriteId": {
-    "name": "spr_light_point",
-    "path": "sprites/spr_light_point/spr_light_point.yy",
-  },
-  "solid": false,
-  "visible": false,
-  "spriteMaskId": null,
-  "persistent": false,
-  "parentObjectId": null,
-  "physicsObject": false,
-  "physicsSensor": false,
-  "physicsShape": 1,
-  "physicsGroup": 0,
-  "physicsDensity": 0.5,
-  "physicsRestitution": 0.1,
-  "physicsLinearDamping": 0.1,
-  "physicsAngularDamping": 0.1,
-  "physicsFriction": 0.2,
-  "physicsStartAwake": true,
-  "physicsKinematic": false,
-  "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":12,"collisionObjectId":null,"parent":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  "$GMObject":"",
+  "%Name":"obj_light",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":12,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
-  "properties": [
-    {"varType":6,"value":"\"Point Light\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+  "managed":true,
+  "name":"obj_light",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"Lighting",
+    "path":"folders/Objects/Lighting.yy",
+  },
+  "parentObjectId":null,
+  "persistent":false,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":0,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":false,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[],
+  "physicsStartAwake":true,
+  "properties":[
+    {"$GMObjectProperty":"v1","%Name":"Light_Type","filters":[
+        "GMTileSet",
+        "GMSprite",
+        "GMSound",
+        "GMPath",
+        "GMScript",
+        "GMShader",
+        "GMFont",
+        "GMTimeLine",
+        "GMObject",
+        "GMRoom",
+      ],"listItems":[
         "\"Point Light\"",
         "\"Spot Light\"",
         "\"Area Light\"",
         "\"Directional Light\"",
         "\"Line Light\"",
-      ],"multiselect":false,"filters":[
+      ],"multiselect":false,"name":"Light_Type","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"Point Light\"","varType":6,},
+    {"$GMObjectProperty":"v1","%Name":"Light_Color","filters":[
         "GMTileSet",
         "GMSprite",
         "GMSound",
@@ -43,8 +57,8 @@
         "GMTimeLine",
         "GMObject",
         "GMRoom",
-      ],"resourceVersion":"1.0","name":"Light_Type","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":7,"value":"$FFFFFFFF","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":null,"multiselect":false,"filters":[
+      ],"listItems":null,"multiselect":false,"name":"Light_Color","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"$FFFFFFFF","varType":7,},
+    {"$GMObjectProperty":"v1","%Name":"Light_Range","filters":[
         "GMTileSet",
         "GMSprite",
         "GMSound",
@@ -55,8 +69,8 @@
         "GMTimeLine",
         "GMObject",
         "GMRoom",
-      ],"resourceVersion":"1.0","name":"Light_Color","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":1,"value":"768","rangeEnabled":true,"rangeMin":0.0,"rangeMax":5000.0,"listItems":null,"multiselect":false,"filters":[
+      ],"listItems":null,"multiselect":false,"name":"Light_Range","rangeEnabled":true,"rangeMax":5000.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"768","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"Light_Intensity","filters":[
         "GMTileSet",
         "GMSprite",
         "GMSound",
@@ -67,8 +81,8 @@
         "GMTimeLine",
         "GMObject",
         "GMRoom",
-      ],"resourceVersion":"1.0","name":"Light_Range","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":0,"value":"1.3","rangeEnabled":true,"rangeMin":0.001,"rangeMax":30.0,"listItems":null,"multiselect":false,"filters":[
+      ],"listItems":null,"multiselect":false,"name":"Light_Intensity","rangeEnabled":true,"rangeMax":30.0,"rangeMin":0.001,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1.3","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"Light_Shadow_Length","filters":[
         "GMTileSet",
         "GMSprite",
         "GMSound",
@@ -79,8 +93,8 @@
         "GMTimeLine",
         "GMObject",
         "GMRoom",
-      ],"resourceVersion":"1.0","name":"Light_Intensity","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":1,"value":"200","rangeEnabled":true,"rangeMin":1.0,"rangeMax":65536.0,"listItems":null,"multiselect":false,"filters":[
+      ],"listItems":null,"multiselect":false,"name":"Light_Shadow_Length","rangeEnabled":true,"rangeMax":65536.0,"rangeMin":1.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"200","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"Light_Angle","filters":[
         "GMTileSet",
         "GMSprite",
         "GMSound",
@@ -91,8 +105,8 @@
         "GMTimeLine",
         "GMObject",
         "GMRoom",
-      ],"resourceVersion":"1.0","name":"Light_Shadow_Length","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":0,"value":"0","rangeEnabled":true,"rangeMin":0.0,"rangeMax":359.0,"listItems":null,"multiselect":false,"filters":[
+      ],"listItems":null,"multiselect":false,"name":"Light_Angle","rangeEnabled":true,"rangeMax":359.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"Light_Direction","filters":[
         "GMTileSet",
         "GMSprite",
         "GMSound",
@@ -103,8 +117,8 @@
         "GMTimeLine",
         "GMObject",
         "GMRoom",
-      ],"resourceVersion":"1.0","name":"Light_Angle","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":0,"value":"0","rangeEnabled":true,"rangeMin":0.0,"rangeMax":359.0,"listItems":null,"multiselect":false,"filters":[
+      ],"listItems":null,"multiselect":false,"name":"Light_Direction","rangeEnabled":true,"rangeMax":359.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"Light_Width","filters":[
         "GMTileSet",
         "GMSprite",
         "GMSound",
@@ -115,30 +129,18 @@
         "GMTimeLine",
         "GMObject",
         "GMRoom",
-      ],"resourceVersion":"1.0","name":"Light_Direction","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":1,"value":"256","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":null,"multiselect":false,"filters":[
-        "GMTileSet",
+      ],"listItems":null,"multiselect":false,"name":"Light_Width","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"256","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"LUT_Intensity","filters":[
         "GMSprite",
-        "GMSound",
-        "GMPath",
-        "GMScript",
-        "GMShader",
-        "GMFont",
-        "GMTimeLine",
-        "GMObject",
-        "GMRoom",
-      ],"resourceVersion":"1.0","name":"Light_Width","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":5,"value":"noone","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":null,"multiselect":false,"filters":[
-        "GMSprite",
-      ],"resourceVersion":"1.0","name":"LUT_Intensity","tags":[],"resourceType":"GMObjectProperty",},
+      ],"listItems":null,"multiselect":false,"name":"LUT_Intensity","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"noone","varType":5,},
   ],
-  "overriddenProperties": [],
-  "parent": {
-    "name": "Lighting",
-    "path": "folders/Objects/Lighting.yy",
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":{
+    "name":"spr_light_point",
+    "path":"sprites/spr_light_point/spr_light_point.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "obj_light",
-  "tags": [],
-  "resourceType": "GMObject",
+  "spriteMaskId":null,
+  "visible":false,
 }

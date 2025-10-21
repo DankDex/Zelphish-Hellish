@@ -10,35 +10,37 @@ items_to_spawn = [oAmmoBox, oExplosiveBarril];
 
 //======================================================================================================
 // Wall generation
-for (var i = 0; i < room_width div TILE_SIZE; i++)
-{
-	for (var j = 0; j < room_height div TILE_SIZE; j++)
+if(createWall) {
+	for (var i = 0; i < room_width div TILE_SIZE; i++)
 	{
-		instance_create_layer(i * TILE_SIZE, j * TILE_SIZE, "Walls_physical", oWall);
+		for (var j = 0; j < room_height div TILE_SIZE; j++)
+		{
+			instance_create_layer(i * TILE_SIZE, j * TILE_SIZE, "Walls_physical", oWall);
+		}
 	}
-}
 
-var dir = 0;
+	var dir = 0;
 
-repeat (3000)
-{
-	if (chance(wall_chance))
+	repeat (3000)
 	{
-		dir = choose(0, 1, 2, 3) * 90;
+		if (chance(wall_chance))
+		{
+			dir = choose(0, 1, 2, 3) * 90;
+		}
+	
+		var object = instance_place(x, y, oWall);
+	
+		instance_destroy(object);
+	
+		instance_create_layer(x, y, "Walls_physical", oPlayable);
+	
+		x += lengthdir_x(TILE_SIZE, dir);
+		y += lengthdir_y(TILE_SIZE, dir);
+	
+		x = clamp(x, 0 + TILE_SIZE, room_width-TILE_SIZE*2);
+		y = clamp(y, 0 + TILE_SIZE, room_height-TILE_SIZE*2);
+	
 	}
-	
-	var object = instance_place(x, y, oWall);
-	
-	instance_destroy(object);
-	
-	instance_create_layer(x, y, "Walls_physical", oPlayable);
-	
-	x += lengthdir_x(TILE_SIZE, dir);
-	y += lengthdir_y(TILE_SIZE, dir);
-	
-	x = clamp(x, 0 + TILE_SIZE, room_width-TILE_SIZE*2);
-	y = clamp(y, 0 + TILE_SIZE, room_height-TILE_SIZE*2);
-	
 }
 
 //======================================================================================================
@@ -114,7 +116,7 @@ while(instance_number(oPassWay) <= 0){
 
 //======================================================================================================
 // Erasing unnecessary walls
-
+if(createWall)
 for (var i = 0; i < room_width div TILE_SIZE; i++)
 {
 	for (var j = 0; j < room_height div TILE_SIZE; j++)

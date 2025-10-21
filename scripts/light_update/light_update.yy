@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Internal",
-    "path": "folders/Scripts/Lighting/Lights/Internal.yy",
+  "$GMScript":"v1",
+  "%Name":"light_update",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"light_update",
+  "parent":{
+    "name":"Internal",
+    "path":"folders/Scripts/Lighting/Lights/Internal.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "light_update",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

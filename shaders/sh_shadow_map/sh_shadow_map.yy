@@ -1,11 +1,12 @@
 {
-  "type": 1,
-  "parent": {
-    "name": "Lighting",
-    "path": "folders/Shaders/Lighting.yy",
+  "$GMShader":"",
+  "%Name":"sh_shadow_map",
+  "name":"sh_shadow_map",
+  "parent":{
+    "name":"Lighting",
+    "path":"folders/Shaders/Lighting.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sh_shadow_map",
-  "tags": [],
-  "resourceType": "GMShader",
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }

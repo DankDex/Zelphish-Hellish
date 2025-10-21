@@ -199,11 +199,11 @@ function advanced_part_system() constructor {
 		if !ds_list_empty(particle_list) {
 			var _size = ds_list_size(particle_list);
 			for (var i = 0; i < _size; i++) {
-				var particle = ds_list_find_value(particle_list, i);
-				if is_struct(particle) {
+				var particle_item = ds_list_find_value(particle_list, i);
+				if is_struct(particle_item) {
 					//draw every particle if it is in view
 					//if get_view(particle.x, particle.y, particle.part_width, particle.part_height)
-					with(particle) {
+					with(particle_item) {
 						
 						if sprite == noone or alpha == 0 break;
 						
@@ -358,9 +358,9 @@ function advanced_part_type() constructor {
 	part_angle_increase = 0;
 	part_angle_wiggle = 0;
 	part_angle_relative = false;
-	
-	part_sprite_width = sprite_get_width(part_sprite);
-	part_sprite_height = sprite_get_height(part_sprite);
+
+	part_sprite_width = 0;
+	part_sprite_height = 0;
 	
 	part_speed_min = 0;
 	part_speed_max = 0;

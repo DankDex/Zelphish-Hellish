@@ -14,6 +14,7 @@ if(!pause && instance_exists(oPlayer)){
 	
 	//Draw walls
 	draw_set_color(c_dkgray);
+	if(draw_walls)
 	for(var i = 0; i < (room_width/64); i++){	
 		for(var j = 0; j < (room_height/64); j++){		
 			if(wall_draw[i][j]==1){
@@ -37,6 +38,7 @@ if(!pause && instance_exists(oPlayer)){
 	
 
 	//Drawing Instances
+	if(draw_instances)
 	for(var i = 0; i < array_length_1d(objects_to_draw); i += 2) {
 		var map_object_index = objects_to_draw[i],
 			map_object_color = objects_to_draw[i + 1];

@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Misc",
-    "path": "folders/Scripts/Lighting/Lights/Misc.yy",
+  "$GMScript":"v1",
+  "%Name":"light_add_extension",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"light_add_extension",
+  "parent":{
+    "name":"Misc",
+    "path":"folders/Scripts/Lighting/Lights/Misc.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "light_add_extension",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

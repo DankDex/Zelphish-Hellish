@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Static Storage",
-    "path": "folders/Scripts/Lighting/Lights/Static Storage.yy",
+  "$GMScript":"v1",
+  "%Name":"light_static_get_array",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"light_static_get_array",
+  "parent":{
+    "name":"Static Storage",
+    "path":"folders/Scripts/Lighting/Lights/Static Storage.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "light_static_get_array",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -16,3 +16,6 @@ script_execute(init);
 if(room != rMenu)
 	cursor_sprite = sCursor;
 window_set_cursor(cr_none);
+
+// Set game fullscreen
+window_set_fullscreen(true);

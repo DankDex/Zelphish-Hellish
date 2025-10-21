@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "AdvancedParticles",
-    "path": "folders/AdvancedParticles.yy",
+  "$GMScript":"v1",
+  "%Name":"AdvancedParticleSystem",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"AdvancedParticleSystem",
+  "parent":{
+    "name":"AdvancedParticles",
+    "path":"folders/AdvancedParticles.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "AdvancedParticleSystem",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
