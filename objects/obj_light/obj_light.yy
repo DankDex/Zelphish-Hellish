@@ -28,7 +28,7 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"Light_Type","filters":[
+    {"$GMObjectProperty":"v2","%Name":"Light_Type","filters":[
         "GMTileSet",
         "GMSprite",
         "GMSound",
@@ -46,7 +46,7 @@
         "\"Directional Light\"",
         "\"Line Light\"",
       ],"multiselect":false,"name":"Light_Type","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"Point Light\"","varType":6,},
-    {"$GMObjectProperty":"v1","%Name":"Light_Color","filters":[
+    {"$GMObjectProperty":"v2","%Name":"Light_Color","filters":[
         "GMTileSet",
         "GMSprite",
         "GMSound",
@@ -58,7 +58,7 @@
         "GMObject",
         "GMRoom",
       ],"listItems":null,"multiselect":false,"name":"Light_Color","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"$FFFFFFFF","varType":7,},
-    {"$GMObjectProperty":"v1","%Name":"Light_Range","filters":[
+    {"$GMObjectProperty":"v2","%Name":"Light_Range","filters":[
         "GMTileSet",
         "GMSprite",
         "GMSound",
@@ -70,7 +70,7 @@
         "GMObject",
         "GMRoom",
       ],"listItems":null,"multiselect":false,"name":"Light_Range","rangeEnabled":true,"rangeMax":5000.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"768","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"Light_Intensity","filters":[
+    {"$GMObjectProperty":"v2","%Name":"Light_Intensity","filters":[
         "GMTileSet",
         "GMSprite",
         "GMSound",
@@ -82,7 +82,7 @@
         "GMObject",
         "GMRoom",
       ],"listItems":null,"multiselect":false,"name":"Light_Intensity","rangeEnabled":true,"rangeMax":30.0,"rangeMin":0.001,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1.3","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"Light_Shadow_Length","filters":[
+    {"$GMObjectProperty":"v2","%Name":"Light_Shadow_Length","filters":[
         "GMTileSet",
         "GMSprite",
         "GMSound",
@@ -94,7 +94,7 @@
         "GMObject",
         "GMRoom",
       ],"listItems":null,"multiselect":false,"name":"Light_Shadow_Length","rangeEnabled":true,"rangeMax":65536.0,"rangeMin":1.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"200","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"Light_Angle","filters":[
+    {"$GMObjectProperty":"v2","%Name":"Light_Angle","filters":[
         "GMTileSet",
         "GMSprite",
         "GMSound",
@@ -106,7 +106,7 @@
         "GMObject",
         "GMRoom",
       ],"listItems":null,"multiselect":false,"name":"Light_Angle","rangeEnabled":true,"rangeMax":359.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"Light_Direction","filters":[
+    {"$GMObjectProperty":"v2","%Name":"Light_Direction","filters":[
         "GMTileSet",
         "GMSprite",
         "GMSound",
@@ -118,7 +118,7 @@
         "GMObject",
         "GMRoom",
       ],"listItems":null,"multiselect":false,"name":"Light_Direction","rangeEnabled":true,"rangeMax":359.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"Light_Width","filters":[
+    {"$GMObjectProperty":"v2","%Name":"Light_Width","filters":[
         "GMTileSet",
         "GMSprite",
         "GMSound",
@@ -130,7 +130,7 @@
         "GMObject",
         "GMRoom",
       ],"listItems":null,"multiselect":false,"name":"Light_Width","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"256","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"LUT_Intensity","filters":[
+    {"$GMObjectProperty":"v2","%Name":"LUT_Intensity","filters":[
         "GMSprite",
       ],"listItems":null,"multiselect":false,"name":"LUT_Intensity","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"noone","varType":5,},
   ],

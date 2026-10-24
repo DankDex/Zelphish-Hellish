@@ -1,5 +1,7 @@
 {
-  "FolderOrderSettings":[],
+  "FolderOrderSettings":[
+    {"name":"Weapon Management","order":8,"path":"folders/Scripts/Weapon Management.yy",},
+  ],
   "ResourceOrderSettings":[
     {"name":"fArial_16","order":2,"path":"fonts/fArial_16/fArial_16.yy",},
     {"name":"fDamagePopUp_Big","order":4,"path":"fonts/fDamagePopUp_Big/fDamagePopUp_Big.yy",},
@@ -24,6 +26,7 @@
     {"name":"obj_lighting_init","order":2,"path":"objects/obj_lighting_init/obj_lighting_init.yy",},
     {"name":"obj_shadow_caster","order":3,"path":"objects/obj_shadow_caster/obj_shadow_caster.yy",},
     {"name":"oBullet_Parent","order":1,"path":"objects/oBullet_Parent/oBullet_Parent.yy",},
+    {"name":"oCityGen","order":3,"path":"objects/oCityGen/oCityGen.yy",},
     {"name":"oControl","order":1,"path":"objects/oControl/oControl.yy",},
     {"name":"oDamageNumber","order":4,"path":"objects/oDamageNumber/oDamageNumber.yy",},
     {"name":"oEnemyParent","order":1,"path":"objects/oEnemyParent/oEnemyParent.yy",},
@@ -117,9 +120,9 @@
     {"name":"polygon_get_area","order":7,"path":"scripts/polygon_get_area/polygon_get_area.yy",},
     {"name":"shadow_casters_exist","order":8,"path":"scripts/shadow_casters_exist/shadow_casters_exist.yy",},
     {"name":"shadow_map_ensure_exists","order":9,"path":"scripts/shadow_map_ensure_exists/shadow_map_ensure_exists.yy",},
-    {"name":"shoot_bullet","order":7,"path":"scripts/shoot_bullet/shoot_bullet.yy",},
     {"name":"tri_direction","order":10,"path":"scripts/tri_direction/tri_direction.yy",},
     {"name":"UsefulScripts","order":12,"path":"scripts/UsefulScripts/UsefulScripts.yy",},
+    {"name":"weapon_scroll","order":1,"path":"scripts/weapon_scroll/weapon_scroll.yy",},
     {"name":"sh_shadow_map","order":1,"path":"shaders/sh_shadow_map/sh_shadow_map.yy",},
     {"name":"sndSelect","order":1,"path":"sounds/sndSelect/sndSelect.yy",},
     {"name":"oBlack_64","order":1,"path":"sprites/oBlack_64/oBlack_64.yy",},

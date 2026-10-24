@@ -3,7 +3,6 @@ if(!pause && instance_exists(oPlayer)){
 	
 	weapon = oPlayer.weapon;
 	
-	
 	with(weapon){
 	
 		if(bullets<bullets_total){

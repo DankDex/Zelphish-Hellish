@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"shoot_bullet",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Weapon Management",
+    "path":"folders/Scripts/Weapon Management.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

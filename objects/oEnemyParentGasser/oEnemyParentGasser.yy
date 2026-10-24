@@ -4,6 +4,7 @@
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":1,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"oEnemyParentMelee","path":"objects/oEnemyParentMelee/oEnemyParentMelee.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"oEnemyParentGasser",
@@ -30,12 +31,12 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"chasing","filters":[],"listItems":[],"multiselect":false,"name":"chasing","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
-    {"$GMObjectProperty":"v1","%Name":"start_gas_range","filters":[],"listItems":[],"multiselect":false,"name":"start_gas_range","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"400","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"gas_type","filters":[
+    {"$GMObjectProperty":"v2","%Name":"chasing","filters":[],"listItems":[],"multiselect":false,"name":"chasing","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
+    {"$GMObjectProperty":"v2","%Name":"start_gas_range","filters":[],"listItems":[],"multiselect":false,"name":"start_gas_range","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"400","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"gas_type","filters":[
         "GMObject",
       ],"listItems":[],"multiselect":false,"name":"gas_type","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"oGasArea","path":"objects/oGasArea/oGasArea.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"oGasArea","varType":5,},
-    {"$GMObjectProperty":"v1","%Name":"showerTime","filters":[],"listItems":[],"multiselect":false,"name":"showerTime","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
+    {"$GMObjectProperty":"v2","%Name":"showerTime","filters":[],"listItems":[],"multiselect":false,"name":"showerTime","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

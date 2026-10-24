@@ -35,19 +35,19 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"chasing","filters":[],"listItems":[],"multiselect":false,"name":"chasing","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
-    {"$GMObjectProperty":"v1","%Name":"distance_from_player","filters":[],"listItems":[],"multiselect":false,"name":"distance_from_player","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"200","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"stay_still","filters":[],"listItems":[],"multiselect":false,"name":"stay_still","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
-    {"$GMObjectProperty":"v1","%Name":"firerate","filters":[],"listItems":[],"multiselect":false,"name":"firerate","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"120","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"bullet_type","filters":[
+    {"$GMObjectProperty":"v2","%Name":"chasing","filters":[],"listItems":[],"multiselect":false,"name":"chasing","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
+    {"$GMObjectProperty":"v2","%Name":"distance_from_player","filters":[],"listItems":[],"multiselect":false,"name":"distance_from_player","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"200","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"stay_still","filters":[],"listItems":[],"multiselect":false,"name":"stay_still","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
+    {"$GMObjectProperty":"v2","%Name":"firerate","filters":[],"listItems":[],"multiselect":false,"name":"firerate","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"120","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"bullet_type","filters":[
         "GMObject",
       ],"listItems":[],"multiselect":false,"name":"bullet_type","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"oEnemyNormalBullet","path":"objects/oEnemyNormalBullet/oEnemyNormalBullet.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"oEnemyNormalBullet","varType":5,},
-    {"$GMObjectProperty":"v1","%Name":"bullet_damage","filters":[],"listItems":[],"multiselect":false,"name":"bullet_damage","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"10","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"bullet_speed","filters":[],"listItems":[],"multiselect":false,"name":"bullet_speed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"5","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"charge_effect","filters":[
+    {"$GMObjectProperty":"v2","%Name":"bullet_damage","filters":[],"listItems":[],"multiselect":false,"name":"bullet_damage","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"10","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"bullet_speed","filters":[],"listItems":[],"multiselect":false,"name":"bullet_speed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"5","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"charge_effect","filters":[
         "GMObject",
       ],"listItems":[],"multiselect":false,"name":"charge_effect","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"global.ptCharge","varType":4,},
-    {"$GMObjectProperty":"v1","%Name":"shoot_effect","filters":[],"listItems":[],"multiselect":false,"name":"shoot_effect","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"global.ptGunShot","varType":4,},
+    {"$GMObjectProperty":"v2","%Name":"shoot_effect","filters":[],"listItems":[],"multiselect":false,"name":"shoot_effect","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"global.ptGunShot","varType":4,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
