@@ -1,0 +1,6 @@
+---
+name: gml-fix
+description: Fix a GameMaker runtime error in the selected code
+invokable: true
+---
+The selected code produces the error I pasted. Give the cause in one sentence, then only the corrected lines. Do not rewrite unrelated code. If the cause may be in another file, say which object or script to check instead of guessing.

@@ -1,0 +1,31 @@
+# Put in the project root (next to the .yyp). Gitignore syntax.
+# Keeps junk out of Continue's index so @codebase retrieval returns code, not noise.
+
+# GameMaker build output and caches
+Release/
+output/
+cache/
+tmp/
+.git/
+
+# Resource definitions: huge JSON, no logic. Code lives in the .gml files.
+*.yy
+*.yyp
+options/
+
+# Binary assets
+datafiles/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ogg
+*.wav
+*.mp3
+*.ttf
+*.otf
+*.zip
+
+# Generated map: keep INDEX.md and PROJECT_MAP.md, drop the duplicates
+.gml-map/summaries.json
+.gml-map/structure.md

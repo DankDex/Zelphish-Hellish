@@ -1,0 +1,792 @@
+{
+  "objects": {
+    "oAmmoBox": {
+      "hash": "f725914cb5e78d25",
+      "summary": "## Summary\nThe `oAmmoBox` object represents an ammo pack in the game. It creates a light effect and emits particles. When the player collides with it, the player's weapon's ammo is refilled to half of its total capacity. The object deactivates itself if the player is too far away.\n\n## Events\n- **Create_0**: Creates a light instance and sets an alarm to trigger every 5 steps.\n- **Destroy_0**: Destroys the associated light instance.\n- **Alarm_0**: Checks if the player is too far away and deactivates the ammo box if so. Resets the alarm.\n- **Step_0**: Creates particles around the ammo box if `create_particle` is true, then toggles `create_particle`.\n- **Collision_oPlayer**: Refills the player's weapon ammo to half of its total capacity when the player collides with the ammo box and destroys the ammo box.\n\n## Dependencies\n- **Variables**: `pause`, `bullets`, `bullets_total`, `weapon`\n- **Globals**: `partSystem`, `ptItemAura`\n- **Objects**: `oLight_Area`, `oPlayer`\n- **Resources**: Creates a light instance and particle effects.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:41:13"
+    },
+    "oBullet_Parent": {
+      "hash": "94c3ca09b78f7189",
+      "summary": "## Summary\n`oBullet_Parent` is a parent object for various bullet types in the game. It handles basic bullet movement, collision with enemies, and destruction effects. It is used by multiple child objects representing different types of bullets and effects.\n\n## Events\n- **Create**: Initializes particle effects for destruction.\n- **Step**: Moves the bullet according to its speed and angle, checks if it is within the room bounds, and destroys itself if out of bounds.\n- **Collision with oEnemyParent**: Destroys the bullet if it does not go through enemies and is not from an enemy.\n- **Other**: Placeholder for stopping animation (currently commented out).\n\n## Dependencies\n- **Variables**: `spd` (speed), `angle` (direction), `goes_through_enemies`, `bullet_from_enemy`.\n- **Globals**: `global.partSystem`.\n- **Resources**: `destroy_effect` (particle type).\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:41:23"
+    },
+    "oCamera": {
+      "hash": "1b7d9af56d70b986",
+      "summary": "## Summary\nThe `oCamera` object manages the camera behavior, including following the player, handling smooth transitions, and displaying GUI elements such as the weapon selection wheel, health bar, and other in-game information. It also handles mouse input for weapon scrolling.\n\n## Events\n- **Create_0**: Initializes the camera, sets its size, and prepares data structures for weapon GUI information.\n- **Destroy_0**: Frees the memory used by the `weapon_slot_info` data structure.\n- **Step_0**: Updates the camera position to follow the player smoothly, handles camera shaking, and calculates the weapon scroll wheel's size and position.\n- **Mouse_60**: Scrolls the weapon selection up.\n- **Mouse_61**: Scrolls the weapon selection down.\n- **Draw_64**: Draws various GUI elements such as the health bar, money, weapon information, and instructions.\n- **Draw_73**: Draws additional GUI elements like the reloading bar.\n\n## Dependencies\n- **Variables/Objects/Scripts**:\n  - `oPlayer`: The player object that the camera follows.\n  - `draw_text_transformed_outlined`: A script used for drawing outlined text.\n  - `weapon_scroll`: A script used for scrolling weapons.\n  - `sLifebar`, `sWeaponBox_selected`, `sWeaponBox_unselected`: Sprites used for the GUI.\n  - `fDecrepit30`, `fArial_16`, `fNormal`: Fonts used for text rendering.\n  - `draw_healthbar`: A function used for drawing the health bar.\n  - `pause`: A global variable indicating whether the game is paused.\n  - `fps`, `fps_real`: Global variables for frame rate information.\n  - `num_enemies`: A global variable for the number of enemies.\n  - `money`: A global variable for the player's money.\n  - `oPlayer.weapon`: The player's current weapon, including properties like `magazine_check`, `bullets`, `state`, `reloading_frames`, and `reloading_frames_check`.\n  - `oPlayer.weapons`: An array of the player's weapons.\n  - `oPlayer.weapon.id`: The ID of the player's current weapon.\n  - `oPlayer.weapon.gun_name`: The name of the player's current weapon.\n  - `oPlayer.weapon.gun_sprite`: The sprite of the player's current weapon.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:41:58"
+    },
+    "oCityGen": {
+      "hash": "469b1b1674633578",
+      "summary": "## Summary\nNo code in this resource.\n\n## Potential issues\nNone found",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:41:58"
+    },
+    "oControl": {
+      "hash": "b545195aa2ad1ce9",
+      "summary": "## Summary\n`oControl` is a persistent object that manages game settings, such as frame rate, room transitions, and debug overlays. It also handles key presses for game control actions like restarting the game or room, and displays debug information on the screen.\n\n## Events\n- **Create_0**: Initializes the display size, sets the room target speed, and configures various game settings.\n- **Alarm_0**: Enables the end game condition when the alarm triggers.\n- **Step_1**: Updates the real FPS and checks for low FPS conditions.\n- **KeyPress_27**: Ends the game when the Escape key is pressed.\n- **KeyPress_32**: Moves to the next room or loops back to Room1 when the Space key is pressed.\n- **KeyPress_38**: Increases the room target speed when the Up arrow key is pressed.\n- **KeyPress_40**: Decreases the room target speed when the Down arrow key is pressed.\n- **KeyPress_81**: Restarts the current room when the Q key is pressed.\n- **KeyPress_82**: Restarts the entire game when the R key is pressed.\n- **Draw_64**: Draws debug information about the room speed and real FPS on the screen.\n\n## Dependencies\n- **Globals**: `global.particles_debug_mode`\n- **Resources**: `fSmall` (font), `fa_left` (horizontal alignment), `fa_bottom` (vertical alignment)\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:42:14"
+    },
+    "oDamageNumber": {
+      "hash": "9816ace41f72af53",
+      "summary": "## Summary\nThe `oDamageNumber` object is responsible for displaying damage numbers in the game. It handles the creation, drawing, and destruction of these numbers based on various properties like color, damage value, duration, angle, critical hit status, and scale.\n\n## Events\n- **Create_0**: Initializes the damage number with default values such as color, damage, duration, angle, critical hit status, and scale.\n- **Draw_0**: Calls the `damageNumber` script to draw the damage number and checks if the duration is less than -120 to destroy the instance.\n\n## Dependencies\n- **Scripts**: `damageNumber`\n- **Variables**: \n  - `color`: Set to `c_white`.\n  - `damage`: Set to `1`.\n  - `duration`: Set to `-90`.\n  - `angle`: Set to `0`.\n  - `crit`: Set to `false`.\n  - `scale`: Set to `1`.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:42:25"
+    },
+    "oEnemyNormalBullet": {
+      "hash": "ea2e2958d4fd8bc1",
+      "summary": "## Summary\nThe `oEnemyNormalBullet` object is a type of bullet used by enemies in the game. It inherits from `oBullet_Parent`, uses the sprite `sEnemyNormalBullet`, and is not solid or persistent. When it collides with the player or a wall, it destroys itself. It also creates a particle effect when it is destroyed.\n\n## Events\n- **Step_0**: Creates a particle effect at the bullet's position with a direction range of `angle-15` to `angle+15`.\n- **Collision_oPlayer**: Destroys the bullet instance when it collides with the player.\n- **Collision_oWall**: Destroys the bullet instance when it collides with a wall.\n\n## Dependencies\n- **Objects**: `oBullet_Parent`, `oPlayer`, `oWall`\n- **Globals**: `global.partSystem`\n- **Resources**: `sEnemyNormalBullet`, `destroy_effect`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:42:34"
+    },
+    "oEnemyParent": {
+      "hash": "9c6deef4fe9e07fb",
+      "summary": "## Summary\n`oEnemyParent` is a parent object for various enemy types in the game. It handles basic enemy behavior such as health management, state transitions (normal/hurt), collision with bullets, and drawing. It also manages proximity-based activation and deactivation relative to the player.\n\n## Events\n- **Create_0**: Initializes the enemy's health, state, and polygon. Sets alarms and initializes variables.\n- **Destroy_0**: Decrements the global enemy count.\n- **Alarm_0**: Activates or deactivates the enemy instance based on its distance from the player. Resets the alarm.\n- **Step_1**: Manages the enemy's state transitions and updates its polygon.\n- **Collision_oBullet_Parent**: Handles damage from bullets, including critical hits, damage number display, death, and knockback.\n- **Collision_oEnemyParent**: Handles collision with other enemy instances, causing them to push away.\n- **Draw_0**: Draws the enemy sprite and health bar.\n\n## Dependencies\n- **Variables/Objects/Scripts**:\n  - `oBullet_Parent`: Used for collision detection.\n  - `oCamera`: Used to shake the camera upon enemy death.\n  - `oDamageNumber`: Used to create damage number instances.\n  - `oPlayer`: Used for various calculations, such as distance and direction.\n  - `oWall`: Used for collision detection to prevent enemies from pushing through walls.\n  - `obj_shadow_caster`: Inherits from this object.\n  - `chance`: Script used for determining critical hits.\n  - `polygon_from_instance`: Script used to create a polygon from the enemy instance.\n- **Globals**:\n  - `global.partSystem`: Used for particle effects.\n  - `global.money`: Increased when the enemy dies.\n- **Other Resources**:\n  - `sprite_normal`: Sprite used for the normal state.\n  - `sprite_hurt`: Sprite used for the hurt state.\n  - `particle_when_dead`: Particle effect for when the enemy dies.\n  - `particle_when_hit`: Particle effect for when the enemy is hit.\n\n## Potential issues\n- **None found**",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:42:59"
+    },
+    "oEnemyParentConjurer": {
+      "hash": "93a215c169441fde",
+      "summary": "## Summary\n`oEnemyParentConjurer` is an enemy object that can spawn zombies and chase the player. It uses pathfinding to move towards the player and has conditions to determine when to start chasing, stop chasing, and spawn enemies.\n\n## Events\n- **Alarm_1**: Spawns a zombie at a random position around the conjurer and creates particles. Sets an alarm to repeat the process.\n- **Step_0**: Checks if the player is in range and visible. If so, it starts chasing the player. If the player is within a certain distance, it stops chasing and starts spawning zombies.\n\n## Dependencies\n- **Objects**: `oEnemyParent`, `oPlayer`, `oWall`, `oZombie`\n- **Globals**: `global.partSystem`, `global.ptItemAura`\n- **Variables**: `num_enemies`, `pause`, `chasing`, `stay_still`, `detection_range`, `distance_from_player`, `spd`, `grid`, `path`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:43:10"
+    },
+    "oEnemyParentGasser": {
+      "hash": "5884be76805dac25",
+      "summary": "## Summary\n`oEnemyParentGasser` is an enemy object that chases the player and emits gas. It uses pathfinding to move towards the player and has an alarm event to periodically shoot gas.\n\n## Events\n- **Step_0**: Checks if the player is in range and visible, starts chasing if so, and moves towards the player using pathfinding. It also checks if the player is within a certain range to start emitting gas.\n- **Alarm_1**: If `showerTime` is true, it shoots gas and resets the alarm to 600. Otherwise, it resets the alarm to 5.\n- **Collision_oEnemyParentMelee**: When colliding with `oEnemyParentMelee`, it pushes itself away from the colliding object.\n\n## Dependencies\n- **Objects**: `oEnemyParent`, `oEnemyParentMelee`, `oGasArea`, `oPlayer`, `oWall`\n- **Scripts**: `shoot_bullet`\n- **Globals**: `global.ptEmpty`\n- **Variables**: `chasing`, `pause`, `detection_range`, `start_gas_range`, `spd`, `grid`, `push`, `h_push`, `v_push`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:43:23"
+    },
+    "oEnemyParentMelee": {
+      "hash": "80ca2ce429a3b229",
+      "summary": "## Summary\n`oEnemyParentMelee` is an enemy object that chases the player using A* pathfinding while avoiding walls. It also handles collisions with other enemies and walls by pushing itself in the opposite direction of the collision.\n\n## Events\n- **Step_0**: Checks if the player is in range and visible to start chasing. If chasing, it calculates a path to the player using A* pathfinding. If not chasing or paused, it ends the path.\n- **Collision_oEnemyParentMelee**: Pushes the enemy in the opposite direction of the colliding object if it's not a wall.\n- **Collision_oZombie**: Currently empty, no description or code provided.\n\n## Dependencies\n- **Variables**: `chasing`, `detection_range`, `spd`, `pause`, `push`, `grid`.\n- **Objects**: `oPlayer`, `oWall`, `oZombie`.\n- **Functions**: `collision_circle`, `collision_line`, `path_add`, `mp_grid_add_instances`, `mp_grid_path`, `path_start`, `path_end`, `point_direction`, `lengthdir_x`, `lengthdir_y`, `place_meeting`.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:43:36"
+    },
+    "oEnemyParentRanged": {
+      "hash": "bdea5bff27fa5ec9",
+      "summary": "## Summary\n`oEnemyParentRanged` is a parent object for ranged enemies in the game. It handles basic enemy behavior such as chasing the player, staying still to shoot, and firing bullets. It also manages the charging animation and pathfinding to avoid walls.\n\n## Events\n- **Create_0**: Initializes the enemy's state, health, and other variables.\n- **Step_0**: Handles the enemy's movement, pathfinding, and shooting behavior based on its state and proximity to the player.\n- **Draw_0**: Draws the charging animation particles if the enemy is charging.\n\n## Dependencies\n- **Variables/Objects/Scripts**:\n  - `oEnemyParent`: Parent object.\n  - `oPlayer`: Target for the enemy to chase and shoot at.\n  - `oWall`: Obstacles to avoid during pathfinding.\n  - `shoot_bullet`: Script to create and fire bullets.\n- **Globals**:\n  - `global.partSystem_top`: Particle system for the charging animation.\n- **Other Resources**:\n  - `path_add()`, `mp_grid_add_instances()`, `mp_grid_path()`: Pathfinding functions.\n  - `charge_effect`, `shoot_effect`: Particle effects for charging and shooting.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:43:49"
+    },
+    "oEnemyRangedFlamethrower": {
+      "hash": "8ec5e9f34f3d4290",
+      "summary": "## Summary\nThe `oEnemyRangedFlamethrower` object is a ranged enemy that chases the player and shoots bullets. It uses pathfinding to move towards the player and has a firing mechanism that depends on its distance and visibility to the player.\n\n## Events\n- **Step_0**: Handles the enemy's movement, pathfinding, and shooting behavior based on its distance and visibility to the player.\n\n## Dependencies\n- **Objects**: `oEnemyParentRanged`, `oFlameThrowerAmmoEnemy`, `oPlayer`, `oWall`\n- **Variables**: `pause`, `chasing`, `detection_range`, `stay_still`, `distance_from_player`, `spd`, `grid`, `firerate`, `firerate_check`, `bullet_damage`, `shooting_effect`\n- **Globals**: `pause`\n- **Resources**: `path`, `bullet`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:44:00"
+    },
+    "oEnemyRangedNormal": {
+      "hash": "c653b9effd312a20",
+      "summary": "## Summary\nNo code in this resource.\n\n## Potential issues\nNone found",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:44:00"
+    },
+    "oEnemyRangedRocketLauncher": {
+      "hash": "45a203610189845a",
+      "summary": "## Summary\nNo code in this resource.\n\n## Potential issues\nNone found",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:44:00"
+    },
+    "oExplosion": {
+      "hash": "cd63a9839454e386",
+      "summary": "## Summary\nThe `oExplosion` object is a child of `oBullet_Parent` and is used to represent explosions in the game. It creates a particle effect and shakes the camera when created, and it destroys itself after a certain number of frames.\n\n## Events\n- **Create_0**: Initializes the `frames_until_it_disapears` variable to 5 and sets the camera shake frames to 5.\n- **Step_0**: Creates particles at the explosion's position and decreases `frames_until_it_disapears` by 1 each step. If `frames_until_it_disapears` reaches 0, the instance is destroyed.\n- **Destroy_0**: Currently empty.\n\n## Dependencies\n- **Objects**: `oBullet_Parent`, `oCamera`\n- **Globals**: `global.partSystem`\n- **Resources**: `sExplosion_Area` (sprite), `destroy_effect` (particle effect)\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:44:09"
+    },
+    "oExplosiveBarril": {
+      "hash": "61c3fd8f079d36fc",
+      "summary": "## Summary\n`oExplosiveBarril` is an object that represents an explosive barrel in the game. It inherits from `obj_shadow_caster` and has a sprite `sExplosiveBarril`. The barrel is not solid and is not persistent. It has an alarm event that deactivates the instance if the player is more than 500 pixels away. When it collides with a bullet (excluding `oGasArea`), it triggers an explosion and destroys itself.\n\n## Events\n- **Create_0**: Initializes bounding box variables and sets an alarm to trigger every 5 steps.\n- **Alarm_0**: Checks if the player exists and is more than 500 pixels away. If so, it deactivates the instance and resets the alarm.\n- **Collision_oBullet_Parent**: If the colliding object is not `oGasArea`, it shoots two bullets that create explosions, then destroys itself.\n\n## Dependencies\n- **Variables/Objects**: Expects `oPlayer`, `oBullet_Parent`, `oExplosion`, and `oGasArea` to exist.\n- **Scripts**: Uses `polygon_from_instance` and `shoot_bullet`.\n- **Globals**: Reads `global.ptEmpty`.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:44:22"
+    },
+    "oFlameThrower": {
+      "hash": "241896f9d689bac7",
+      "summary": "## Summary\nThe `oFlameThrower` object is a child of `oGun_Parent` and is responsible for handling the shooting mechanics of a flame thrower weapon in the game. It checks if the player exists, if the player has the weapon equipped, and if there are bullets in the magazine before shooting. When the conditions are met, it creates a flame thrower ammo instance at the player's position, sets its properties, and applies knockback to the player.\n\n## Events\n- **Mouse_50**: Checks if the conditions for shooting are met and, if so, creates a flame thrower ammo instance, sets its properties, and applies knockback to the player.\n- **Mouse_56**: Destroys all instances of `oFlameThrowerAmmo` and resets the firerate check.\n\n## Dependencies\n- **Variables**: `firerate_check`, `firerate`, `magazine_check`, `damage`, `bullet_speed`, `bullet_type`, `shooting_effect`, `pause`, `knockback`\n- **Global**: `pause`\n- **Objects**: `oFlameThrowerAmmo`, `oPlayer`\n- **Layers**: \"Instances\"\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:44:35"
+    },
+    "oFlameThrowerAmmo": {
+      "hash": "5d05c0a497003598",
+      "summary": "## Summary\nThe `oFlameThrowerAmmo` object is a bullet-like entity used by the `oFlameThrower` object. It moves towards the player's mouse position relative to the player's position, rotates to face the mouse direction, and disappears after a certain number of frames or if it leaves the room boundaries.\n\n## Events\n- **Create_0**: Initializes a variable `frames_until_it_disapears` to 61.\n- **Step_0**: Decrements `frames_until_it_disapears` and destroys the instance if it reaches 0.\n- **Step_1**: Updates the image angle to face the mouse direction relative to the player's position and destroys the instance if it leaves the room boundaries.\n- **Step_2**: Moves the instance towards the player's mouse position relative to the player's position.\n- **Collision_oEnemyParent**: Currently empty, no functionality defined.\n\n## Dependencies\n- **Variables/Objects**: Reads `oPlayer.x`, `oPlayer.y`, `mouse_x`, `mouse_y`, `room_width`, `room_height`, and `pause`.\n- **Globals**: Reads `pause`.\n- **Resources**: None created or referenced.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:44:48"
+    },
+    "oFlameThrowerAmmoEnemy": {
+      "hash": "31c2e913e11dd566",
+      "summary": "## Summary\nThe `oFlameThrowerAmmoEnemy` object is a bullet-like entity used by enemy ranged flamethrowers. It moves towards the player, has a limited lifespan, and checks for collisions with enemy parent objects. It does not have a sprite and is not solid.\n\n## Events\n- **Create_0**: Initializes the bullet's lifespan and angle.\n- **Step_0**: Decreases the lifespan and destroys the instance if it reaches zero.\n- **Step_1**: Updates the bullet's angle towards the player, destroys itself if the emitter or player is not present, and checks if it is within the room bounds.\n- **Step_2**: Moves the bullet according to its speed and angle.\n- **Collision_oEnemyParent**: Currently empty, no functionality defined.\n\n## Dependencies\n- **Variables**: `frames_until_it_disapears`, `_angle`, `emmiter`.\n- **Globals**: `oPlayer`, `room_width`, `room_height`.\n- **Functions**: `instance_destroy()`, `point_direction()`, `lengthdir_x()`, `lengthdir_y()`.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:44:59"
+    },
+    "oGame": {
+      "hash": "ddee0a5bc49d39ab",
+      "summary": "## Summary\nThe `oGame` object is a persistent object that initializes global variables, sets up the game environment, and handles various key presses for game controls and debugging. It manages the game's state, including pausing, restarting, and toggling debug mode.\n\n## Events\n- **Create_0**: Initializes global variables, executes the `init` script, sets the cursor sprite, and makes the game fullscreen.\n- **CleanUp_0**: Cleans up the particle system by destroying it.\n- **KeyPress_27**: Toggles the pause menu by creating or destroying the `oMenuPause` instance.\n- **KeyPress_80**: Destroys all instances of `oEnemyParent`.\n- **KeyPress_81**: Toggles debug mode by enabling or disabling the debug overlay.\n- **KeyPress_84**: Ends the game (commented out).\n- **KeyPress_86**: Restarts the current room.\n- **KeyPress_90**: Shakes the camera (commented out).\n- **Other_4**: Handles entering the main menu, sets up a grid, creates necessary instances, and initializes particle systems.\n\n## Dependencies\n- **Global Variables**: `grid`, `debug`, `pause`, `money`, `num_enemies`.\n- **Scripts**: `init`.\n- **Sprites**: `sCursor`.\n- **Rooms**: `Test`, `rMenu`.\n- **Objects**: `oCamera`, `oEnemyParent`, `oLevelGen`, `oMap`, `oMenuPause`, `oPlayer`.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:45:16"
+    },
+    "oGasArea": {
+      "hash": "20c46d15cfbd2051",
+      "summary": "## Summary\nThe `oGasArea` object is a child of `oBullet_Parent` and represents a gas area in the game. It creates a gas effect around its position and disappears after a certain number of frames.\n\n## Events\n- **Create_0**: Initializes a variable `frames_until_it_disapears` to 300.\n- **Step_0**: Creates particles around the object's position and decrements `frames_until_it_disapears`. If `frames_until_it_disapears` reaches 0, the object is destroyed.\n\n## Dependencies\n- **Variables**: `frames_until_it_disapears`\n- **Globals**: `global.partSystem`, `global.ptGas`\n- **Resources**: Creates particles using `part_particles_create`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:45:24"
+    },
+    "oGun_Parent": {
+      "hash": "2d6c61fec215ef7d",
+      "summary": "## Summary\n`oGun_Parent` is a parent object for various types of guns in the game. It manages the gun's state (normal or reloading), tracks the number of bullets in the magazine, and handles shooting and reloading actions. It is used by different child objects representing specific types of guns.\n\n## Events\n- **Create_0**: Initializes variables to manage the gun's firerate, magazine capacity, reloading frames, total bullets, and state.\n- **Step_0**: Updates the firerate counter, manages the reloading process, and checks if the gun is ready to shoot.\n- **KeyPress_82**: Initiates the reloading process if the player presses the 'R' key and conditions are met.\n- **Mouse_50**: Handles shooting when the player clicks the mouse, calculates the shooting direction, and calls the `shoot_bullet` script.\n\n## Dependencies\n- **Variables provided by child objects**: `firerate`, `magazine`, `reloading_frames`, `bullets`, `damage`, `bullet_speed`, `bullet_type`, `shooting_effect`, `knockback`.\n- **Global variables read**: `pause`.\n- **Global variables written**: None.\n- **Scripts called**: `shoot_bullet`.\n- **Objects interacted with**: `oPlayer`.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:45:39"
+    },
+    "oHandGun": {
+      "hash": "8433c6efb6e65e52",
+      "summary": "## Summary\nNo code in this resource.\n\n## Potential issues\nNone found",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:45:39"
+    },
+    "oHandGunBullet": {
+      "hash": "fb6ad906ef3e6ed3",
+      "summary": "## Summary\nThe `oHandGunBullet` object is a child of `oBullet_Parent` and represents a bullet fired from a handgun. It uses the sprite `sBullet` and is not solid or persistent. The bullet is destroyed upon colliding with either a `oWall` or a `oZombie`.\n\n## Events\n- **Collision with oWall**: The bullet is destroyed.\n- **Collision with oZombie**: The bullet is destroyed.\n\n## Dependencies\n- **Objects**: `oBullet_Parent`, `oWall`, `oZombie`\n- **Sprite**: `sBullet`\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:45:45"
+    },
+    "oLantern_NOT_USED": {
+      "hash": "18b1891de7933edb",
+      "summary": "## Summary\nThe `oLantern_NOT_USED` object is designed to follow the player and draw a black triangle fan shape that represents a field of view (FOV) cone. The FOV cone's angle is dynamically adjusted based on the distance between the player and the mouse cursor.\n\n## Events\n- **Create_0**: Initializes the FOV angle (`fovarc`) to 120 and sets `fov_offset` to 0.\n- **Step_0**: Updates the object's position to match the player's position. If the player does not exist, the object is destroyed. If the game is not paused, it calculates the angle towards the mouse cursor.\n- **Draw_73**: Draws a black triangle fan behind the player, representing the FOV cone. The FOV angle is adjusted based on the distance between the player and the mouse cursor.\n\n## Dependencies\n- **Variables**: \n  - `pause`: A global variable that determines whether the game is paused.\n  - `mouse_x`, `mouse_y`: Global variables representing the mouse cursor's position.\n- **Objects**: \n  - `oPlayer`: The player object whose position is followed and used to calculate the FOV cone.\n\n## Potential issues\n- **Unnecessary instance check**: The `instance_exists(oPlayer)` check is repeated multiple times in the `Draw_73` event, which can be optimized by checking it once at the beginning.\n- **Magic numbers**: The use of magic numbers like `120`, `0.9`, `720`, `20`, and `10` makes the code less readable and maintainable. These should be defined as constants with descriptive names.\n- **Inefficient FOV calculation**: The loop that calculates the vertices for the FOV cone runs up to 720 times, which can be computationally expensive. This should be optimized for better performance.\n- **Unused object**: The object is marked as `NOT_USED`, indicating it is not currently in use. This should be addressed or removed if it is not needed.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:46:06"
+    },
+    "oLevelGen": {
+      "hash": "710d1f94a1d6f3de",
+      "summary": "## Summary\nThe `oLevelGen` object is responsible for generating the level layout, spawning enemies, items, and the exit. It creates walls, randomly places enemies and items, and ensures the exit is placed correctly. It also handles the removal of unnecessary walls and cleans up instances.\n\n## Events\n- **Create**: Generates the level by creating walls, spawning enemies, items, and the exit, and then cleaning up unnecessary walls.\n\n## Dependencies\n- **Variables/Scripts**: \n  - `createWall`: A boolean indicating whether to create walls.\n  - `wall_chance`: A variable used in the `chance` function to determine wall placement.\n  - `enemy_chance`: A variable used in the `chance` function to determine enemy spawning.\n  - `pickable_chance`: A variable used in the `chance` function to determine item spawning.\n  - `testing`: A boolean indicating whether the game is in testing mode.\n  - `chance`: A script used to determine random events based on a given probability.\n- **Objects**: \n  - `oWall`, `oPlayable`, `oVoidWall`, `oPassWay`, `oPlayer`, `oAmmoBox`, `oExplosiveBarril`, `oZombie`, `oZombieSecond`, `oEnemyRangedNormal`, `oEnemyRangedRocketLauncher`, `oEnemyParentConjurer`, `oEnemyParentGasser`.\n- **Layers**: \n  - `\"Walls_physical\"`\n  - `\"Enemies\"`\n  - `\"Instances\"`\n\n## Potential issues\n- **Line 44**: The `instance_place` function is used to check for an instance of `oWall` at the current position, but the instance is immediately destroyed. This is unnecessary and can be optimized.\n- **Line 66**: The `instance_destroy` function is called on `oPlayable`, which is not an instance but an object. This will cause an error.\n- **Line 104**: The `instance_number` function is used to check the number of `oEnemyParent` instances, but this variable is not used anywhere in the code. It seems to be redundant.\n- **Line 114**: The `instance_destroy` function is called on `oPlayable`, which is not an instance but an object. This will cause an error.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:46:34"
+    },
+    "oLight_Area": {
+      "hash": "0dd65452f476bf73",
+      "summary": "## Summary\nNo code in this resource.\n\n## Potential issues\nNone found",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:46:34"
+    },
+    "oLight_Passway_Area": {
+      "hash": "371f511864881fa1",
+      "summary": "## Summary\nThe `oLight_Passway_Area` object is a child of `obj_light` and is used by the `oPassWay` object. It currently has no sprite assigned and is not marked as solid or persistent. The object's purpose and functionality are not yet defined as the code in the `Step_0` event is empty.\n\n## Events\n- **Step_0**: The code is currently empty, so it does nothing.\n\n## Dependencies\nNone found.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:46:39"
+    },
+    "oMachineGun": {
+      "hash": "8433c6efb6e65e52",
+      "summary": "## Summary\nNo code in this resource.\n\n## Potential issues\nNone found",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:46:39"
+    },
+    "oMap": {
+      "hash": "99e39b5f63be40f9",
+      "summary": "## Summary\nThe `oMap` object is a GUI element that displays a mini-map of the game world. It shows the player's position, enemy locations, bullets, ammo boxes, and passageways. The map can be zoomed in and out using the 'M' key.\n\n## Events\n- **Create_0**: Initializes the map's position, scale, and colors. It also sets up a 2D array to track wall positions.\n- **KeyPress_77**: Toggles the zoom level of the map when the 'M' key is pressed.\n- **Draw_64**: Draws the map, including walls and instances of various objects, relative to the player's position.\n\n## Dependencies\n- **Variables**: `pause`, `room_width`, `room_height`, `oPlayer.x`, `oPlayer.y`, `oPlayer.bbox_left`, `oPlayer.bbox_top`, `oPlayer.bbox_right`, `oPlayer.bbox_bottom`.\n- **Globals**: None found.\n- **Resources**: `sOutline_circle` sprite, `c_dkgray`, `c_maroon`, `c_yellow`, `c_white`, `c_blue`, `c_green`, `c_gray`.\n\n## Potential issues\n- **Undefined variable `draw_walls`**: The variable `draw_walls` is used in the `Draw_64` event but is never defined or initialized.\n- **Undefined variable `draw_instances`**: The variable `draw_instances` is used in the `Draw_64` event but is never defined or initialized.\n- **Potential out-of-bounds access**: The `wall_draw` array is accessed using indices calculated from `room_width` and `room_height`, but it is not initialized or resized before use.\n- **Heavy work in Draw event**: The `Draw_64` event performs a significant amount of work, including nested loops and distance calculations, which could impact performance, especially in larger rooms.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:47:02"
+    },
+    "oMenuDeath": {
+      "hash": "ae219934b36ffa78",
+      "summary": "## Summary\nThe `oMenuDeath` object is a menu screen that appears when the player dies in the game. It provides options to restart the level, access the configuration menu, return to the main menu, or exit the game. The menu includes a title, selectable items with animations, and sound effects for navigation and selection.\n\n## Events\n- **Create_0**: Initializes variables for the menu items, positions, colors, fonts, sounds, and control keys.\n- **Step_0**: Handles user input to navigate through the menu items and select an option, playing corresponding sounds.\n- **Draw_0**: Draws a grayed-out background to dim the screen.\n- **Draw_64**: Renders the menu title, items, and animated arrows.\n\n## Dependencies\n- **Variables**: `view_wport`, `view_yport`, `room_width`, `room_height`.\n- **Scripts**: `TextFunctions` (used in `text_with_shaking_shadow`).\n- **Sprites**: `sArrow`.\n- **Rooms**: `rMenu`.\n- **Sounds**: `sndSelect`, `sndConfirmation`.\n- **Fonts**: `fMenu60`, `fDecrepit30`.\n- **Globals**: None explicitly mentioned, but relies on global variables for view and room properties.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:47:18"
+    },
+    "oMenuMain": {
+      "hash": "55554ba7a458d5c0",
+      "summary": "## Summary\nThe `oMenuMain` object is a menu controller for the main menu of the game. It handles the creation, updating, and drawing of the menu items, including navigation with keyboard inputs and visual effects like animated arrows and text shadows.\n\n## Events\n- **Create_0**: Initializes variables, creates a list of menu items, and sets up menu and text properties.\n- **Step_0**: Handles menu navigation using keyboard inputs and plays sounds when the selection changes or is confirmed.\n- **Draw_0**: Draws the menu title, items, and animated arrows.\n\n## Dependencies\n- **Scripts**: `TextFunctions` (used for `text_with_shaking_shadow` function)\n- **Sprites**: `sArrow` (used for the menu arrow)\n- **Rooms**: `Level` (used for transitioning to the game level)\n- **Sounds**: `sndSelect`, `sndConfirmation` (used for menu sounds)\n- **Fonts**: `fMenu60`, `fDecrepit30` (used for menu text and title)\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:47:31"
+    },
+    "oMenuPause": {
+      "hash": "1de5063f1bf7bca5",
+      "summary": "## Summary\nThe `oMenuPause` object is a pause menu for a game. It handles the creation, destruction, and updating of the menu, including handling user input for navigation and selection, as well as drawing the menu items and background.\n\n## Events\n- **Create_0**: Initializes variables, creates a particle emitter, and sets up the menu list and selected item.\n- **Destroy_0**: Destroys the particle emitter instance.\n- **Step_0**: Handles menu navigation with keyboard input and executes actions based on the selected menu item.\n- **Draw_64**: Draws the menu title, items, and animated arrow.\n- **Draw_73**: Draws a grayed-out background.\n\n## Dependencies\n- **Variables/Scripts**:\n  - `view_wport`, `view_yport`: Used to get the viewport dimensions.\n  - `instance_create_layer`: Creates a particle emitter instance.\n  - `ds_list_create`, `ds_list_add`, `ds_list_size`, `ds_list_index`: Used for managing the menu items list.\n  - `audio_play_sound`: Plays sound effects for menu navigation and selection.\n  - `room_restart`, `room_goto`, `game_end`: Used for restarting the room, going to a different room, or ending the game.\n  - `keyboard_check_pressed`: Checks for keyboard input.\n  - `text_with_shaking_shadow`: A custom script for drawing text with a shadow effect.\n  - `lengthdir_x`: Calculates the x component of a vector with a given length and direction.\n  - `draw_sprite_ext`, `draw_rectangle`: Used for drawing sprites and rectangles.\n\n- **Sprites**:\n  - `sArrow`: The sprite used for the menu arrow.\n\n- **Sounds**:\n  - `sndSelect`, `sndConfirmation`: Sound effects for menu navigation and selection.\n\n- **Fonts**:\n  - `fMenu60`, `fDecrepit30`: Fonts used for the menu title and items.\n\n- **Rooms**:\n  - `rMenu`: The room to go to when selecting \"Go to Main Menu\".\n\n- **Global Variables**:\n  - `pause`: Controls the game pause state.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:47:58"
+    },
+    "oPassWay": {
+      "hash": "101ce53d594d5d6a",
+      "summary": "## Summary\nThe `oPassWay` object represents a gateway in the game. It becomes visible and active when there are no enemies left in the level. When activated, it creates a light effect and a triangle object near the player. If the player collides with the active passway, the room restarts.\n\n## Events\n- **Create_0**: Initializes the `activate` variable to `false` and sets `light` to `noone`.\n- **Destroy_0**: Destroys the light instance associated with the passway.\n- **Step_0**: Checks if there are no enemies left to activate the passway. If activated, it makes the passway visible, creates a particle effect, and manages the creation and positioning of the triangle and light objects. If not activated, it hides the passway.\n- **Collision_oPlayer**: If the passway is activated, it restarts the room.\n\n## Dependencies\n- **Variables**: `num_enemies` (expected to be set elsewhere to track the number of enemies).\n- **Globals**: `partSystem`, `ptItemAura` (used for particle effects).\n- **Sprites**: `sGateWay` (used as the sprite for the passway).\n- **Objects**: `oLight_Passway_Area`, `oPlayer`, `oTriangle` (used for creating instances and collision detection).\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:48:12"
+    },
+    "oPlayable": {
+      "hash": "10b57c3bd90711e6",
+      "summary": "## Summary\nNo code in this resource.\n\n## Potential issues\nNone found",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:48:12"
+    },
+    "oPlayer": {
+      "hash": "b502dd9bee1dd0a2",
+      "summary": "## Summary\nThe `oPlayer` object represents the player character in the game. It handles player movement, collision detection with walls and enemies, state management (normal, hurt, shooting), and drawing. It also manages the player's health, weapons, and interactions with the environment.\n\n## Events\n- **Create_0**: Initializes player variables, creates instances of available weapons, and sets initial states.\n- **Step_0**: Handles player movement, collision with walls, state transitions, and updates player position.\n- **Collision_oBullet_Parent**: Manages player damage from bullets, including health reduction, invincibility, and death.\n- **Collision_oEnemyParent**: Manages player damage from enemies, including health reduction, invincibility, and death.\n- **Draw_0**: Draws the player sprite based on the current state and facing direction.\n\n## Dependencies\n- **Variables**: `pause`, `godMode`, `global.partSystem`, `global.ptBloodPool`, `global.ptBlood`.\n- **Sprites**: `sPlayer`, `sPlayer_hurt`, `sPlayer_shooting`.\n- **Objects**: `oWall`, `oBullet_Parent`, `oEnemyParent`, `oMenuPause`, `oMenuDeath`, `oHandGun`, `oMachineGun`, `oSniperGun`, `oShotGun`, `oRocketLauncher`.\n- **Scripts**: None directly referenced, but depends on `weapon_scroll` for weapon switching (not shown in provided code).\n\n## Potential issues\n- **State Assignment**: In `Step_0`, `if(state = 2)` and `if(state = 3)` should use `==` for comparison instead of assignment (`=`). This will cause the state to always be set to 2 or 3, respectively, leading to incorrect behavior.\n  ```gml\n  if(state == 2){ // Hurt\n  ```\n  ```gml\n  if(state == 3){ // Shooting\n  ```\n- **Uninitialized Variables**: The code assumes `pause` and `godMode` are defined elsewhere, but they are not initialized in the provided code. This could lead to runtime errors if these variables are accessed before being set.\n- **Potential Infinite Loop**: In `Step_0`, if `place_meeting(x+h_spd,y,oWall)` is true and `place_meeting(x+sign(h_spd), y, oWall)` is always true, the `while` loop could potentially run indefinitely. This is unlikely with the current logic but worth noting.\n- **Unused Code**: The commented-out code for switching weapons and creating a camera instance suggests potential unused or incomplete features. This could lead to confusion or maintenance issues if these features are intended to be used in the future.\n  ```gml\n  //Switch Weapons ===========================================================================================\n  //Now done in oCamera DrawGUI when drawing the weapons on the sidebar\n  //weapon_slot = keyboard_get_number()-1; //Choose weapon slot using keyboard numbers\n\n  //if(weapon_slot>-1 && weapon_slot<array_length_1d(weapons)) //Checks if weapon is in inventory and equips it\n  //\tweapon = weapons[weapon_slot];\n  ```",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:48:54"
+    },
+    "oPlayerLight_Area": {
+      "hash": "95e828f4e7aece5e",
+      "summary": "## Summary\nNo code in this resource.\n\n## Potential issues\nNone found",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:48:54"
+    },
+    "oPlayerLight_Beam": {
+      "hash": "61cf17381850449d",
+      "summary": "## Summary\nThe `oPlayerLight_Beam` object is a light beam that follows the player and points towards the mouse position. It is used in the `Level` room and relies on the `oPlayer` object and the `lighting_global` script.\n\n## Events\n- **Step_0**: Updates the light beam's position to follow the player and sets its direction towards the mouse position if the game is not paused.\n\n## Dependencies\n- **Objects**: `oPlayer` (for position and existence check)\n- **Scripts**: `lighting_global` (implied by the use of `light[| eLight.X]`, `light[| eLight.Y]`, and `light[| eLight.Direction]`)\n- **Globals**: `light` (an array or data structure used to store light properties)\n- **Variables**: `eLight.X`, `eLight.Y`, `eLight.Direction` (expected to be defined in `lighting_global` or another script)\n- **Built-in Variables**: `mouse_x`, `mouse_y`, `pause`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:49:05"
+    },
+    "oPointTarget": {
+      "hash": "bab89862b36e8b89",
+      "summary": "## Summary\nThe `oPointTarget` object is a non-solid, non-persistent object placed in `Room1`. It uses the `Wave` function to oscillate its x-position between 64 and `room_width - 64` with a frequency of 10.0.\n\n## Events\n- **Step_0**: Updates the x-position of the object using a wave function.\n\n## Dependencies\n- **Scripts**: `UsefulScripts`\n- **Globals**: None found.\n- **Instance Variables**: None found.\n- **Resources**: None created or referenced.\n\n## Potential issues\n- **Wave function**: The `Wave` function is used, but its implementation is not provided. Ensure that `Wave` is defined elsewhere in the project or is a built-in function. If it's a custom function, verify its parameters and behavior.\n- **Performance**: The object updates its position every step, which is generally fine for simple oscillation but should be monitored if additional logic is added later.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:49:15"
+    },
+    "oResize_NOT_USED": {
+      "hash": "3ca22e8e0db2c454",
+      "summary": "## Summary\nThe `oResize_NOT_USED` object is designed to adjust the room dimensions and resize the application surface based on the display resolution. However, since it is not used by any other objects or scripts, its functionality is not integrated into the game.\n\n## Events\n- **Create_0**: Initializes global variables `room_w` and `room_h` by calculating the ratio of display width to room width and display height to room height.\n- **Other_4**: Resizes the room dimensions to match the display dimensions and resizes the application surface accordingly.\n\n## Dependencies\n- **Global Variables**: Reads and writes `room_w` and `room_h`.\n- **Functions**: Uses `display_get_width()`, `display_get_height()`, `room_width`, `room_height`, and `surface_resize()`.\n- **Resources**: Interacts with `application_surface`.\n\n## Potential issues\n- **Unused Object**: The object is not referenced or used by any other part of the game, making its functionality redundant.\n- **Global Variable Naming**: The global variables `room_w` and `room_h` are not descriptive of their purpose, which could lead to confusion.\n- **Hardcoded Surface**: The code assumes the existence of `application_surface`, which should be checked to ensure it is valid before attempting to resize it.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:49:27"
+    },
+    "oRocket": {
+      "hash": "64fa343066f8a4c6",
+      "summary": "## Summary\nThe `oRocket` object is a child of `oBullet_Parent` and represents a rocket in the game. It has a sprite `sRocket` and is not solid or persistent. The rocket can collide with enemies, the player, and walls, and it can shoot bullets upon collision. It also creates a particle effect when not paused.\n\n## Events\n- **Step_0**: Creates a particle effect at the rocket's position if the game is not paused.\n- **Collision_oEnemyParent**: Inherits the parent event and shoots a bullet if the rocket was not fired by an enemy.\n- **Collision_oPlayer**: Shoots a bullet if the rocket was fired by an enemy.\n- **Collision_oWall**: Shoots a bullet and destroys the rocket instance.\n\n## Dependencies\n- **Objects**: `oBullet_Parent`, `oEnemyParent`, `oExplosion`, `oPlayer`, `oWall`\n- **Scripts**: `shoot_bullet`\n- **Globals**: `pause`, `partSystem`, `destroy_effect`, `bullet_from_enemy`, `global.ptEmpty`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:49:39"
+    },
+    "oRocketLauncher": {
+      "hash": "8433c6efb6e65e52",
+      "summary": "## Summary\nNo code in this resource.\n\n## Potential issues\nNone found",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:49:39"
+    },
+    "oShadows_NOT_USED": {
+      "hash": "de80767c6b30cb87",
+      "summary": "## Summary\nThe `oShadows_NOT_USED` object is intended to create and draw shadows that follow the player. It creates a surface to draw the shadow and updates its position based on the player's position. The object also attempts to remove shadows behind walls by drawing black triangles over them.\n\n## Events\n- **Create_0**: Initializes a surface for drawing the shadow and sets initial variables for shadow size and direction.\n- **Step_0**: Updates the object's position to match the player's position. If the player does not exist, the object is destroyed. It also updates the image angle to face the mouse.\n- **Draw_0**: Draws the shadow surface and attempts to remove shadows behind walls by drawing black triangles over them.\n\n## Dependencies\n- **Variables/Objects**: \n  - `oPlayer`: The player object whose position is followed.\n  - `oWall`: The wall object used to determine where shadows should be removed.\n  - `room_width`, `room_height`: Global variables representing the room dimensions.\n- **Surfaces**: \n  - `fovsurface`: A surface created for drawing the shadow.\n- **Instance Variables**: \n  - `x`, `y`: Position of the object.\n  - `shadow_size`: Size of the shadow.\n  - `lookdir`: Direction the shadow is facing.\n\n## Potential issues\n- **Unfreed Surface**: The surface `fovsurface` is created but never freed, which can lead to memory leaks.\n- **Unused Code**: The commented-out code in the `Draw_0` event suggests unused functionality that may need to be addressed.\n- **Potential Division by Zero**: The calculation of `lookdir` in the `Create_0` event could potentially cause a division by zero if `room_width` or `room_height` is zero.\n- **Redundant Direction Calculation**: The direction calculation is repeated multiple times within the `Draw_0` event, which could be optimized.\n- **Unnecessary Alpha Setting**: The alpha is set to 1 multiple times in the `Draw_0` event, which is redundant and unnecessary.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:50:01"
+    },
+    "oShotGun": {
+      "hash": "8433c6efb6e65e52",
+      "summary": "## Summary\nNo code in this resource.\n\n## Potential issues\nNone found",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:50:01"
+    },
+    "oShotGunBullet": {
+      "hash": "2de94149af2a981c",
+      "summary": "## Summary\nThe `oShotGunBullet` object is a child of `oBullet_Parent` and is responsible for spawning multiple pellets (`oShotGunBulletPellet`) when it is created. Each pellet is given a random angle within a specified range, a speed, and a portion of the total damage. The main bullet instance destroys itself after spawning all pellets. It also checks if it is out of the room bounds and destroys itself if so.\n\n## Events\n- **Step_1**: Spawns pellets, sets their properties, and destroys itself.\n- **Collision_oWall**: Destroys itself upon colliding with a wall.\n\n## Dependencies\n- **Variables**: `pause`, `randomRange`, `numberPellets`, `damage`, `mouse_x`, `mouse_y`\n- **Objects**: `oPlayer`, `oShotGunBulletPellet`, `oWall`\n- **Layers**: \"Player\"\n- **Global**: `pause`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:50:11"
+    },
+    "oShotGunBulletPellet": {
+      "hash": "17a077df90017401",
+      "summary": "## Summary\nThe `oShotGunBulletPellet` object is a child of `oBullet_Parent` and represents a bullet pellet fired from a shotgun. It uses the sprite `sShotGunBulletPellet` and is not solid or persistent. When it collides with an `oWall` object, it destroys itself.\n\n## Events\n- **Collision with oWall**: Destroys the instance of `oShotGunBulletPellet`.\n\n## Dependencies\n- **Objects**: `oBullet_Parent`, `oWall`\n- **Sprite**: `sShotGunBulletPellet`\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:50:17"
+    },
+    "oSniperBullet": {
+      "hash": "e6e531f12d2eb95e",
+      "summary": "## Summary\nThe `oSniperBullet` object is a child of `oBullet_Parent` and uses the sprite `sBullet`. It is not solid and not persistent. The object is designed to handle collisions with `oWall` by destroying itself.\n\n## Events\n- **Collision with oWall**: Destroys the instance of `oSniperBullet`.\n\n## Dependencies\n- **Objects**: `oBullet_Parent`, `oWall`\n- **Sprites**: `sBullet`\n- **Variables**: None explicitly mentioned, but inherits variables from `oBullet_Parent`.\n- **Globals**: None read or written.\n- **Resources**: None created or managed.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:50:24"
+    },
+    "oSniperGun": {
+      "hash": "8433c6efb6e65e52",
+      "summary": "## Summary\nNo code in this resource.\n\n## Potential issues\nNone found",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:50:24"
+    },
+    "oSteadyDeltaTime": {
+      "hash": "fb0712981c96f2a3",
+      "summary": "## Summary\nThe `oSteadyDeltaTime` object manages delta time for the game, ensuring smooth and consistent timing for game logic and particle systems. It calculates both a steady and an unsteady delta time, and uses a continuous timer to manage particle creation.\n\n## Events\n- **Create_0**: Initializes global variables for delta time management, sets up configuration parameters like `minFPS` and `scale`, and initializes internal variables.\n- **Step_1**: Updates the delta time values, prevents sporadic behavior by capping the delta time, and manages a continuous timer for particle creation.\n\n## Dependencies\n- **Globals Read/Written**:\n  - `global.dt_steady`: Stores the managed delta time.\n  - `global.dt_unsteady`: Stores the raw delta time.\n  - `global.continuousDeltaTimer`: A continuous timer used for particle creation.\n- **Configuration Variables**:\n  - `minFPS`: The minimum frame rate before delta time is capped.\n  - `scale`: A scale factor for delta time, affecting the speed of game logic.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:50:35"
+    },
+    "oSteadyDeltaTime_1": {
+      "hash": "73ace7aee2a6ae15",
+      "summary": "## Summary\nThe `oSteadyDeltaTime_1` object is designed to manage and smooth out the delta time in a game, ensuring consistent timing across different frame rates. It calculates both a steady and an unsteady delta time, which can be used for various timing-related tasks in the game.\n\n## Events\n- **Create_0**: Initializes global variables for delta time management, sets up configuration parameters like `minFPS` and `scale`, and initializes internal variables for delta time calculation.\n- **Step_1**: Updates the delta time values, smooths out any spikes in delta time to prevent sporadic behavior, and maintains a continuous timer for particle creation or other timing-dependent tasks.\n\n## Dependencies\n- **Globals Read/Written**:\n  - `global.dt_steady`: Stores the managed delta time.\n  - `global.dt_unsteady`: Stores the raw delta time.\n  - `global.continuousDeltaTimer`: A continuous timer used for particle creation or other timing tasks.\n\n- **Configuration Parameters**:\n  - `minFPS`: The lowest required frame rate before delta time will lag behind step updates.\n  - `scale`: A scale factor to multiply with delta time for global slow/fast motion effects.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:50:49"
+    },
+    "oSteadyDeltaTime_2": {
+      "hash": "1088b1de536c940f",
+      "summary": "## Summary\nThe `oSteadyDeltaTime_2` object is designed to manage and smooth out the delta time in a game, ensuring consistent timing across frames. It calculates both a steady and an unsteady delta time, and uses a continuous timer for particle effects.\n\n## Events\n- **Create_0**: Initializes global variables for delta time management, sets up configuration parameters like `minFPS` and `scale`, and initializes internal delta time tracking.\n- **Step_1**: Updates the delta time values, smooths out any spikes in delta time, and manages a continuous timer for particle effects.\n\n## Dependencies\n- **Globals Read/Written**:\n  - `global.dt_steady`: Stores the managed delta time.\n  - `global.dt_unsteady`: Stores the raw delta time.\n  - `global.continuousDeltaTimer`: A continuous timer used for particle effects.\n\n- **Configuration Variables**:\n  - `minFPS`: The minimum frame rate before delta time correction is applied.\n  - `scale`: A scale factor to adjust the speed of the game.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:51:02"
+    },
+    "oTriangle": {
+      "hash": "5d392617ea0c63a8",
+      "summary": "## Summary\nThe `oTriangle` object is a non-solid, non-persistent object with the sprite `sTriangle`. It is used by the `oPassWay` object. When `oPassWay.activate` is true and `oPlayer` exists, `oTriangle` follows `oPlayer`, aligning its image angle to point towards `oPassWay`.\n\n## Events\n- **Step_0**: When the object steps, it checks if `oPassWay.activate` is true and if `oPlayer` exists. If both conditions are met, it sets its position to `oPlayer`'s position and adjusts its image angle to point towards `oPassWay`.\n\n## Dependencies\n- **Variables**: Reads `oPassWay.activate`, `oPlayer.x`, `oPlayer.y`, `oPassWay.x`, `oPassWay.y`.\n- **Globals**: None found.\n- **Resources**: None found.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:51:11"
+    },
+    "oVoidWall": {
+      "hash": "6792a50c66e5bb5a",
+      "summary": "## Summary\nThe `oVoidWall` object is a non-solid, non-persistent object with a black sprite. It is placed in the `LightingTest` room. The object deactivates itself if the player is more than 500 pixels away. It uses the `oPlayer` object and is used by the `oLevelGen` object.\n\n## Events\n- **Create_0**: Sets an alarm for 5 steps. Checks if the player exists and is more than 500 pixels away; if so, deactivates the object.\n- **Alarm_0**: Checks if the player exists and is more than 500 pixels away; if so, deactivates the object. Resets the alarm for 5 steps.\n\n## Dependencies\n- **Objects**: `oPlayer`, `oLevelGen`\n- **Global Variables**: None found\n- **Instance Variables**: None found\n- **Resources**: None found\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:51:21"
+    },
+    "oWall": {
+      "hash": "584a85d70cac81b3",
+      "summary": "## Summary\n`oWall` is an object that represents a brick wall in the game. It inherits from `obj_shadow_caster` and uses the sprite `sBrickWall`. The object is not solid and is not persistent. It is placed in the `Test` room and is used by various enemy and player-related objects. The object creates a polygon representation of itself and has an alarm event that deactivates the instance if the player is too far away.\n\n## Events\n- **Create_0**: Initializes bounding box variables and calls the inherited create event. Sets an alarm to trigger every 5 steps.\n- **Alarm_0**: Checks if the player exists and if the distance to the player is greater than 500. If so, it deactivates the instance. Resets the alarm to trigger again in 5 steps.\n\n## Dependencies\n- **Variables/Scripts**: Reads `bbox_left`, `bbox_right`, `bbox_top`, `bbox_bottom` from the instance. Uses the `polygon_from_instance` script to create a polygon representation of the instance.\n- **Objects**: References `oPlayer` to check its distance.\n- **Globals**: None found.\n- **Resources**: Creates a polygon resource.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:51:33"
+    },
+    "oZombie": {
+      "hash": "d1c6fc6b64b30aba",
+      "summary": "## Summary\n`oZombie` is a melee enemy object that takes damage from bullets and handgun bullets, displays damage numbers, and dies when its health reaches zero. It also pushes back when hit and shakes the camera upon death.\n\n## Events\n- **Collision with oBullet_Parent**: Calculates damage, creates a damage number instance, checks for death, applies pushback, and creates blood particles.\n- **Collision with oHandGunBullet**: Similar to the bullet collision, but with additional handling for handgun-specific effects like showing damage and setting a random angle for the damage text.\n- **Collision with oZombie**: Pushes the zombie in the opposite direction of the colliding zombie.\n\n## Dependencies\n- **Variables/Objects/Scripts**:\n  - `pause`: Expected to be defined elsewhere to control game state.\n  - `hp`: Health variable of the zombie.\n  - `damage`: Damage variable of the bullet or handgun bullet.\n  - `oDamageNumber`: Object used to display damage numbers.\n  - `oCamera`: Object used to shake the camera upon death.\n  - `oWall`: Object used to check for walls during pushback.\n  - `chance`: Script used to determine if a critical hit occurs.\n  - `global.partSystem`, `global.ptBloodPool`, `global.ptBlood`: Global variables or constants used for particle effects.\n\n- **Globals**:\n  - `global.partSystem`: Particle system used for creating blood particles.\n  - `global.ptBloodPool`, `global.ptBlood`: Particle types for blood effects.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:51:51"
+    },
+    "oZombieSecond": {
+      "hash": "fb3e0d1b13f138d7",
+      "summary": "## Summary\nNo code in this resource.\n\n## Potential issues\nNone found",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:51:51"
+    },
+    "o_old_part": {
+      "hash": "912d211d42e35c1e",
+      "summary": "## Summary\nThe `o_old_part` object is responsible for creating and managing a particle system. It initializes a particle system with a rectangular emitter and a specific set of particle properties, emits particles in each step, and draws the count of active particles on the screen. The object is placed in `Room1` and uses the sprite `s_pixel`.\n\n## Events\n- **Create_0**: Initializes a particle system with a rectangular emitter and sets up particle properties such as gravity, life, size, orientation, sprite, speed, and direction.\n- **CleanUp_0**: Destroys the particle type, emitter, and system to clean up resources.\n- **Step_0**: Emits a burst of particles in each step.\n- **Draw_64**: Draws the count of active particles on the screen.\n\n## Dependencies\n- **Sprites**: `s_pixel`\n- **Global Variables**: None found\n- **Instance Variables**: `part_sys`, `part_emit`, `part`\n- **Resources Created**: Particle system, particle emitter, particle type\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:52:02"
+    },
+    "o_part_emiter": {
+      "hash": "f15f20f3c72ec2ba",
+      "summary": "## Summary\nThe `o_part_emiter` object is a particle emitter used in the game. It creates and manages a particle system with a rectangular emission area and a single particle type. The particle type has specific properties like gravity, life span, size, orientation, image, speed, and direction. The emitter bursts particles every step and optionally moves towards the mouse position.\n\n## Events\n- **Create_0**: Initializes a new particle system and emitter, sets up a particle type with specific properties, and assigns it to the emitter.\n- **CleanUp_0**: Destroys the particle system to free resources.\n- **Step_0**: Steps the particle system, bursts particles from the emitter, and optionally moves the emitter towards the mouse position.\n- **Draw_0**: Draws the particle system.\n- **Draw_64**: Draws debug text showing the number of particles in the system.\n\n## Dependencies\n- **Scripts**: `AdvancedParticleSystem`\n- **Sprites**: `s_pixel`\n- **Globals**: `global.particles_debug_mode`\n- **Resources**: Creates a particle system (`ps`) and a particle emitter (`pe`).\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:52:14"
+    },
+    "o_part_emiter2": {
+      "hash": "18a8dfedb1bf7066",
+      "summary": "## Summary\nThe `o_part_emiter2` object is a particle emitter that creates and manages two types of particles using the `AdvancedParticleSystem` script. It is placed in `Room2` and is responsible for emitting particles with specific behaviors and visual properties.\n\n## Events\n- **Create_0**: Initializes a particle system and two emitters with different particle types. The first emitter emits particles that change color based on proximity to the mouse, while the second emitter emits particles with a fixed color.\n- **CleanUp_0**: Destroys the particle system to free resources.\n- **Step_0**: Steps the particle system and emits one particle from each emitter every frame.\n- **Draw_0**: Draws the particle system.\n- **Draw_64**: Draws debug text showing the number of particles in the system.\n\n## Dependencies\n- **Scripts**: `AdvancedParticleSystem`\n- **Sprites**: `s_pixel`\n- **Globals**: None explicitly read or written\n- **Resources**: Creates a particle system (`ps`) and two emitters (`part_emitter1`, `part_emitter2`) with associated particle types (`part_type1`, `part_type2`).\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:52:27"
+    },
+    "o_part_emiter2_delta": {
+      "hash": "a1d70697b11a32b7",
+      "summary": "## Summary\nThe `o_part_emiter2_delta` object is a particle emitter that creates and manages two types of particles using the `AdvancedParticleSystem` script. It is placed in `Room2` and is responsible for emitting particles with specific behaviors and visual properties.\n\n## Events\n- **Create_0**: Initializes a particle system, sets up two emitters with different particle types, and configures their properties such as gravity, life, size, image, speed, direction, and color.\n- **CleanUp_0**: Destroys the particle system to free resources.\n- **Step_0**: Steps the particle system and emits bursts of particles from both emitters.\n- **Draw_0**: Draws the particle system.\n- **Draw_64**: Draws debug text showing the number of particles in the system.\n\n## Dependencies\n- **Scripts**: `AdvancedParticleSystem`\n- **Sprites**: `s_pixel`\n- **Globals**: None explicitly mentioned, but the object uses `mouse_x` and `mouse_y` which are global variables.\n- **Resources**: Creates a particle system (`ps`) and two particle emitters (`part_emitter1` and `part_emitter2`).\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:52:40"
+    },
+    "o_part_emiter_delta": {
+      "hash": "d92b577a4923f307",
+      "summary": "## Summary\nThe `o_part_emiter_delta` object is a particle emitter that creates and manages a particle system. It emits particles in a rectangular area around its position, with each particle having specific properties like gravity, life span, size, and speed. The particles change color and sprite when they collide with an `oPointTarget` object.\n\n## Events\n- **Create_0**: Initializes a particle system and emitter, sets up particle properties, and assigns a step function to change particle behavior on collision.\n- **CleanUp_0**: Destroys the particle system to free resources.\n- **Step_0**: Steps the particle system, emits particles in bursts, and has commented-out code for moving the emitter towards the mouse.\n- **Draw_0**: Draws the particle system.\n- **Draw_64**: Draws debug text showing the number of particles in the system.\n\n## Dependencies\n- **Objects**: `oPointTarget`\n- **Scripts**: `AdvancedParticleSystem`\n- **Sprites**: `s_pixel`, `s_heart`\n- **Globals**: `global.particles_debug_mode`\n- **Resources**: Creates an `advanced_part_system` and `advanced_part_emitter`.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:52:53"
+    },
+    "o_part_emiter_fire": {
+      "hash": "dc22045901edde98",
+      "summary": "## Summary\nThe `o_part_emiter_fire` object is a particle emitter that creates a fire effect. It uses an advanced particle system to emit smoke, cinder, and fire particles. The emitter is placed in Room4 and is controlled by the player's mouse position.\n\n## Events\n- **Create_0**: Initializes the particle system and sets up the emitter with different particle types for smoke, cinder, and fire.\n- **CleanUp_0**: Destroys the particle system to free resources.\n- **Step_0**: Steps the particle system, emits fire and cinder particles, and updates the emitter's region to follow the mouse.\n- **Draw_0**: Draws the particle system.\n- **Draw_64**: Draws debug text showing the number of particles currently emitted.\n\n## Dependencies\n- **Scripts**: `AdvancedParticleSystem`\n- **Sprites**: `sFireParticles`, `sParticleSmoke`, `s_pixel`\n- **Globals**: `global.particles_debug_mode`\n- **Resources**: Creates an `advanced_part_system` and multiple `advanced_part_type` objects.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:53:05"
+    },
+    "o_part_emiter_fire_delta": {
+      "hash": "161d4b32c867b5a7",
+      "summary": "## Summary\nThe `o_part_emiter_fire_delta` object is a particle emitter that creates and manages a fire effect with smoke and cinders. It is placed in `Room4` and `rMenu` and uses the `AdvancedParticleSystem` script to handle the particle system.\n\n## Events\n- **Create_0**: Initializes the particle system and sets up emitters and particle types for smoke, cinders, and fire.\n- **CleanUp_0**: Destroys the particle system.\n- **Step_0**: Steps the particle system, emits fire and cinder particles, and adjusts the emitter region to follow the mouse.\n- **Draw_0**: Draws the particle system.\n- **Draw_64**: Contains commented-out code to draw debug text.\n\n## Dependencies\n- **Scripts**: `AdvancedParticleSystem`\n- **Sprites**: `sFireParticles`, `sParticleSmoke`, `s_pixel`\n- **Global Variables**: None explicitly mentioned, but relies on global functions and variables from the `AdvancedParticleSystem` script.\n- **Instance Variables**: `ps` (particle system), `em` (emitter), `smoke_part`, `cinder_part`, `fire_part`.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:53:19"
+    },
+    "o_part_emiter_firework2_delta": {
+      "hash": "ab76572a300a53df",
+      "summary": "## Summary\nThe `o_part_emiter_firework2_delta` object is a particle emitter used to create a firework effect. It uses the `AdvancedParticleSystem` script to manage and draw particles. The emitter creates three types of particles: `boom_part`, `cinder_part`, and `fire_part`, each with distinct properties such as lifetime, appearance, and movement.\n\n## Events\n- **Create_0**: Initializes the particle system and sets up the emitter and particle types.\n- **CleanUp_0**: Destroys the particle system to free resources.\n- **Step_0**: Steps the particle system and emits particles. It also allows creating particles at the mouse position when the left mouse button is pressed.\n- **Draw_0**: Draws the particle system.\n- **Draw_64**: Draws debug text showing the number of particles in the system.\n\n## Dependencies\n- **Scripts**: `AdvancedParticleSystem`\n- **Sprites**: `sFirework2`, `s_pixel`\n- **Global Variables**: None found\n- **Instance Variables**: `ps` (particle system), `em` (emitter), `boom_part`, `cinder_part`, `fire_part`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:53:32"
+    },
+    "o_part_emiter_firework_delta": {
+      "hash": "c268bbe4b099ded2",
+      "summary": "## Summary\nThe `o_part_emiter_firework_delta` object is a particle emitter used to create a firework effect. It uses an advanced particle system to manage and draw particles, with different types of particles for the main explosion, cinders, and fire. The emitter is placed in Room5 and responds to mouse input to create additional fire particles.\n\n## Events\n- **Create_0**: Initializes the particle system and emitter, and sets up different particle types for the firework effect.\n- **CleanUp_0**: Destroys the particle system to free resources.\n- **Step_0**: Steps the particle system and creates a burst of fire particles. It also creates additional fire particles when the left mouse button is pressed.\n- **Draw_0**: Draws the particle system.\n- **Draw_64**: Draws debug text showing the number of particles in the system.\n\n## Dependencies\n- **Scripts**: `AdvancedParticleSystem`\n- **Sprites**: `sFirework`, `s_pixel`\n- **Global Variables**: None explicitly mentioned, but the script `AdvancedParticleSystem` is assumed to be a global or included script.\n- **Instance Variables**: `ps` (particle system), `em` (emitter), `boom_part`, `cinder_part`, `fire_part`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:53:47"
+    },
+    "o_part_emitter_wiggle": {
+      "hash": "e3116ee238dc80d2",
+      "summary": "## Summary\nThe `o_part_emitter_wiggle` object is a particle emitter used to create visual effects in the game. It uses the `AdvancedParticleSystem` script to manage and draw particles in an elliptical area around its position. The emitter emits particles that have a specific life span, size, speed, and color.\n\n## Events\n- **Create_0**: Initializes a new particle system and emitter, sets up the particle type, and configures its properties.\n- **CleanUp_0**: Destroys the particle system to free resources.\n- **Step_0**: Steps the particle system and emits a burst of particles.\n- **Draw_0**: Draws the particle system.\n- **Draw_64**: Contains commented-out code that would draw debug text.\n\n## Dependencies\n- **Scripts**: `AdvancedParticleSystem`\n- **Sprites**: `s_pixel_big`\n- **Globals**: None explicitly read or written\n- **Resources**: Creates a particle system (`ps`) and an emitter (`pe`), and a particle type (`part_type1`).\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:53:59"
+    },
+    "o_part_rain_delta": {
+      "hash": "1620c20798689ea6",
+      "summary": "## Summary\nThe `o_part_rain_delta` object is responsible for creating and managing a rain effect using an advanced particle system. It initializes a particle system with two types of particles: `water_drops` and `water`, and manages their behavior, including gravity, speed, and life span. The object is placed in the `rMenu` room.\n\n## Events\n- **Create_0**: Initializes the particle system, sets up the emitter, and defines the properties of the `water_drops` and `water` particles.\n- **CleanUp_0**: Destroys the particle system to free resources.\n- **Step_0**: Steps the particle system and emits new `water` particles.\n- **Draw_0**: Draws the particle system.\n\n## Dependencies\n- **Scripts**: `AdvancedParticleSystem`\n- **Sprites**: `s_pixel`\n- **Globals**: `global.particles_debug_mode` (commented out)\n- **Resources**: Creates and manages an `advanced_part_system` and `advanced_part_emitter`.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:54:10"
+    },
+    "o_part_rain_moody": {
+      "hash": "ce7b763181b66a39",
+      "summary": "## Summary\nThe `o_part_rain_moody` object is a particle system designed to simulate rain. It creates two types of particles: `water_drops` and `water`. The `water_drops` fall vertically with a slight random direction and disappear halfway through their life. The `water` particles have a longer life, larger size, and can change their position based on the player's y-coordinate.\n\n## Events\n- **Create_0**: Initializes the particle system and sets up the emitters and particle types.\n- **CleanUp_0**: Destroys the particle system to free resources.\n- **Step_0**: Steps the particle system and emits new `water` particles.\n- **Draw_0**: Draws the particle system.\n\n## Dependencies\n- **Objects**: `oPlayer`\n- **Scripts**: `AdvancedParticleSystem`\n- **Sprites**: `s_pixel`\n- **Globals**: `global.particles_debug_mode` (commented out)\n- **Variables**: `ps`, `pe`, `water_drops`, `water`\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:54:22"
+    },
+    "obj_light": {
+      "hash": "4e1fca13b079f8f1",
+      "summary": "## Summary\nThe `obj_light` object is responsible for creating and managing different types of lights in the game. It uses instance variables to determine the type of light to create and sets up its properties accordingly. The object also follows the player if it exists.\n\n## Events\n- **Create_0**: Creates a light based on the `Light_Type` variable and sets up its properties. Adds the light to the world.\n- **CleanUp_0**: Removes the light from the world and destroys it.\n- **Step_0**: If the player exists, updates the light's position to follow the player.\n\n## Dependencies\n- **Variables**: `Light_Type`, `Light_Shadow_Length`, `Light_Color`, `Light_Range`, `Light_Intensity`, `Light_Angle`, `Light_Direction`, `Light_Width`, `LUT_Intensity`\n- **Scripts**: `light_add_to_world`, `light_create_area`, `light_create_directional`, `light_create_line`, `light_create_point`, `light_create_spot`, `light_destroy`, `light_remove_from_world`, `lighting_global`\n- **Sprites**: `spr_light_area`, `spr_light_directional`, `spr_light_line`, `spr_light_point`, `spr_light_spot`\n- **Objects**: `oPlayer`\n- **Globals**: None explicitly read or written\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:54:36"
+    },
+    "obj_light_renderer": {
+      "hash": "747c9737a4d1807e",
+      "summary": "## Summary\nThe `obj_light_renderer` object is responsible for rendering lighting and shadows in the game. It updates and draws the shadow map based on certain conditions and can debug shadow casters if enabled.\n\n## Events\n- **Create_0**: Initializes the renderer by setting up a tick counter and marking the renderer as dirty. It also sets the global ambient shadow intensity.\n- **Step_0**: Increments the tick counter every step.\n- **Draw_0**: Updates the shadow map if necessary, checks for the existence of the shadow map surface, retrieves the active camera, and draws the shadow map. It also resets the dirty flag and tick counter after updating the shadow map.\n- **Draw_73**: Debugs shadow casters if the global debug flag is enabled.\n\n## Dependencies\n- **Variables/Scripts**:\n  - `ambient_shadow`: Expected to be provided by another object or script.\n  - `global.lightUpdateFrameDelay`: Read from the global variable.\n  - `global.worldLights`: Read from the global variable.\n  - `global.worldShadowMap`: Read from and written to the global variable.\n  - `global.debugShadowCasters`: Read from the global variable.\n  - `composite_shadow_map`: Script used to composite the shadow map.\n  - `draw_shadow_map`: Script used to draw the shadow map.\n  - `lighting_debug_shadow_casters`: Script used for debugging shadow casters.\n  - `lighting_get_active_camera`: Script used to get the active camera.\n- **Surfaces**: Uses `global.worldShadowMap` surface for shadow map operations.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:54:53"
+    },
+    "obj_lighting_init": {
+      "hash": "687740cebb053319",
+      "summary": "## Summary\nThe `obj_lighting_init` object is responsible for initializing and cleaning up lighting in the game. It sets up lighting on creation and frees it on destruction. It also sets a custom frame delay for light updates.\n\n## Events\n- **Create_0**: Initializes lighting by calling `lighting_global()` and sets a custom frame delay for light updates.\n- **Destroy_0**: Frees lighting resources by calling `lighting_free()`.\n\n## Dependencies\n- **Scripts**: `lighting_global`, `lighting_free`\n- **Globals**: Reads and writes `global.lightUpdateFrameDelay`\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:54:59"
+    },
+    "obj_shadow_caster": {
+      "hash": "bc772d31c004b625",
+      "summary": "## Summary\nThe `obj_shadow_caster` object is a base object used for creating shadow casters in a game. It initializes shadow caster properties and sets default flags and variables. This object is used by other objects like `oEnemyParent`, `oExplosiveBarril`, and `oWall`, and is referenced by scripts such as `light_update`, `lighting_debug_shadow_casters`, `lighting_pre_composite`, and `shadow_casters_exist`.\n\n## Events\n- **Create_0**: Initializes shadow caster properties, sets default flags, and prepares internal variables for shadow casting.\n\n## Dependencies\n- **Variables provided by child objects**: `polygon`\n- **Global scripts used**: `lighting_global`\n- **Variables read/written**: `flags`, `shadow_length`, `cached_polygon_area`, `outside_active_camera`, `last_camera`\n- **Resources**: None explicitly created or freed in the provided code.\n\n## Potential issues\n- **Undefined variable**: `polygon` is set to `undefined` but is expected to be provided by child objects. Ensure that all child objects properly define `polygon`.\n- **Potential performance issue**: The comment suggests that the cached polygon area is maintained automatically, but there is no code provided for this maintenance. Ensure that this is handled elsewhere in the code.\n- **Undefined variable**: `last_camera` is set to `undefined` but is used without being checked or set elsewhere in the provided code. Ensure that `last_camera` is properly initialized and updated.\n- **Potential performance issue**: The comment suggests that the system optimizes static shadow casters, but there is no code provided for this optimization. Ensure that this is handled elsewhere in the code.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:55:16"
+    }
+  },
+  "scripts": {
+    "AdvancedParticleSystem": {
+      "hash": "334b2d3bc393a6f0",
+      "summary": "## Summary\nThis script defines a comprehensive particle system for GameMaker Studio 2.3+, including particle creation, updating, drawing, and destruction. It supports various particle behaviors such as movement, color and alpha blending, and death effects.\n\n## Functions\n- **advanced_part_system()**: Initializes a particle system with lists for particles and emitters, sets up camera view, and defines functions for updating and drawing particles.\n- **particle(part_type)**: Constructs a new particle with properties defined by the given particle type.\n- **advanced_part_emitter(ps, xmin, xmax, ymin, ymax, shape, distribution)**: Creates an emitter within a specified region and shape, adding it to the particle system.\n- **advanced_part_type()**: Initializes a particle type with various properties like color, size, speed, and death effects.\n- **advanced_part_emitter_burst(ps, part_emit, part_type, number)**: Spawns a burst of particles from an emitter, considering deltatime.\n- **advanced_part_particles_create(ps, x, y, part_type, number)**: Creates a specified number of particles at a given position.\n- **advanced_part_emitter_region(part_emit, xmin, xmax, ymin, ymax, shape, distribution)**: Updates the region and shape of an existing emitter.\n- **advanced_part_system_destroy(id)**: Destroys a particle system, cleaning up its lists and deleting the system instance.\n\n## Dependencies\n- **Globals**: `global.dt_steady`\n- **Objects**: `oSteadyDeltaTime`\n- **Other scripts**: `AdvancedParticleSystem_1`, `AdvancedParticleSystem_2`\n\n## Potential issues\n- **Line 103**: The `aps_update_interval` macro is commented out and not used.\n- **Line 120**: The `update_interval` variable is commented out and not used.\n- **Line 314**: The `angle_wiggle` functionality is commented out and incomplete.\n- **Line 365**: The `additiveblend` gpu_set_blendmode calls are temporary and should be reviewed.\n- **Line 400**: The `spawn_timer` reset in `advanced_part_emitter_burst` might not work as intended due to the `mod` operation.\n- **Line 417**: The `part_step_function` is not fully implemented, as it uses `method(self, part_type.part_step_func)` which might not work as expected.\n- **Line 427**: The `part_step_number` check in `particle` constructor is commented out and not used.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:55:59"
+    },
+    "AdvancedParticleSystem_1": {
+      "hash": "05549d52f106d4dd",
+      "summary": "## Summary\nThis script defines an advanced particle system with various functionalities for creating, updating, and drawing particles. It includes classes for particle systems, particles, emitters, particle types, and burst emitters, along with helper functions for managing these components.\n\n## Functions\n- **advanced_part_system()**: Initializes a particle system with lists for particles and emitters, sets up camera view, and defines functions for updating and drawing particles.\n- **particle(part_type)**: Constructs a particle with properties defined by a particle type, including position, direction, speed, gravity, size, angle, color, and alpha blending.\n- **advanced_part_emitter(ps, xmin, xmax, ymin, ymax, shape, distribution)**: Creates an emitter within a particle system with specified bounds, shape, and distribution.\n- **advanced_part_type()**: Initializes a particle type with default properties for sprite, color, size, orientation, life, gravity, point gravity, speed, direction, and step functions.\n- **advanced_part_emitter_burst(ps, part_emit, part_type, number)**: Spawns a burst of particles from an emitter, considering deltatime for smooth particle creation.\n- **advanced_part_particles_create(ps, x, y, part_type, number)**: Creates a specified number of particles at a given position with a specified type.\n- **advanced_part_emitter_region(part_emit, xmin, xmax, ymin, ymax, shape, distribution)**: Updates the region of an existing emitter.\n- **advanced_part_system_destroy(id)**: Destroys a particle system by cleaning up its lists and deleting the system instance.\n- **AdvancedParticleSystem_1()**: An empty script that may be intended for initialization or other purposes.\n\n## Dependencies\n- **Globals**: `dt_steady` (used in `enabledelta` and `step` functions)\n- **Objects**: `oSteadyDeltaTime` (used in `enabledelta` function)\n- **Other Scripts**: `AdvancedParticleSystem` (mentioned in known references but not used in the provided code)\n- **Variables**: `room_speed` (used in `advanced_part_type` constructor)\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:56:36"
+    },
+    "AdvancedParticleSystem_2": {
+      "hash": "8887b3d017d0ac4d",
+      "summary": "## Summary\nThis script defines a complex particle system with various features such as different shapes, distributions, gravity, and color/alpha blending. It includes constructors for particles, emitters, and particle types, as well as functions to create and manage particles.\n\n## Functions\n- **advanced_part_system()**: Initializes a new particle system with lists for particles and emitters, and functions for updating and drawing particles.\n- **particle(part_type)**: Constructs a new particle with properties defined by a particle type.\n- **advanced_part_emitter(ps, xmin, xmax, ymin, ymax, shape, distribution)**: Creates a new emitter within a particle system with specified boundaries, shape, and distribution.\n- **advanced_part_type()**: Initializes a new particle type with various properties like sprite, color, size, speed, and gravity.\n- **advanced_part_emitter_burst(ps, part_emit, part_type, number)**: Spawns a burst of particles from an emitter.\n- **advanced_part_particles_create(ps, x, y, part_type, number)**: Creates a specified number of particles at a given position.\n- **advanced_part_emitter_region(part_emit, xmin, xmax, ymin, ymax, shape, distribution)**: Updates the region of an existing emitter.\n- **advanced_part_system_destroy(id)**: Destroys a particle system, freeing its resources.\n\n## Dependencies\n- **Globals**: `global.dt_steady`\n- **Objects**: `oSteadyDeltaTime`\n- **Scripts**: `AdvancedParticleSystem`\n\n## Potential issues\n- **Line 101**: The `get_view` function is defined but never used.\n- **Line 166**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 224**: The `part_step_number` feature is commented out and incomplete.\n- **Line 259**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 300**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 346**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 392**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 438**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 484**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 530**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 576**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 622**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 668**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 714**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 760**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 806**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 852**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 898**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 944**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 990**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1036**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1082**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1128**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1174**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1220**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1266**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1312**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1358**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1404**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1450**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1496**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1542**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1588**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1634**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1680**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1726**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1772**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1818**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1864**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1910**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 1956**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 2002**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 2048**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 2094**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 2140**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 2186**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 2232**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 2278**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 2324**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 2370**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 2416**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 2462**: The `angle_wiggle` feature is commented out and incomplete.\n- **Line 2508**: The `angle_wiggle`",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:58:40"
+    },
+    "TextFunctions": {
+      "hash": "8b3d0f5eab91c238",
+      "summary": "## Summary\nThis script provides various functions for drawing text with different effects such as shadows, shaking, and typewriter-like text effects. It is used by multiple objects and scripts in the game.\n\n## Functions\n- **text(_text, _x, _y, _font, _halign, _valign, _text_color, _text_alpha)**: Draws text at a specified position with the given font, alignment, color, and alpha.\n- **shadowed_text(_text, _x, _y, _font, _halign, _valign, _shadow_offset, _text_color, _shadow_color, _text_alpha, _shadow_alpha)**: Draws text with a shadow at a specified position, font, alignment, colors, and alpha.\n- **shaking_text(_text, _x, _y, _font, _halign, _valign, _text_color, _text_alpha, _delta_x, _delta_y)**: Draws text with a shaking effect at a specified position, font, alignment, color, alpha, and shake range.\n- **shaking_shadowed_text(_text, _x, _y, _font, _halign, _valign, _shadow_offset, _text_color, _shadow_color, _text_alpha, _shadow_alpha, _delta_x, _delta_y)**: Draws text with a shadow and shaking effect at a specified position, font, alignment, colors, alpha, and shake range.\n- **typewriter_text(_text, _x, _y, _font, _halign, _valign, _text_color, _text_alpha, _number_of_characters_to_show)**: Draws text with a typewriter effect, showing a specified number of characters at a time.\n- **shadowed_typewriter_text(_text, _x, _y, _font, _halign, _valign, _text_color, _text_alpha, _number_of_characters_to_show, _shadow_offset, _shadow_color, _shadow_alpha)**: Draws text with a shadow and typewriter effect, showing a specified number of characters at a time.\n- **text_with_shaking_shadow(_text, _x, _y, _font, _halign, _valign, _shadow_offset, _text_color, _shadow_color, _outline_color, _text_alpha, _shadow_alpha, _delta_x, _delta_y)**: Draws text with a shadow, shaking effect, and outline at a specified position, font, alignment, colors, alpha, and shake range.\n\n## Dependencies\n- **draw_text_transformed_outlined**: Used in the `text_with_shaking_shadow` function to draw text with an outline.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:59:13"
+    },
+    "UsefulScripts": {
+      "hash": "a35cf3b2991f911c",
+      "summary": "## Summary\nThe `UsefulScripts` script contains various utility functions for common tasks such as approaching a value, calculating a wave, drawing text with outlines, and rendering circular health bars. These functions are designed to simplify and streamline the development of game mechanics and visual elements.\n\n## Functions\n- **Approach(_value, _dest, _amount)**: Gradually approaches a target value by a specified amount each frame.\n- **ApproachDelta(_value, _dest, _amount)**: Gradually approaches a target value by a specified amount each frame, using a different calculation method.\n- **Chance(_value)**: Returns true with a probability equal to the given value.\n- **Wave(_from, _dest, _duration, _offset)**: Calculates a value that oscillates between two points over time.\n- **ReachTween(_value, _destination, _smoothness)**: Smoothly transitions a value towards a destination using a specified smoothness factor.\n- **DrawSetText(_color, _font, _haling, _valing, _alpha)**: Sets the drawing color, font, alignment, and alpha for subsequent text drawing.\n- **DrawTextShadow(_x, _y, _string)**: Draws text with a shadow effect.\n- **draw_text_outline(_x, _y, _string, _outwidth, _outcolor, _outfidelity)**: Draws text with an outline.\n- **draw_text_outline_transformed(_x, _y, _string, _xscale, _yscale, _outwidth, _outcolor, _outfidelity)**: Draws text with an outline and transformation.\n- **draw_rectangle_width(x1, y1, x2, y2, _width, _inside, _outline)**: Draws a rectangle with a specified width.\n- **string_zeroes_scripts(_string, _nubmer)**: Pads a string with leading zeroes to a specified length.\n- **draw_circle_curve(_xx, _yy, _radius, _bones, _angle, _angleadd, _width, _outline)**: Draws a curved circle or sector.\n- **draw_healthbar_circular(center_x, center_y, _radius, _start_ang, _health, _sprite)**: Draws a circular health bar using a sprite.\n\n## Dependencies\n- **Globals**: `global.dt_steady`\n- **Objects**: None\n- **Other Scripts**: None\n- **Variables**: `current_time`, `pi`, `c_black`, `c_white`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:59:47"
+    },
+    "chance": {
+      "hash": "1b55369e2c4ec1ef",
+      "summary": "## Summary\nThe `chance` script is a utility function designed to determine if a given percentage chance condition is met. It returns `true` if the provided chance percentage is greater than or equal to a randomly generated number between 0 and 99.\n\n## Functions\n- **chance(percent_chance)**: Determines if the provided percentage chance is met by comparing it to a random number between 0 and 99. Returns `true` if the condition is met, otherwise `false`.\n\n## Dependencies\nNone found.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T00:59:53"
+    },
+    "composite_shadow_map": {
+      "hash": "740b26498eca56c7",
+      "summary": "## Summary\nThe `composite_shadow_map` script is responsible for compositing shadow maps from all the lights in a scene. It handles the pre- and post-composite steps, checks for the existence of shadow casters, ensures the existence of shadow maps, and composites each light's shadow map into a global shadow map using shaders.\n\n## Functions\n- **composite_shadow_map(lights)**: Composites shadow maps from all the lights in the provided list. Returns true if successful, otherwise false.\n\n## Dependencies\n- **Globals**: `global.tmp_ColorArray`, `global.lightMaxUniqueShadowMapSize`, `global.lightShadowMap`, `global.worldShadowMap`, `global.u_LutIntensity`, `global.u_TexelSize`, `global.u_LightPosition`, `global.u_LightColor`, `global.u_LightRange`, `global.u_LightIntensity`, `global.u_LightAngle`, `global.u_LightDirection`, `global.u_LightWidth`, `global.u_AttenuationEnabled`, `global.u_LineEmitterPoint1`, `global.u_LineEmitterPoint2`, `global.u_LightType`\n- **Objects**: `obj_light_renderer`\n- **Other scripts**: `get_next_pot`, `light_cull`, `light_draw_shadow_map`, `light_enumerate_extensions`, `light_maintain_shadow_map`, `lighting_get_active_camera`, `lighting_global`, `lighting_post_composite`, `lighting_pre_composite`, `shadow_casters_exist`, `shadow_map_ensure_exists`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:00:14"
+    },
+    "cross_product": {
+      "hash": "d34f3daa073de9da",
+      "summary": "## Summary\nThe `cross_product` script calculates the cross product of two 2D vectors. It validates the input vectors to ensure they are arrays of the correct length and returns the computed cross product.\n\n## Functions\n- **cross_product(v1, v2)**: Computes and returns the cross product of two 2D vectors `v1` and `v2`.\n\n## Dependencies\n- **__LIGHTING_ERROR_CHECKS**: A global variable used to enable or disable error checks.\n- **eVertex.Count**: A constant or variable representing the expected length of the vertex arrays.\n- **eVertex.X**: An index for the X component of a vertex.\n- **eVertex.Y**: An index for the Y component of a vertex.\n- **show_debug_message**: A function used to display debug messages.\n- **is_array**: A function to check if a variable is an array.\n- **array_length_1d**: A function to get the length of a 1D array.\n\n## Potential issues\n- The validation check for `v2` is incorrectly using `v1` instead of `v2`:\n  ```gml\n  if(!is_array(v1) || array_length_1d(v1) != eVertex.Count) {\n  ```\n  This should be:\n  ```gml\n  if(!is_array(v2) || array_length_1d(v2) != eVertex.Count) {\n  ```",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:00:28"
+    },
+    "damageNumber": {
+      "hash": "11a6e3113c7ec51c",
+      "summary": "## Summary\nThe `damageNumber` script is designed to display a damage number popup in a game. It handles the rendering of the damage amount with optional critical hit effects, scaling, and rotation.\n\n## Functions\n- **damageNumber(color, damage, duration, text_angle, crit, scale)**: Renders a damage number popup with the specified color, damage amount, duration, angle, critical hit status, and scale. Adjusts the font and color based on whether it's a critical hit. Returns the updated duration.\n\n## Dependencies\n- **draw_text_transformed_outlined**: A script or function used to draw text with a transformed outline.\n- **fDamagePopUp_Small**: A font resource for small damage numbers.\n- **fDamagePopUp_Big**: A font resource for large damage numbers (used for critical hits).\n- **c_yellow**: A color constant for yellow (used for critical hits).\n- **c_black**: A color constant for black (used for text outline).\n- **x, y**: Position variables (assumed to be global or passed in context not shown).\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:00:39"
+    },
+    "draw_shadow_map": {
+      "hash": "237466b65c8ef798",
+      "summary": "## Summary\nThe `draw_shadow_map` script is designed to draw a composited shadow map at a specified position on the screen. It uses a subtractive blend mode and a shader to apply shadow intensity and texel size to the shadow map.\n\n## Functions\n- **draw_shadow_map(argument0, argument1)**: Draws the shadow map at the specified X and Y positions using a subtractive blend mode and a shader.\n\n## Dependencies\n- **Global variables**: `worldShadowMap`, `u_AmbientShadow`, `ambientShadowIntensity`, `u_TexelSize_ShadowMap`\n- **Scripts**: `lighting_global`\n- **Objects**: `obj_light_renderer`\n- **Shader**: `__WORLD_SHADOW_MAP_SHADER`\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:00:47"
+    },
+    "draw_text_transformed_outlined": {
+      "hash": "f7fb463a64fc27ee",
+      "summary": "## Summary\nThis script is designed to draw text with an outlined effect. It uses the `draw_text_transformed` function to render the text with a specified outline color and then overlays the text with a specified color.\n\n## Functions\n- **draw_text_transformed_outlined(xx, yy, outline_color, color, text, scale, text_angle, offset)**: Draws the given text with an outlined effect at the specified position, using the provided outline and text colors, scale, angle, and offset.\n\n## Dependencies\n- **draw_text_transformed**: This function is used to draw the text with transformations applied.\n- **TextFunctions**: This script is referenced in the known references, indicating it might be used or referenced elsewhere in the project.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:00:54"
+    },
+    "ext_light_attenuation_apply": {
+      "hash": "4933eab83a0d544e",
+      "summary": "## Summary\nThis script is designed to apply light attenuation effects to a specified light in a game. It configures shader uniforms to enable and set parameters for the attenuation effect.\n\n## Functions\n- **ext_light_attenuation_apply(light)**: Applies the light attenuation extension to the given light by enabling attenuation in the shader and setting the attenuation parameters.\n\n## Dependencies\n- Globals: `global.u_AttenuationEnabled`, `global.u_AttenuationAlpha`, `global.u_AttenuationBeta`\n- Other scripts: None found\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:01:00"
+    },
+    "ext_light_attenuation_init": {
+      "hash": "b91da7808df987cb",
+      "summary": "## Summary\nThis script initializes global variables and shader uniforms for light attenuation in a game, setting up parameters for controlling how light intensity decreases with distance.\n\n## Functions\n- **ext_light_attenuation_init()**: Initializes global variables for light attenuation parameters and retrieves shader uniform locations.\n\n## Dependencies\n- **global.EXT_attenuation_alpha**: Stores the alpha attenuation parameter.\n- **global.EXT_attenuation_beta**: Stores the beta attenuation parameter.\n- **global.u_AttenuationEnabled**: Stores the uniform location for enabling attenuation in the shader.\n- **global.u_AttenuationAlpha**: Stores the uniform location for the alpha attenuation parameter in the shader.\n- **global.u_AttenuationBeta**: Stores the uniform location for the beta attenuation parameter in the shader.\n- **__LIGHT_SHADER**: A global variable or constant representing the light shader program.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:01:08"
+    },
+    "ext_light_attenuation_reset": {
+      "hash": "f85e20aa8cd20b88",
+      "summary": "## Summary\nThis script, `ext_light_attenuation_reset`, is designed to reset the attenuation settings of a light after an extension module has been applied. It disables the attenuation in the shader by setting a uniform variable to `false`.\n\n## Functions\n- **ext_light_attenuation_reset(light)**: Resets the attenuation settings for the specified light by disabling it in the shader.\n\n## Dependencies\n- **global.u_AttenuationEnabled**: A global uniform variable used to control attenuation in the shader.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:01:14"
+    },
+    "get_next_pot": {
+      "hash": "abc392fbc9785e92",
+      "summary": "## Summary\nThe script `get_next_pot` calculates the next power of two number greater than or equal to a given 32-bit integer.\n\n## Functions\n- **get_next_pot(n)**: Calculates and returns the next power of two number closest to the given integer `n`.\n\n## Dependencies\nNone found.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:01:17"
+    },
+    "init": {
+      "hash": "adde9931d5fb7272",
+      "summary": "## Summary\nThis script initializes various particle types used in the game, storing them in global variables for easy access.\n\n## Functions\n- **part_type_create()**: Creates a new particle type and returns its ID.\n- **part_type_life(p, min, max)**: Sets the life span of the particle type `p` to a random value between `min` and `max`.\n- **part_type_speed(p, min, max, min_inherit, max_inherit)**: Sets the speed of the particle type `p` to a random value between `min` and `max`, with optional inheritance from the emitter.\n- **part_type_size(p, min, max, min_inherit, max_inherit)**: Sets the size of the particle type `p` to a random value between `min` and `max`, with optional inheritance from the emitter.\n- **part_type_shape(p, shape)**: Sets the shape of the particle type `p` to one of the predefined shapes.\n- **part_type_color2(p, color1, color2)**: Sets the color of the particle type `p` to interpolate between `color1` and `color2`.\n- **part_type_color3(p, color1, color2, color3)**: Sets the color of the particle type `p` to interpolate between `color1`, `color2`, and `color3`.\n- **part_type_direction(p, min, max, min_inherit, max_inherit)**: Sets the direction of the particle type `p` to a random value between `min` and `max`, with optional inheritance from the emitter.\n- **part_type_gravity(p, strength, angle)**: Sets the gravity effect on the particle type `p` with a given `strength` and `angle`.\n- **part_type_alpha2(p, min, max)**: Sets the alpha transparency of the particle type `p` to interpolate between `min` and `max`.\n- **part_type_orientation(p, min, max, min_inherit, max_inherit, inherit)**: Sets the orientation of the particle type `p` to a random value between `min` and `max`, with optional inheritance from the emitter.\n\n## Dependencies\n- **global.ptEmpty**: Stores the ID of the empty default particle type.\n- **global.ptBlood**: Stores the ID of the blood particle type.\n- **global.ptBloodPool**: Stores the ID of the blood pool particle type.\n- **global.ptGunShot**: Stores the ID of the gunshot particle type.\n- **global.ptItemAura**: Stores the ID of the item aura particle type.\n- **global.ptCharge**: Stores the ID of the charge particle type.\n- **global.ptFlamethrower**: Stores the ID of the flamethrower particle type.\n- **global.ptExplosion**: Stores the ID of the explosion particle type.\n- **global.ptArrow**: Stores the ID of the arrow particle type.\n- **global.ptGas**: Stores the ID of the gas particle type.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:01:53"
+    },
+    "keyboard_get_number": {
+      "hash": "f89185681943b124",
+      "summary": "## Summary\nThis script is designed to determine which number key (0-9) is currently pressed on the keyboard. If no number key is pressed, it returns -1.\n\n## Functions\n- **keyboard_get_number()**: Returns the numeric value of the pressed number key (0-9) or -1 if no number key is pressed.\n\n## Dependencies\n- **keyboard_key**: This global variable is assumed to hold the ASCII value of the currently pressed key.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:01:58"
+    },
+    "light_acknowledge_shadow_caster": {
+      "hash": "79543efae2a26ff7",
+      "summary": "## Summary\nThis script is designed to remove one or more shadow casters from the ignore list of a specified light, allowing the light to acknowledge and cast shadows from these objects.\n\n## Functions\n- **light_acknowledge_shadow_caster(light, [shadow_caster,...])**: Removes specified shadow casters from the ignore list of the given light.\n\n## Dependencies\n- **lighting_global**: Used for error checking and constants like `__LIGHTING_ERROR_CHECKS`, `eLight.Count`, `eLight.IgnoreSet`, and `eLightFlags.Dirty`.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:02:04"
+    },
+    "light_add_extension": {
+      "hash": "238090f640093a62",
+      "summary": "## Summary\nThis script is designed to add an extension module to a light object. It checks if the light already has a list of extension modules and creates one if it doesn't, then adds the specified extension to the list.\n\n## Functions\n- **light_add_extension(light, ext)**: Adds an extension module to the specified light object.\n\n## Dependencies\n- **lighting_global**: This script uses a variable or constant `eLight.ExtensionModules` from the `lighting_global` script or object.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:02:09"
+    },
+    "light_add_to_world": {
+      "hash": "3ce0ec9793c43a0c",
+      "summary": "## Summary\nThis script is designed to add a light to the world, specifically by adding it to a global list that tracks all lights for compositing purposes.\n\n## Functions\n- **light_add_to_world(light)**: Adds the specified light to the global list of world lights.\n\n## Dependencies\n- **Global variable**: `global.worldLights` (a ds_list that presumably holds all lights in the world).\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:02:13"
+    },
+    "light_create": {
+      "hash": "fb097f6ff46bc99c",
+      "summary": "## Summary\nThe `light_create` script is responsible for creating a new light object with specified properties such as position, type, color, range, and intensity. It initializes various attributes and sets up default values for different light types.\n\n## Functions\n- **light_create(x, y, shadow_length, type, color, range, intensity)**: Creates a new light object with the given properties and returns the light object.\n\n## Dependencies\n- **Scripts**: `light_add_extension`, `lighting_global`\n- **Sprites**: `spr_lut_light_intensity_area`, `spr_lut_light_intensity_line`, `spr_lut_light_intensity_linear`, `spr_lut_light_intensity_spot`\n- **Global**: `global.lightDefaultExtensions`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:02:22"
+    },
+    "light_create_area": {
+      "hash": "0b7e109d9815ec09",
+      "summary": "## Summary\nThis script is designed to create a new area light in a game using the GameMaker Language (GML). It sets up the light with various properties such as position, shadow length, color, range, intensity, width, and direction.\n\n## Functions\n- **light_create_area(x, y, shadow_length, color, range, intensity, width, direction)**: Creates and configures an area light with the specified properties and returns the created light.\n\n## Dependencies\n- **light_create(x, y, shadow_length, light_type, color, range, intensity)**: A script used to create a light.\n- **lighting_global**: A global variable or script that might be used elsewhere in the project.\n- **eLightType.Area**: An enumeration or constant representing the type of light.\n- **eLight.Direction**: An enumeration or constant representing the direction property of the light.\n- **eLight.Width**: An enumeration or constant representing the width property of the light.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:02:32"
+    },
+    "light_create_directional": {
+      "hash": "50499fc13c82cc61",
+      "summary": "## Summary\nThis script creates a directional light in a game using the GameMaker Language (GML). It takes several parameters such as position, shadow length, color, range, intensity, and direction to define the light's properties.\n\n## Functions\n- **light_create_directional(x, y, shadow_length, color, range, intensity, direction)**: Creates a directional light at the specified position with given properties and returns the created light.\n\n## Dependencies\n- **light_create**: A script used to create a light.\n- **lighting_global**: A global variable or script that might be used elsewhere in the project.\n- **eLightType.Directional**: An enumeration or constant used to specify the type of light.\n- **eLight.Direction**: An enumeration or constant used to set the direction of the light.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:02:40"
+    },
+    "light_create_extension": {
+      "hash": "e66336db701cd48a",
+      "summary": "## Summary\nThis script creates an extension module instance for lighting effects. It takes two scripts as arguments: one for applying the extension to a light and another for cleaning up after the extension has been applied.\n\n## Functions\n- **light_create_extension(scr_apply, scr_cleanup)**: Creates and returns an extension module instance with the provided apply and cleanup scripts.\n\n## Dependencies\n- **lighting_global**: This script is used by the `lighting_global` script.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:02:45"
+    },
+    "light_create_line": {
+      "hash": "81bc7fb977ada06b",
+      "summary": "## Summary\nThis script is designed to create a line light in a game. It takes several parameters such as position, shadow length, color, range, intensity, width, and direction to define the light's properties.\n\n## Functions\n- **light_create_line(x, y, shadow_length, color, range, intensity, width, direction)**: Creates a line light at the specified position with given properties and returns the created light.\n\n## Dependencies\n- **light_create(x, y, shadow_length, light_type, color, range, intensity)**: A script used to create a light.\n- **lighting_global**: A global variable or script that might be used elsewhere in the project.\n- **eLightType.Line**: An enumeration or constant representing the line light type.\n- **eLight.Direction**: An enumeration or constant representing the direction property of the light.\n- **eLight.Width**: An enumeration or constant representing the width property of the light.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:02:55"
+    },
+    "light_create_point": {
+      "hash": "0201eb14907c97b4",
+      "summary": "## Summary\nThis script is used to create a new point light in a game. It takes several parameters such as position, shadow length, color, range, and intensity, and uses them to create the light.\n\n## Functions\n- **light_create_point(x, y, shadow_length, color, range, intensity)**: Creates a point light at the specified position with the given properties and returns the created light.\n\n## Dependencies\n- **light_create**: A script used to create a light.\n- **eLightType.Point**: An enumeration or constant used to specify the type of light as a point light.\n- **lighting_global**: A global variable or script that might be used elsewhere in the lighting system.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:03:02"
+    },
+    "light_create_spot": {
+      "hash": "584427f9558a59f2",
+      "summary": "## Summary\nThis script is designed to create a spot light in a game using GameMaker Language (GML). It takes several parameters to define the light's position, color, range, intensity, angle, and direction, and returns the created light object.\n\n## Functions\n- **light_create_spot(x, y, shadow_length, color, range, intensity, angle, direction)**: Creates a spot light at the specified position with given properties and returns the light object.\n\n## Dependencies\n- **light_create(x, y, shadow_length, light_type, color, range, intensity)**: A script used to create a light object.\n- **lighting_global**: A global variable or script that might be used elsewhere in the project, though not directly referenced in this script.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:03:10"
+    },
+    "light_cull": {
+      "hash": "b15c531595b0f3d9",
+      "summary": "## Summary\nThe `light_cull` script determines whether a given light is culled (should not be rendered) for the current camera. It checks if the light is within the camera's view and if it is not an infinite light.\n\n## Functions\n- **light_cull(light, camera)**: Determines if the provided light is culled for the given camera. Returns `true` if culled, `false` otherwise.\n\n## Dependencies\n- **lighting_global**: Used for error checking and constants.\n- **lighting_get_active_camera**: Referenced in the description but not directly in the script.\n- **eLight.Count, eLight.Type, eLight.Range, eLight.X, eLight.Y**: Constants from `lighting_global`.\n- **eLightingCamera.X, eLightingCamera.Y, eLightingCamera.Width, eLightingCamera.Height**: Constants from `lighting_global`.\n- **rectangle_in_rectangle**: A built-in GML function to check if two rectangles overlap.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:03:21"
+    },
+    "light_destroy": {
+      "hash": "10039b45dba3b371",
+      "summary": "## Summary\nThe `light_destroy` script is designed to properly destroy a light object by freeing up all associated resources such as vertex buffers, shadow maps, and data structures.\n\n## Functions\n- **light_destroy(light)**: Destroys the specified light by freeing its associated resources.\n\n## Dependencies\n- **lighting_global**: Used for constants or definitions related to light properties.\n- **obj_light**: Object that uses this script.\n- **lighting_free**: Script that might use this script.\n\n## Potential issues\n- The line `if(static_storage != undefined) ds_map_destroy(static_storage);` is duplicated. The second call to `ds_map_destroy(static_storage);` should be removed to avoid unnecessary operations.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:03:28"
+    },
+    "light_draw_shadow_map": {
+      "hash": "6d53c64967e20d22",
+      "summary": "## Summary\nThis script, `light_draw_shadow_map`, is responsible for drawing a light's shadow map to a specified surface. It checks if the light and surface are valid, and whether the light needs to be redrawn based on its flags. If so, it updates the light's vertex buffer and draws the shadow map.\n\n## Functions\n- **light_draw_shadow_map(light, surface, update)**: Draws the light's shadow map to the specified surface, updating the light if required.\n\n## Dependencies\n- **light_update(light)**: Script used to update the light's vertex buffer.\n- **lighting_global**: Global variable or script used for lighting-related constants and settings.\n- **eLight.Count**: Constant from `lighting_global` indicating the expected size of the light array.\n- **eLight.Flags**: Constant from `lighting_global` used to access flags in the light array.\n- **eLightFlags.UsesUniqueShadowMap**: Flag from `lighting_global` indicating if the light uses a unique shadow map.\n- **eLightFlags.CastsShadows**: Flag from `lighting_global` indicating if the light casts shadows.\n- **eLightFlags.Dirty**: Flag from `lighting_global` indicating if the light needs to be redrawn.\n- **eLight.VertexBuffer**: Constant from `lighting_global` used to access the vertex buffer in the light array.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:03:43"
+    },
+    "light_enumerate_extensions": {
+      "hash": "658e4e31c7997cb9",
+      "summary": "## Summary\nThis script enumerates and applies all extension modules of a given light by executing a specified script for each extension.\n\n## Functions\n- **light_enumerate_extensions(light, ext_script)**: Enumerates and applies all extension modules of a given light by executing a specified script for each extension.\n\n## Dependencies\n- **lighting_global**: Used by the script, though not directly referenced in the provided code.\n- **eLight.ExtensionModules**: A constant or variable used to access the list of extension modules for a light.\n- **ds_list_size**: A function used to get the size of a list.\n- **ds_list_find_value**: A function used to find a value in a list by index.\n- **script_execute**: A function used to execute a script dynamically.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:03:51"
+    },
+    "light_ignore_shadow_caster": {
+      "hash": "135985674b7cbbbb",
+      "summary": "## Summary\nThis script is designed to configure a light to ignore one or more shadow casters, effectively making those shadow casters invisible to the specified light.\n\n## Functions\n- **light_ignore_shadow_caster(light, [shadow_caster,...])**: Sets up a light to ignore the specified shadow casters by adding them to an ignore list associated with the light.\n\n## Dependencies\n- **lighting_global**: This script uses the `lighting_global` script, though it is not directly referenced in the provided code snippet.\n- **eLight.Count**: An enumeration or constant used to validate the size of the light array.\n- **eLight.IgnoreSet**: An enumeration or constant used as a key to store the ignore map in the light array.\n- **eLightFlags.Dirty**: An enumeration or constant used to mark the light as dirty.\n- **__LIGHTING_ERROR_CHECKS**: A global variable used to enable or disable error checks.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:04:00"
+    },
+    "light_maintain_shadow_map": {
+      "hash": "53b6f9a00b58295e",
+      "summary": "## Summary\nThe `light_maintain_shadow_map` script is responsible for managing the shadow map for a given light. It ensures that the shadow map is created, resized, or freed as necessary based on the light's properties and whether it uses a unique shadow map.\n\n## Functions\n- **light_maintain_shadow_map(light)**: Maintains the shadow map for the given light, ensuring it is valid and properly sized. Returns `true` if the shadow map is valid, otherwise `false`.\n\n## Dependencies\n- **get_next_pot**: A script used to get the next power of two for a given number.\n- **lighting_global**: A global variable or structure that contains constants or settings related to lighting.\n- **eLight.ShadowMap**: An enumeration or constant used to access the shadow map property of a light.\n- **eLight.Flags**: An enumeration or constant used to access the flags property of a light.\n- **eLightFlags.UsesUniqueShadowMap**: A flag within the `eLight.Flags` enumeration that indicates whether a light uses a unique shadow map.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:04:12"
+    },
+    "light_remove_from_world": {
+      "hash": "d157d1c8daf87e4b",
+      "summary": "## Summary\nThis script is designed to remove a specified light from a global list of lights in the game world.\n\n## Functions\n- **light_remove_from_world(light)**: Removes the specified light from the global list of lights.\n\n## Dependencies\n- **global.worldLights**: A data structure (likely a ds_list) that holds all the lights in the world.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:04:16"
+    },
+    "light_static_get_array": {
+      "hash": "4fb319499cd9b888",
+      "summary": "## Summary\nThis script retrieves the static buffer for a given light and shadow caster pair from a light's static storage.\n\n## Functions\n- **light_static_get_array(light, shadow_caster)**: Retrieves the static buffer for the specified light and shadow caster pair from the light's static storage.\n\n## Dependencies\n- **lighting_global**: This script uses the `lighting_global` script, though the specific usage is not detailed in the provided code snippet.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:04:21"
+    },
+    "light_static_set_array": {
+      "hash": "76e9cb421847ee41",
+      "summary": "## Summary\nThis script sets a static buffer for a light and shadow caster pair. It ensures that a static storage map is created for the light if it doesn't already exist, and then stores the provided buffer array associated with the shadow caster.\n\n## Functions\n- **light_static_set_array(light, shadow_caster, buffer)**: Sets the static buffer for a light and shadow caster pair.\n\n## Dependencies\n- **lighting_global**: Used by the script.\n- **eLight.StaticStorage**: A constant or variable used to access the static storage within the light object.\n- **ds_map_create()**: A function to create a new data structure map.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:04:27"
+    },
+    "light_trace_polygon": {
+      "hash": "1b1fb47d5f8a851c",
+      "summary": "## Summary\nThe `light_trace_polygon` script is designed to trace a shadow for a given polygon from a provided light source. It returns an array of vertices representing the shadow as a triangle list, or `undefined` if no shadow is cast.\n\n## Functions\n- **light_trace_polygon(shadow_caster, light)**: Traces a shadow for the given polygon from the provided light and returns an array of vertices representing the shadow.\n\n## Dependencies\n- **Global variables**: `global.lightVertexArrayMap`\n- **Scripts**: `lighting_global` (indirectly, through `__LIGHTING_ERROR_CHECKS`)\n- **Enums**: `eLight`, `ePolygon`, `eVertex`, `eLightType`\n- **Constants**: `pi`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:04:37"
+    },
+    "light_update": {
+      "hash": "39b0908aed334d44",
+      "summary": "## Summary\nThe `light_update` script updates the vertex buffer for a given light, handling shadow casting and culling shadow casters based on their position and properties.\n\n## Functions\n- **light_update(light)**: Updates the vertex buffer for the given light and returns the updated vertex buffer.\n\n## Dependencies\n- **Objects**: `obj_shadow_caster`\n- **Scripts**: `light_static_get_array`, `light_static_set_array`, `light_trace_polygon`, `lighting_get_active_camera`, `lighting_global`\n- **Globals**: `global.worldRebuiltLights`, `global.lightVertexFormat`, `global.worldCulledShadowCastersRTree`, `global.worldDirtyShadowCasters`, `global.worldActiveShadowCasters`, `global.shadowCastersCullByCollisionMask`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:04:52"
+    },
+    "lighting_debug_shadow_casters": {
+      "hash": "1135f4ed2a275cb7",
+      "summary": "## Summary\nThis script is designed to debug shadow casters by drawing their polygons on the screen. It takes a color as an argument and uses it to draw the polygons of all instances of `obj_shadow_caster`.\n\n## Functions\n- **lighting_debug_shadow_casters(color)**: Draws the polygons of all shadow casters using the specified color.\n\n## Dependencies\n- **Objects**: `obj_shadow_caster`\n- **Scripts**: `lighting_global` (not directly used in the provided code, but mentioned in known references)\n- **Globals**: `polygon`, `ePolygon.Length`, `ePolygon.Count`, `eVertex.X`, `eVertex.Y`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:04:59"
+    },
+    "lighting_free": {
+      "hash": "fcf6e5cf296a15fc",
+      "summary": "## Summary\nThe `lighting_free` script is designed to free up resources used by the lighting engine in a game. It cleans up vertex formats, destroys all lights, removes shadow maps, and destroys various data structures related to lighting.\n\n## Functions\n- **lighting_free()**: Frees the lighting engine by deleting vertex formats, destroying lights, freeing shadow maps, and destroying data structures.\n\n## Dependencies\n- **global.lightVertexFormat**: A vertex format used by the lighting engine.\n- **global.worldLights**: A list containing all the lights in the world.\n- **light_destroy()**: A script used to destroy individual lights.\n- **global.worldShadowMap**: A surface used for shadow mapping.\n- **global.lightShadowMap**: Another surface used for shadow mapping.\n- **global.worldDirtyShadowCasters**: A list of shadow casters that need to be updated.\n- **global.worldCulledShadowCastersRTree**: A data structure for efficiently managing shadow casters.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:05:10"
+    },
+    "lighting_get_active_camera": {
+      "hash": "173ee543df613268",
+      "summary": "## Summary\nThis script retrieves the active camera's port, which includes its position and dimensions. It checks if a custom camera is defined globally; if not, it fetches the active view camera's details.\n\n## Functions\n- **lighting_get_active_camera()**: Retrieves the active camera's port [X, Y, Width, Height].\n\n## Dependencies\n- **global.worldCustomCamera**: A global variable that, if defined, is returned as the active camera.\n- **camera_get_active()**: A built-in function to get the active camera.\n- **camera_get_view_x(camera)**: A built-in function to get the X position of the camera's view.\n- **camera_get_view_y(camera)**: A built-in function to get the Y position of the camera's view.\n- **camera_get_view_width(camera)**: A built-in function to get the width of the camera's view.\n- **camera_get_view_height(camera)**: A built-in function to get the height of the camera's view.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:05:20"
+    },
+    "lighting_global": {
+      "hash": "16b6902e29b45d82",
+      "summary": "## Summary\nThis script initializes the lighting engine for a game, setting up global variables, enums, and macros necessary for the lighting system. It also configures system settings and initializes shaders and resources required for rendering and managing lights and shadows.\n\n## Functions\n- **lighting_global()**: Initializes the lighting engine, setting up global variables, enums, and macros. It ensures the engine is not initialized multiple times and sets default configurations for the lighting system.\n\n## Dependencies\n- **Global variables**: `lighting_global_initialised`, `ambientShadowIntensity`, `shadowCastersCullByCollisionMask`, `lightMaxUniqueShadowMapSize`, `lightUpdateFrameDelay`, `debugShadowCasters`, `lightDefaultExtensions`, `worldRebuiltLights`, `worldActiveShadowCasters`, `worldShadowMap`, `lightShadowMap`, `worldLights`, `worldDirtyShadowCasters`, `worldCulledShadowCastersRTree`, `worldCustomCamera`, `lightVertexArrayMap`, `tmp_ColorArray`, `u_AmbientShadow`, `u_LutIntensity`, `u_TexelSize`, `u_TexelSize_ShadowMap`, `u_LightPosition`, `u_LightColor`, `u_LightRange`, `u_LightIntensity`, `u_LightAngle`, `u_LightDirection`, `u_LightWidth`, `u_LightType`, `u_LineEmitterPoint1`, `u_LineEmitterPoint2`.\n- **Objects**: `obj_light_renderer`.\n- **Scripts**: `ext_light_attenuation_apply`, `ext_light_attenuation_init`, `ext_light_attenuation_reset`, `light_create_extension`.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:05:46"
+    },
+    "lighting_post_composite": {
+      "hash": "432856b76b7b01b5",
+      "summary": "## Summary\nThis script, `lighting_post_composite`, is executed after the lighting map has been composited. It processes a list of shadow casters that have been marked as dirty, unsetting their dirty and cleanup flags, and then clears the list.\n\n## Functions\n- **lighting_post_composite()**: Executes after compositing the lighting map to process and clear dirty shadow casters.\n\n## Dependencies\n- **global.worldDirtyShadowCasters**: A list of shadow casters that need to be processed.\n- **eShadowCasterFlags.MarkedForCleanup**: A flag indicating that a shadow caster is marked for cleanup.\n- **eShadowCasterFlags.Dirty**: A flag indicating that a shadow caster is dirty.\n- **scripts: lighting_global**: Used by the script (indirect dependency).\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:05:55"
+    },
+    "lighting_pre_composite": {
+      "hash": "6d961667daf3222d",
+      "summary": "## Summary\nThis script, `lighting_pre_composite`, is executed before compositing the lighting map. It resets counters for world rebuilt lights and active shadow casters, retrieves the active camera, and updates shadow casters' polygon caches if necessary, checking if they are outside the active camera's view.\n\n## Functions\n- **lighting_pre_composite()**: Executes before compositing the lighting map, resetting counters and updating shadow caster polygons.\n\n## Dependencies\n- **Global variables**: `global.worldRebuiltLights`, `global.worldActiveShadowCasters`\n- **Objects**: `obj_shadow_caster`\n- **Scripts**: `lighting_get_active_camera`, `lighting_global`, `polygon_get_area`\n- **Variables**: `flags`, `eShadowCasterFlags.Dirty`, `eShadowCasterFlags.Static`, `polygon`, `cached_polygon_area`, `outside_active_camera`, `last_camera`, `camera[eLightingCamera.X]`, `camera[eLightingCamera.Y]`, `camera[eLightingCamera.Width]`, `camera[eLightingCamera.Height]`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:06:07"
+    },
+    "lighting_set_dirty": {
+      "hash": "29b895ae1d8aa8f7",
+      "summary": "## Summary\nThe `lighting_set_dirty` script is used to mark the lighting system as \"dirty,\" which forces it to recomposite the shadow map the next time it is drawn. This can help reduce update latency and allow for more control over when the shadow map is composited.\n\n## Functions\n- **lighting_set_dirty(dirty)**: Marks the lighting system as dirty or not, depending on the boolean argument provided.\n\n## Dependencies\n- **__LIGHT_RENDERER**: An object or instance variable that holds the state of the lighting system.\n- **lighting_global**: A script that is referenced but not used within this script.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:06:13"
+    },
+    "lighting_update_camera": {
+      "hash": "1ece35726d9fc227",
+      "summary": "## Summary\nThis script updates a custom camera used in a lighting system. It takes four arguments: the top-left corner coordinates and the width and height of the camera. The script stores these values in a global array for later use.\n\n## Functions\n- **lighting_update_camera(x, y, width, height)**: Updates the custom camera with the provided coordinates and dimensions.\n\n## Dependencies\n- **global.worldCustomCamera**: A global array used to store the camera's properties.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:06:19"
+    },
+    "path_get_area": {
+      "hash": "17af18bff4e25625",
+      "summary": "## Summary\nThis script calculates the bounding area of a given path in GameMaker, returning an array containing the minimum and maximum x and y coordinates of the path's points.\n\n## Functions\n- **path_get_area(path)**: Calculates and returns the bounding area of the specified path as an array with four points.\n\n## Dependencies\n- `path_get_number(path)`: Retrieves the number of points in the specified path.\n- `path_get_point_x(path, index)`: Retrieves the x-coordinate of the point at the specified index in the path.\n- `path_get_point_y(path, index)`: Retrieves the y-coordinate of the point at the specified index in the path.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:06:26"
+    },
+    "point_in_polygon": {
+      "hash": "fecde7ed701ed942",
+      "summary": "## Summary\nThe `point_in_polygon` script checks if a given point is inside a specified polygon. It uses the `tri_direction` function to determine the direction of triangles formed by the polygon's vertices and the point.\n\n## Functions\n- **point_in_polygon(polygon, point)**: Returns true if the point is inside the polygon, otherwise false.\n\n## Dependencies\n- **Scripts**: `lighting_global`, `tri_direction`\n- **Globals**: `__LIGHTING_ERROR_CHECKS`\n- **Enums**: `eVertex.Count`, `ePolygon.Length`, `ePolygon.Count`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:06:33"
+    },
+    "polygon_create": {
+      "hash": "b95efe488305fba7",
+      "summary": "## Summary\nThe `polygon_create` script is designed to create a polygon from a set of points. It validates the input, creates a new array to store the polygon, and copies the input points into this new array.\n\n## Functions\n- **polygon_create(set)**: Creates a polygon from a set of points and returns the polygon array.\n\n## Dependencies\n- **scripts: lighting_global**: Used for error checking.\n- **globals: __LIGHTING_ERROR_CHECKS**: Used to determine if error checks should be performed.\n- **enums: ePolygon.Count**: Used to offset the start of the polygon data in the array.\n- **enums: ePolygon.Length**: Used to store the length of the polygon in the array.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:06:40"
+    },
+    "polygon_from_instance": {
+      "hash": "e63b9850bb8257cd",
+      "summary": "## Summary\nThe `polygon_from_instance` script creates a polygon representation of an instance, optionally considering a rotation. It uses the bounding box or sprite corners to define the polygon points, which are then passed to another script `polygon_create` to generate the final polygon.\n\n## Functions\n- **polygon_from_instance(id, [rotation])**: Creates a polygon from the given instance, optionally applying a rotation.\n\n## Dependencies\n- **Scripts**: `polygon_create`\n- **Objects**: `oEnemyParent`, `oExplosiveBarril`, `oWall` (using this script)\n- **Variables**: `bbox_left`, `bbox_top`, `bbox_right`, `bbox_bottom`, `sprite_width`, `sprite_height`, `sprite_xoffset`, `sprite_yoffset`, `image_angle`\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:06:49"
+    },
+    "polygon_from_path": {
+      "hash": "9a428dbe206ef8b4",
+      "summary": "## Summary\nThe `polygon_from_path` script creates a polygon from a given path resource, adjusting for an origin point. It calculates the bounding box of the path, centers it, and then translates each point relative to the origin before creating and returning the polygon.\n\n## Functions\n- **polygon_from_path(path, originx, originy)**: Creates a polygon from a path resource, adjusting for an origin point.\n\n## Dependencies\n- **path_get_area(path)**: Retrieves the bounding box of the path.\n- **path_get_number(path)**: Returns the number of points in the path.\n- **path_get_point_x(path, index)**: Retrieves the X coordinate of a point in the path.\n- **path_get_point_y(path, index)**: Retrieves the Y coordinate of a point in the path.\n- **polygon_create(set)**: Creates a polygon from a set of points.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:06:58"
+    },
+    "polygon_get_area": {
+      "hash": "b10d50bab1f0d064",
+      "summary": "## Summary\nThis script calculates the bounding box area of a polygon and returns it as an array of four points.\n\n## Functions\n- **polygon_get_area(polygon)**: Calculates the bounding box area of a given polygon and returns it as an array of four points.\n\n## Dependencies\n- **lighting_global**: This script is used by the `lighting_pre_composite` script.\n- **ePolygon.Length**: A constant or variable used to determine the number of points in the polygon.\n- **ePolygon.Count**: A constant or variable used to index the start of the polygon points.\n- **eVertex.X**: A constant or variable used to access the x-coordinate of a vertex.\n- **eVertex.Y**: A constant or variable used to access the y-coordinate of a vertex.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:07:06"
+    },
+    "screenShake": {
+      "hash": "2df702889a4354ac",
+      "summary": "## Summary\nThe `screenShake` script is designed to apply a shaking effect to the screen by adjusting the camera's view angle. It takes one argument to determine whether to activate or deactivate the shake effect.\n\n## Functions\n- **screenShake(argument0)**: Adjusts the camera's view angle to create a shaking effect if `argument0` is `true`, or resets the angle to 0 if `argument0` is `false`.\n\n## Dependencies\n- `view_camera[0]`: The camera object to which the shake effect is applied.\n- `camera_set_view_angle`: A built-in function to set the view angle of a camera.\n- `random_range`: A built-in function to generate a random number within a specified range.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:07:14"
+    },
+    "shadow_casters_exist": {
+      "hash": "899f0603896a7765",
+      "summary": "## Summary\nThis script checks if any instances of the object `obj_shadow_caster` exist in the game world.\n\n## Functions\n- **shadow_casters_exist()**: Returns `true` if there is at least one instance of `obj_shadow_caster`, otherwise returns `false`.\n\n## Dependencies\n- **obj_shadow_caster**: The object whose instances are being counted.\n- **instance_number()**: A built-in GameMaker function used to count the number of instances of a given object.\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:07:19"
+    },
+    "shadow_map_ensure_exists": {
+      "hash": "13ea3828c46f7854",
+      "summary": "## Summary\nThis script ensures that a specified shadow map is valid and creates it if necessary. It checks if the shadow map exists, is valid, and matches the dimensions of the active camera. If not, it recreates the shadow map.\n\n## Functions\n- **shadow_map_ensure_exists(shadowMapType)**: Ensures the specified shadow map is valid and creates it if necessary.\n\n## Dependencies\n- **Global variables**: `global.lightShadowMap`, `global.worldShadowMap`\n- **Scripts**: `lighting_get_active_camera`\n- **Enums**: `eShadowMap.Light`, `eShadowMap.Global`\n- **Constants**: `eLightingCamera.Width`, `eLightingCamera.Height`\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:07:26"
+    },
+    "shoot_bullet": {
+      "hash": "07f8f2cc2b575672",
+      "summary": "## Summary\nThe `shoot_bullet` script is designed to create and configure a bullet instance at a specified position with given attributes such as damage, speed, angle, type, origin (enemy or player), and visual effects.\n\n## Functions\n**shoot_bullet(xx, yy, _damage, _speed, _angle, _bullet_type, _is_bullet_from_enemy, _shot_effect)**: Creates a bullet instance at the specified coordinates (`xx`, `yy`) with the provided attributes and initializes its properties.\n\n## Dependencies\n- **Globals**: `global.partSystem`\n- **Objects**: `_bullet_type` (assumed to be an object type)\n- **Scripts**: None found\n- **Variables**: None found\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:07:34"
+    },
+    "tri_direction": {
+      "hash": "1d5ddfe890de7e43",
+      "summary": "## Summary\nThe `tri_direction` script determines whether a given triangle is oriented clockwise or counter-clockwise based on its vertices.\n\n## Functions\n- **tri_direction(a, b, c)**: Determines the direction of a triangle formed by vertices `a`, `b`, and `c` and returns an enum field indicating the direction.\n\n## Dependencies\n- **cross_product**: A script used to calculate the cross product of two vectors.\n- **lighting_global**: A global variable or script used for error checking, indicated by `__LIGHTING_ERROR_CHECKS`.\n- **eVertex.Count**: An enum or constant representing the number of elements in a vertex array.\n- **eVertex.X**: An enum or constant representing the index for the X coordinate in a vertex array.\n- **eVertex.Y**: An enum or constant representing the index for the Y coordinate in a vertex array.\n- **eTriDirection.Clockwise**: An enum field representing the clockwise direction.\n- **eTriDirection.CounterClockwise**: An enum field representing the counter-clockwise direction.\n\n## Potential issues\n- None found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:07:45"
+    },
+    "weapon_scroll": {
+      "hash": "b36efc79283e21da",
+      "summary": "## Summary\nThe `weapon_scroll` script is designed to scroll through the player's weapons, selecting the next or previous weapon based on the direction of the scroll (up or down).\n\n## Functions\n- **weapon_scroll(_scroll_up)**: Scrolls through the player's weapons, updating the selected weapon based on the scroll direction.\n\n## Dependencies\n- **Objects**: `oPlayer`\n- **Variables**: `oPlayer.weapon`, `oPlayer.weapons`\n\n## Potential issues\nNone found.",
+      "model": "qwen2.5-coder:14b",
+      "updated": "2026-10-25T01:07:50"
+    }
+  }
+}

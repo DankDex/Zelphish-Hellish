@@ -1,0 +1,10 @@
+name: GML MCP Server
+version: 0.0.1
+schema: v1
+mcpServers:
+  - name: gml-tools
+    command: python        # or the full path to the python.exe where you installed mcp
+    args:
+      - C:/Projects/Zombie-Survival/tools/GML/gml_mcp.py
+      - --project
+      - "C:/Projects/Zombie-Survival/zombie survival.yyp"

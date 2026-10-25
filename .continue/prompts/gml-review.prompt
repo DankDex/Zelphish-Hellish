@@ -1,0 +1,6 @@
+---
+name: gml-review
+description: Review selected GML for real bugs only
+invokable: true
+---
+Review the selected GML. List only concrete problems, most serious first: bugs, leaks (ds/surface/buffer), per-frame waste, functions that do not exist in modern GameMaker. For each: quote the line, one sentence why, a minimal fix. If nothing is wrong, reply "No issues found". No praise, no summary.

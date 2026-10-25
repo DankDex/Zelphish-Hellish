@@ -1,0 +1,137 @@
+# Index: zombie survival
+
+One line per resource (AI-written, may contain mistakes). Open only the files you need; details are in PROJECT_MAP.md.
+
+- `oAmmoBox`: The `oAmmoBox` object represents an ammo pack in the game. [uses: oLight_Area, oPlayer]
+- `oBullet_Parent`: `oBullet_Parent` is a parent object for various bullet types in the game. [uses: oEnemyParent]
+- `oCamera`: The `oCamera` object manages the camera behavior, including following the player, handling smooth transitions, and displaying GUI elements such as the... [uses: draw_text_transformed_outlined, oPlayer, sLifebar, sWeaponBox_selected, sWeaponBox_unselected, weapon_scroll]
+- `oCityGen`: No code in this resource.
+- `oControl`: `oControl` is a persistent object that manages game settings, such as frame rate, room transitions, and debug overlays. [uses: Room1]
+- `oDamageNumber`: The `oDamageNumber` object is responsible for displaying damage numbers in the game. [uses: damageNumber]
+- `oEnemyNormalBullet`: The `oEnemyNormalBullet` object is a type of bullet used by enemies in the game. [uses: oBullet_Parent, oPlayer, oWall]
+- `oEnemyParent`: `oEnemyParent` is a parent object for various enemy types in the game. [uses: chance, oBullet_Parent, oCamera, oDamageNumber, oPlayer, oWall, ...]
+- `oEnemyParentConjurer`: `oEnemyParentConjurer` is an enemy object that can spawn zombies and chase the player. [uses: oEnemyParent, oPlayer, oWall, oZombie]
+- `oEnemyParentGasser`: `oEnemyParentGasser` is an enemy object that chases the player and emits gas. [uses: oEnemyParent, oEnemyParentMelee, oGasArea, oPlayer, oWall, shoot_bullet]
+- `oEnemyParentMelee`: `oEnemyParentMelee` is an enemy object that chases the player using A* pathfinding while avoiding walls. [uses: oEnemyParent, oPlayer, oWall, oZombie]
+- `oEnemyParentRanged`: `oEnemyParentRanged` is a parent object for ranged enemies in the game. [uses: oEnemyParent, oPlayer, oWall, shoot_bullet]
+- `oEnemyRangedFlamethrower`: The `oEnemyRangedFlamethrower` object is a ranged enemy that chases the player and shoots bullets. [uses: oEnemyParentRanged, oFlameThrowerAmmoEnemy, oPlayer, oWall]
+- `oEnemyRangedNormal`: No code in this resource. [uses: oEnemyParentRanged]
+- `oEnemyRangedRocketLauncher`: No code in this resource. [uses: oEnemyParentRanged]
+- `oExplosion`: The `oExplosion` object is a child of `oBullet_Parent` and is used to represent explosions in the game. [uses: oBullet_Parent, oCamera]
+- `oExplosiveBarril`: `oExplosiveBarril` is an object that represents an explosive barrel in the game. [uses: oBullet_Parent, oExplosion, oGasArea, oPlayer, obj_shadow_caster, polygon_from_instance, ...]
+- `oFlameThrower`: The `oFlameThrower` object is a child of `oGun_Parent` and is responsible for handling the shooting mechanics of a flame thrower weapon in the game. [uses: oFlameThrowerAmmo, oGun_Parent, oPlayer]
+- `oFlameThrowerAmmo`: The `oFlameThrowerAmmo` object is a bullet-like entity used by the `oFlameThrower` object. [uses: oBullet_Parent, oEnemyParent, oPlayer]
+- `oFlameThrowerAmmoEnemy`: The `oFlameThrowerAmmoEnemy` object is a bullet-like entity used by enemy ranged flamethrowers. [uses: oBullet_Parent, oEnemyParent, oPlayer]
+- `oGame`: The `oGame` object is a persistent object that initializes global variables, sets up the game environment, and handles various key presses for game co... [uses: Test, init, oCamera, oEnemyParent, oLevelGen, oMap, ...]
+- `oGasArea`: The `oGasArea` object is a child of `oBullet_Parent` and represents a gas area in the game. [uses: oBullet_Parent]
+- `oGun_Parent`: `oGun_Parent` is a parent object for various types of guns in the game. [uses: oPlayer, shoot_bullet]
+- `oHandGun`: No code in this resource. [uses: oGun_Parent]
+- `oHandGunBullet`: The `oHandGunBullet` object is a child of `oBullet_Parent` and represents a bullet fired from a handgun. [uses: oBullet_Parent, oWall, oZombie]
+- `oLantern_NOT_USED`: The `oLantern_NOT_USED` object is designed to follow the player and draw a black triangle fan shape that represents a field of view (FOV) cone. [uses: oPlayer]
+- `oLevelGen`: The `oLevelGen` object is responsible for generating the level layout, spawning enemies, items, and the exit. [uses: chance, oAmmoBox, oEnemyParent, oEnemyParentConjurer, oEnemyParentGasser, oEnemyRangedNormal, ...]
+- `oLight_Area`: No code in this resource. [uses: obj_light]
+- `oLight_Passway_Area`: The `oLight_Passway_Area` object is a child of `obj_light` and is used by the `oPassWay` object. [uses: obj_light]
+- `oMachineGun`: No code in this resource. [uses: oGun_Parent]
+- `oMap`: The `oMap` object is a GUI element that displays a mini-map of the game world. [uses: oAmmoBox, oBullet_Parent, oEnemyParent, oPassWay, oPlayer, oWall, ...]
+- `oMenuDeath`: The `oMenuDeath` object is a menu screen that appears when the player dies in the game. [uses: TextFunctions, rMenu, sArrow]
+- `oMenuMain`: The `oMenuMain` object is a menu controller for the main menu of the game. [uses: Level, TextFunctions, sArrow]
+- `oMenuPause`: The `oMenuPause` object is a pause menu for a game. [uses: TextFunctions, o_part_emitter_wiggle, rMenu, sArrow]
+- `oPassWay`: The `oPassWay` object represents a gateway in the game. [uses: oLight_Passway_Area, oPlayer, oTriangle, sGateWay]
+- `oPlayable`: No code in this resource.
+- `oPlayer`: The `oPlayer` object represents the player character in the game. [uses: oBullet_Parent, oCamera, oEnemyParent, oHandGun, oMachineGun, oMenuDeath, ...]
+- `oPlayerLight_Area`: No code in this resource. [uses: obj_light]
+- `oPlayerLight_Beam`: The `oPlayerLight_Beam` object is a light beam that follows the player and points towards the mouse position. [uses: lighting_global, oPlayer, obj_light]
+- `oPointTarget`: The `oPointTarget` object is a non-solid, non-persistent object placed in `Room1`. [uses: UsefulScripts]
+- `oResize_NOT_USED`: The `oResize_NOT_USED` object is designed to adjust the room dimensions and resize the application surface based on the display resolution.
+- `oRocket`: The `oRocket` object is a child of `oBullet_Parent` and represents a rocket in the game. [uses: oBullet_Parent, oEnemyParent, oExplosion, oPlayer, oWall, shoot_bullet]
+- `oRocketLauncher`: No code in this resource. [uses: oGun_Parent]
+- `oShadows_NOT_USED`: The `oShadows_NOT_USED` object is intended to create and draw shadows that follow the player. [uses: oPlayer, oWall]
+- `oShotGun`: No code in this resource. [uses: oGun_Parent]
+- `oShotGunBullet`: The `oShotGunBullet` object is a child of `oBullet_Parent` and is responsible for spawning multiple pellets (`oShotGunBulletPellet`) when it is create... [uses: oBullet_Parent, oPlayer, oShotGunBulletPellet, oWall]
+- `oShotGunBulletPellet`: The `oShotGunBulletPellet` object is a child of `oBullet_Parent` and represents a bullet pellet fired from a shotgun. [uses: oBullet_Parent, oWall]
+- `oSniperBullet`: The `oSniperBullet` object is a child of `oBullet_Parent` and uses the sprite `sBullet`. [uses: oBullet_Parent, oWall]
+- `oSniperGun`: No code in this resource. [uses: oGun_Parent]
+- `oSteadyDeltaTime`: The `oSteadyDeltaTime` object manages delta time for the game, ensuring smooth and consistent timing for game logic and particle systems.
+- `oSteadyDeltaTime_1`: The `oSteadyDeltaTime_1` object is designed to manage and smooth out the delta time in a game, ensuring consistent timing across different frame rates...
+- `oSteadyDeltaTime_2`: The `oSteadyDeltaTime_2` object is designed to manage and smooth out the delta time in a game, ensuring consistent timing across frames.
+- `oTriangle`: The `oTriangle` object is a non-solid, non-persistent object with the sprite `sTriangle`. [uses: oPassWay, oPlayer]
+- `oVoidWall`: The `oVoidWall` object is a non-solid, non-persistent object with a black sprite. [uses: oPlayer]
+- `oWall`: `oWall` is an object that represents a brick wall in the game. [uses: oPlayer, obj_shadow_caster, polygon_from_instance]
+- `oZombie`: `oZombie` is a melee enemy object that takes damage from bullets and handgun bullets, displays damage numbers, and dies when its health reaches zero. [uses: chance, oBullet_Parent, oCamera, oDamageNumber, oEnemyParentMelee, oHandGunBullet, ...]
+- `oZombieSecond`: No code in this resource. [uses: oEnemyParentMelee]
+- `o_old_part`: The `o_old_part` object is responsible for creating and managing a particle system. [uses: s_pixel]
+- `o_part_emiter`: The `o_part_emiter` object is a particle emitter used in the game. [uses: AdvancedParticleSystem, s_pixel]
+- `o_part_emiter2`: The `o_part_emiter2` object is a particle emitter that creates and manages two types of particles using the `AdvancedParticleSystem` script. [uses: AdvancedParticleSystem, s_pixel]
+- `o_part_emiter2_delta`: The `o_part_emiter2_delta` object is a particle emitter that creates and manages two types of particles using the `AdvancedParticleSystem` script. [uses: AdvancedParticleSystem, s_pixel]
+- `o_part_emiter_delta`: The `o_part_emiter_delta` object is a particle emitter that creates and manages a particle system. [uses: AdvancedParticleSystem, oPointTarget, s_pixel]
+- `o_part_emiter_fire`: The `o_part_emiter_fire` object is a particle emitter that creates a fire effect. [uses: AdvancedParticleSystem, sFireParticles, sParticleSmoke, s_pixel]
+- `o_part_emiter_fire_delta`: The `o_part_emiter_fire_delta` object is a particle emitter that creates and manages a fire effect with smoke and cinders. [uses: AdvancedParticleSystem, sFireParticles, sParticleSmoke, s_pixel]
+- `o_part_emiter_firework2_delta`: The `o_part_emiter_firework2_delta` object is a particle emitter used to create a firework effect. [uses: AdvancedParticleSystem, sFirework2, s_pixel]
+- `o_part_emiter_firework_delta`: The `o_part_emiter_firework_delta` object is a particle emitter used to create a firework effect. [uses: AdvancedParticleSystem, sFirework, s_pixel]
+- `o_part_emitter_wiggle`: The `o_part_emitter_wiggle` object is a particle emitter used to create visual effects in the game. [uses: AdvancedParticleSystem, s_pixel_big]
+- `o_part_rain_delta`: The `o_part_rain_delta` object is responsible for creating and managing a rain effect using an advanced particle system. [uses: AdvancedParticleSystem, s_pixel]
+- `o_part_rain_moody`: The `o_part_rain_moody` object is a particle system designed to simulate rain. [uses: AdvancedParticleSystem, oPlayer, s_pixel]
+- `obj_light`: The `obj_light` object is responsible for creating and managing different types of lights in the game. [uses: light_add_to_world, light_create_area, light_create_directional, light_create_line, light_create_point, light_create_spot, ...]
+- `obj_light_renderer`: The `obj_light_renderer` object is responsible for rendering lighting and shadows in the game. [uses: composite_shadow_map, draw_shadow_map, lighting_debug_shadow_casters, lighting_get_active_camera, lighting_global]
+- `obj_lighting_init`: The `obj_lighting_init` object is responsible for initializing and cleaning up lighting in the game. [uses: lighting_free, lighting_global]
+- `obj_shadow_caster`: The `obj_shadow_caster` object is a base object used for creating shadow casters in a game. [uses: lighting_global]
+- `AdvancedParticleSystem`: This script defines a comprehensive particle system for GameMaker Studio 2.3+, including particle creation, updating, drawing, and destruction. [uses: oSteadyDeltaTime]
+- `AdvancedParticleSystem_1`: This script defines an advanced particle system with various functionalities for creating, updating, and drawing particles. [uses: AdvancedParticleSystem, oSteadyDeltaTime]
+- `AdvancedParticleSystem_2`: This script defines a complex particle system with various features such as different shapes, distributions, gravity, and color/alpha blending. [uses: AdvancedParticleSystem, oSteadyDeltaTime]
+- `TextFunctions`: This script provides various functions for drawing text with different effects such as shadows, shaking, and typewriter-like text effects. [uses: draw_text_transformed_outlined]
+- `UsefulScripts`: The `UsefulScripts` script contains various utility functions for common tasks such as approaching a value, calculating a wave, drawing text with outl...
+- `chance`: The `chance` script is a utility function designed to determine if a given percentage chance condition is met.
+- `composite_shadow_map`: The `composite_shadow_map` script is responsible for compositing shadow maps from all the lights in a scene. [uses: get_next_pot, light_cull, light_draw_shadow_map, light_enumerate_extensions, light_maintain_shadow_map, lighting_get_active_camera, ...]
+- `cross_product`: The `cross_product` script calculates the cross product of two 2D vectors. [uses: lighting_global]
+- `damageNumber`: The `damageNumber` script is designed to display a damage number popup in a game. [uses: draw_text_transformed_outlined]
+- `draw_shadow_map`: The `draw_shadow_map` script is designed to draw a composited shadow map at a specified position on the screen. [uses: lighting_global]
+- `draw_text_transformed_outlined`: This script is designed to draw text with an outlined effect. [uses: TextFunctions]
+- `ext_light_attenuation_apply`: This script is designed to apply light attenuation effects to a specified light in a game.
+- `ext_light_attenuation_init`: This script initializes global variables and shader uniforms for light attenuation in a game, setting up parameters for controlling how light intensit... [uses: lighting_global]
+- `ext_light_attenuation_reset`: This script, `ext_light_attenuation_reset`, is designed to reset the attenuation settings of a light after an extension module has been applied.
+- `get_next_pot`: The script `get_next_pot` calculates the next power of two number greater than or equal to a given 32-bit integer.
+- `init`: This script initializes various particle types used in the game, storing them in global variables for easy access.
+- `keyboard_get_number`: This script is designed to determine which number key (0-9) is currently pressed on the keyboard.
+- `light_acknowledge_shadow_caster`: This script is designed to remove one or more shadow casters from the ignore list of a specified light, allowing the light to acknowledge and cast sha... [uses: lighting_global]
+- `light_add_extension`: This script is designed to add an extension module to a light object. [uses: lighting_global]
+- `light_add_to_world`: This script is designed to add a light to the world, specifically by adding it to a global list that tracks all lights for compositing purposes.
+- `light_create`: The `light_create` script is responsible for creating a new light object with specified properties such as position, type, color, range, and intensity... [uses: light_add_extension, lighting_global, spr_lut_light_intensity_area, spr_lut_light_intensity_line, spr_lut_light_intensity_linear, spr_lut_light_intensity_spot]
+- `light_create_area`: This script is designed to create a new area light in a game using the GameMaker Language (GML). [uses: light_create, lighting_global]
+- `light_create_directional`: This script creates a directional light in a game using the GameMaker Language (GML). [uses: light_create, lighting_global]
+- `light_create_extension`: This script creates an extension module instance for lighting effects. [uses: lighting_global]
+- `light_create_line`: This script is designed to create a line light in a game. [uses: light_create, lighting_global]
+- `light_create_point`: This script is used to create a new point light in a game. [uses: light_create, lighting_global]
+- `light_create_spot`: This script is designed to create a spot light in a game using GameMaker Language (GML). [uses: light_create, lighting_global]
+- `light_cull`: The `light_cull` script determines whether a given light is culled (should not be rendered) for the current camera. [uses: lighting_global]
+- `light_destroy`: The `light_destroy` script is designed to properly destroy a light object by freeing up all associated resources such as vertex buffers, shadow maps,... [uses: lighting_global]
+- `light_draw_shadow_map`: This script, `light_draw_shadow_map`, is responsible for drawing a light's shadow map to a specified surface. [uses: light_update, lighting_global]
+- `light_enumerate_extensions`: This script enumerates and applies all extension modules of a given light by executing a specified script for each extension. [uses: lighting_global]
+- `light_ignore_shadow_caster`: This script is designed to configure a light to ignore one or more shadow casters, effectively making those shadow casters invisible to the specified... [uses: lighting_global]
+- `light_maintain_shadow_map`: The `light_maintain_shadow_map` script is responsible for managing the shadow map for a given light. [uses: get_next_pot, lighting_global]
+- `light_remove_from_world`: This script is designed to remove a specified light from a global list of lights in the game world.
+- `light_static_get_array`: This script retrieves the static buffer for a given light and shadow caster pair from a light's static storage. [uses: lighting_global]
+- `light_static_set_array`: This script sets a static buffer for a light and shadow caster pair. [uses: lighting_global]
+- `light_trace_polygon`: The `light_trace_polygon` script is designed to trace a shadow for a given polygon from a provided light source. [uses: lighting_global]
+- `light_update`: The `light_update` script updates the vertex buffer for a given light, handling shadow casting and culling shadow casters based on their position and... [uses: light_static_get_array, light_static_set_array, light_trace_polygon, lighting_get_active_camera, lighting_global, obj_shadow_caster]
+- `lighting_debug_shadow_casters`: This script is designed to debug shadow casters by drawing their polygons on the screen. [uses: lighting_global, obj_shadow_caster]
+- `lighting_free`: The `lighting_free` script is designed to free up resources used by the lighting engine in a game. [uses: light_destroy]
+- `lighting_get_active_camera`: This script retrieves the active camera's port, which includes its position and dimensions.
+- `lighting_global`: This script initializes the lighting engine for a game, setting up global variables, enums, and macros necessary for the lighting system. [uses: ext_light_attenuation_apply, ext_light_attenuation_init, ext_light_attenuation_reset, light_create_extension, obj_light_renderer]
+- `lighting_post_composite`: This script, `lighting_post_composite`, is executed after the lighting map has been composited. [uses: lighting_global]
+- `lighting_pre_composite`: This script, `lighting_pre_composite`, is executed before compositing the lighting map. [uses: lighting_get_active_camera, lighting_global, obj_shadow_caster, polygon_get_area]
+- `lighting_set_dirty`: The `lighting_set_dirty` script is used to mark the lighting system as "dirty," which forces it to recomposite the shadow map the next time it is draw... [uses: lighting_global]
+- `lighting_update_camera`: This script updates a custom camera used in a lighting system.
+- `path_get_area`: This script calculates the bounding area of a given path in GameMaker, returning an array containing the minimum and maximum x and y coordinates of th...
+- `point_in_polygon`: The `point_in_polygon` script checks if a given point is inside a specified polygon. [uses: lighting_global, tri_direction]
+- `polygon_create`: The `polygon_create` script is designed to create a polygon from a set of points. [uses: lighting_global]
+- `polygon_from_instance`: The `polygon_from_instance` script creates a polygon representation of an instance, optionally considering a rotation. [uses: polygon_create]
+- `polygon_from_path`: The `polygon_from_path` script creates a polygon from a given path resource, adjusting for an origin point. [uses: path_get_area, polygon_create]
+- `polygon_get_area`: This script calculates the bounding box area of a polygon and returns it as an array of four points. [uses: lighting_global]
+- `screenShake`: The `screenShake` script is designed to apply a shaking effect to the screen by adjusting the camera's view angle.
+- `shadow_casters_exist`: This script checks if any instances of the object `obj_shadow_caster` exist in the game world. [uses: obj_shadow_caster]
+- `shadow_map_ensure_exists`: This script ensures that a specified shadow map is valid and creates it if necessary. [uses: lighting_get_active_camera, lighting_global]
+- `shoot_bullet`: The `shoot_bullet` script is designed to create and configure a bullet instance at a specified position with given attributes such as damage, speed, a...
+- `tri_direction`: The `tri_direction` script determines whether a given triangle is oriented clockwise or counter-clockwise based on its vertices. [uses: cross_product, lighting_global]
+- `weapon_scroll`: The `weapon_scroll` script is designed to scroll through the player's weapons, selecting the next or previous weapon based on the direction of the scr... [uses: oPlayer]
+- sprites (57): fock, oBlack_64, sAmmoPack, sArrow, sBrickWall, sBullet, sConjurer, sConjurer_hurt, sCursor, sEnemyNormalBullet, sEnemy_Ranged_Flamethrower, sEnemy_Ranged_Normal, sEnemy_Ranged_Normal_Hurt, sEnemy_Ranged_RocketLauncher, sExplosion_Area, sExplosiveBarril, sFireParticles, sFirework, sFirework2, sGas_Area, sGateWay, sHandgun, sLifebar, sMachinegun, sOutline_circle, sParticleSmoke, sPavement, sPlayer, sPlayer_hurt, sPlayer_shooting, sRocket, sRocketLauncher, sShotGunBulletPellet, sShotgun, sSniper, sTriangle, sWall, sWalls_tileSet, sWeaponBox_selected, sWeaponBox_unselected, sZombie, sZombie_hurt, sZombie_second, s_pixel, s_pixel_big, spr_light_area, spr_light_directional, spr_light_line, spr_light_point, spr_light_point_1, spr_light_renderer, spr_light_renderer_1, spr_light_spot, spr_lut_light_intensity_area, spr_lut_light_intensity_line, spr_lut_light_intensity_linear, spr_lut_light_intensity_spot
+- rooms (11): Level, LightingTest, Room1, Room2, Room3, Room4, Room5, Room6, Test, rMenu, room0

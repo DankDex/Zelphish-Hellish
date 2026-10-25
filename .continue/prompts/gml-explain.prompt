@@ -1,0 +1,6 @@
+---
+name: gml-explain
+description: Short explanation of selected GML
+invokable: true
+---
+Explain the selected code in at most 6 bullets: what it does, what it reads from or writes to other objects or globals, and when it runs. No line-by-line narration. If something is unclear from the selection alone, say what you would need to see.

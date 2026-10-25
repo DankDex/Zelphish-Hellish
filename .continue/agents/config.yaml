@@ -1,0 +1,69 @@
+name: GML Local
+version: 1.0.0
+schema: v1
+
+models:
+  # Main model: chat, inline edit, apply.
+  - name: Qwen2.5 Coder 14B
+    provider: ollama
+    model: qwen2.5-coder:14b
+    roles: [chat, edit, apply]
+    capabilities: [tool_use]          # only matters for Agent mode; remove if you never use it
+    defaultCompletionOptions:
+      contextLength: 16384
+      maxTokens: 2048                 # hard cap on answer length; stops rambling and full-file rewrites
+      temperature: 0.2
+    chatOptions:
+      # Replaces Continue's longer default chat prompt (Agent mode keeps its own default).
+      baseSystemMessage: |
+        You are a concise GameMaker (GML 2.3+) coding assistant.
+        Answer directly. No preamble, no recap. Show only the changed lines with 2-3 lines of context,
+        not whole files, unless asked. If you are not sure a function exists, say so.
+
+  # Slow thinker for hard bugs and design questions. Select it manually in the model dropdown.
+  # Needs a bigger maxTokens because its reasoning counts toward the limit.
+  - name: DeepSeek R1 14B (hard problems)
+    provider: ollama
+    model: deepseek-r1:14b
+    roles: [chat, edit, apply]
+    capabilities: [tool_use] 
+    defaultCompletionOptions:
+      contextLength: 16384
+      maxTokens: 6000
+      temperature: 0.6
+
+  # Autocomplete: tiny base model, short prompt, short completions.
+  - name: Autocomplete 1.5B
+    provider: ollama
+    model: qwen2.5-coder:1.5b-base
+    roles: [autocomplete]
+    defaultCompletionOptions:
+      maxTokens: 160
+    autocompleteOptions:              # if Continue rejects a key in your version, delete that line
+      debounceDelay: 350              # wait a bit longer before firing, fewer wasted requests
+      maxPromptTokens: 1024
+
+  - name: Embeddings
+    provider: ollama
+    model: nomic-embed-text
+    roles: [embed]
+
+# Context providers = what you can @-mention. Nothing here costs tokens until you use it.
+# Left out on purpose: `folder` (easy to dump a whole directory into the prompt).
+context:
+  - provider: file
+  - provider: currentFile
+  - provider: code
+  - provider: diff
+  - provider: problems
+  - provider: terminal
+  - provider: codebase
+    params:
+      nRetrieve: 12                   # candidates pulled from the index
+      nFinal: 4                       # chunks actually sent to the model
+      useReranking: false
+
+docs:
+  - name: GameMaker Manual
+    startUrl: https://manual.gamemaker.io/monthly/en/
+

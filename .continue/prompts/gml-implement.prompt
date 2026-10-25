@@ -1,0 +1,6 @@
+---
+name: gml-implement
+description: Implement a described behaviour with the smallest possible change
+invokable: true
+---
+Implement the behaviour I describe with the smallest change. Start with a list of which files and events change (one line each), then give only the new or changed code per file. Reuse existing functions and variables from the code provided; do not invent new systems. State any variable another object must now provide.

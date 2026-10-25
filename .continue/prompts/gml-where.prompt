@@ -1,0 +1,6 @@
+---
+name: gml-where
+description: Find which files matter for a task using only the index (attach .gml-map/INDEX.md)
+invokable: true
+---
+Using only the attached index, list the objects and scripts relevant to my task, most relevant first, with one short reason each. Maximum 8. Do not write code. Do not guess beyond the index; say if the index is not enough.
